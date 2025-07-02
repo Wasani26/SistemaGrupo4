@@ -1,0 +1,52 @@
+[21-Jun-2025 10:27:06 America/Tegucigalpa] Esto es una prueba de error
+[21-Jun-2025 10:52:59 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "Security" not found in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php:4
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 4
+[21-Jun-2025 10:58:31 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "Security" not found in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php:4
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 4
+[21-Jun-2025 11:03:50 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "Security" not found in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php:4
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 4
+
+[21-Jun-2025 11:17:41 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "Security" not found in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php:4
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 4
+[30-Jun-2025 00:00:34 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined function echo_json_encode() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php:5
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 5
+[30-Jun-2025 00:03:22 America/Tegucigalpa] PHP Warning:  Undefined variable $pass in C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php on line 18
+[30-Jun-2025 00:03:22 America/Tegucigalpa] PHP Deprecated:  password_hash(): Passing null to parameter #1 ($password) of type string is deprecated in C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php on line 18
+[30-Jun-2025 00:03:23 America/Tegucigalpa] PHP Warning:  Undefined variable $pass in C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php on line 18
+[30-Jun-2025 00:03:23 America/Tegucigalpa] PHP Deprecated:  password_hash(): Passing null to parameter #1 ($password) of type string is deprecated in C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php on line 18
+[30-Jun-2025 00:03:23 America/Tegucigalpa] La contraseña no coincide
+[30-Jun-2025 00:03:24 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "App\Dotenv\Dotenv" not found in C:\xampp\htdocs\SistemaGrupo4\Src\DB\DataDB.php:14
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\ConnectionDB.php(7): require()
+#1 C:\xampp\htdocs\SistemaGrupo4\vendor\composer\ClassLoader.php(576): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\SistemaGrupo4\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php(20): Composer\Autoload\ClassLoader->loadClass('App\\DB\\Connecti...')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\DB\DataDB.php on line 14
+[30-Jun-2025 00:07:23 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "App\Dotenv\Dotenv" not found in C:\xampp\htdocs\SistemaGrupo4\Src\DB\DataDB.php:14
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\ConnectionDB.php(7): require()
+#1 C:\xampp\htdocs\SistemaGrupo4\vendor\composer\ClassLoader.php(576): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\SistemaGrupo4\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php(20): Composer\Autoload\ClassLoader->loadClass('App\\DB\\Connecti...')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\DB\DataDB.php on line 14
+[30-Jun-2025 00:09:43 America/Tegucigalpa] PHP Warning:  Undefined array key "PORT" in C:\xampp\htdocs\SistemaGrupo4\Src\DB\DataDB.php on line 27
+[30-Jun-2025 00:09:44 America/Tegucigalpa] conexión es exitosa
