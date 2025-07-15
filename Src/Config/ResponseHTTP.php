@@ -21,7 +21,7 @@ class ResponseHTTP{
         return self::$mensaje;
     }
 
-    final public static function status201(string $res){
+    final public static function status201(){
         $res = 'Recurso creado exitosamente!';
         http_response_code(201);
         self::$mensaje['status'] = 'OK';
@@ -37,7 +37,7 @@ class ResponseHTTP{
         return self::$mensaje;
     }
 
-    final public static function status401($str){
+    final public static function status401(){
         $res = 'No tiene privilegios para acceder al recurso! '.$str;
         http_response_code(401);
         self::$mensaje['status'] = 'ERROR';
@@ -45,7 +45,7 @@ class ResponseHTTP{
         return self::$mensaje;
     }
 
-    final public static function status404(string $res){
+    final public static function status404(){
         $res = 'No existe el recurso solicitado!';
         http_response_code(404);
         self::$mensaje['status'] = 'ERROR';
@@ -53,7 +53,7 @@ class ResponseHTTP{
         return self::$mensaje;
     }
 
-    final public static function status500(string $res){
+    final public static function status500(){
         $res = 'Se ha producido un error en el servidor!';
         http_response_code(500);
         self::$mensaje['status'] = 'ERROR';

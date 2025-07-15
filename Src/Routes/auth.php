@@ -1,5 +1,6 @@
 <?php
 use App\Config\Security;
+//use App\Controllers\UserController;
  
  echo json_encode(Security::secretKey());
  echo json_encode(Security::createPassword("hola"));
