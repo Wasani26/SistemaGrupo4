@@ -30,7 +30,7 @@ class ResponseHTTP{
     }
 
     final public static function status400(string $res){
-        $res = 'El servidor no pudo entender la solicitud debido a un error del cliente';
+        //$res = 'El servidor no pudo entender la solicitud debido a un error del cliente';
         http_response_code(400);
         self::$mensaje['status'] = 'ERROR';
         self::$mensaje['message'] = $res; //la variable res es el mensaje

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Controllers;
+use App\Config\ResponseHTTP;
+use App\Config\Security;
+use App\Config\Models\UserModel;
 
 class UserController{
     private $method;
@@ -8,6 +11,16 @@ class UserController{
     private $params;
     private $data;
     private $headers;
+
+    // Expresiones regulares datos de usuario y persona (uno solo)
+       private static $validar_nombre        = '/^[a-zA-ZÁÉÍÓÚáéíóúñÑ\s]{2,100}$/';
+       private static $validar_telefono      = '/^\d{4}-\d{4}$/';
+       private static $validar_dni           = '/^\d{4}-\d{4}-\d{5}$/';
+       private static $validar_fecha         = '/^\d{2}-\d{2}-\d{4}$/';
+       private static $validar_texto         = '/^[a-zA-ZÁÉÍÓÚáéíóúñÑ\s]{2,50}$/';
+       private static $validar_usuario       = '/^[a-zA-Z0-9_]{4,20}$/';
+       private static $validar_url           = '/^.+\.(jpg|jpeg|png|gif)$/i';
+
 
     public function __construct($method,$route,$params,$data,$headers){
         $this->method = $method;
@@ -17,16 +30,84 @@ class UserController{
         $this->headers = $headers;
     }
 
+
     //metodo que recibe un endpoint (ruta a un recurso)
-    final public function crear_usuario($endpoint){
+    final public function crear_usuario_completo($endpoint){
         //validamos el method y el endpoint
         if($this->method == 'post' && $endpoint == $this->route){
-            echo json_encode('post');
+
+            
+        $data = $this->data;
+
+        // Validar existencia de campos
+        $campos_requeridos = ['nombre', 'correo', 'telefono', 'dni', 'fecha_nacimiento', 'nacionalidad', 'nombre_usuario', 'contrasena', 'confirmar_contrasena'];
+
+        foreach ($campos_requeridos as $campo) {
+            if (!isset($data[$campo]) || empty($data[$campo])) {
+                echo json_encode(ResponseHTTP::status400("El campo '$campo' es obligatorio."));
+                exit;
+            }
+        }
+
+        // Validaciones de contenido
+        if (!preg_match(self::$validar_nombre, $data['nombre'])) {
+            echo json_encode(ResponseHTTP::status400('Nombre inválido'));
+            exit;
+        }
+
+        if (!filter_var($data['correo'], FILTER_VALIDATE_EMAIL)) {
+            echo json_encode(ResponseHTTP::status400('Correo inválido'));
+            exit;
+        }
+
+        if (!preg_match(self::$validar_telefono, $data['telefono'])) {
+            echo json_encode(ResponseHTTP::status400('Teléfono inválido'));
+            exit;
+        }
+
+        if (!preg_match(self::$validar_dni, $data['dni'])) {
+            echo json_encode(ResponseHTTP::status400('DNI inválido'));
+            exit;
+        }
+
+        if (!preg_match(self::$validar_fecha, $data['fecha_nacimiento'])) {
+            echo json_encode(ResponseHTTP::status400('Fecha de nacimiento inválida'));
+            exit;
+        }
+
+        if (!preg_match(self::$validar_texto, $data['nacionalidad'])) {
+            echo json_encode(ResponseHTTP::status400('Nacionalidad inválida'));
+            exit;
+        }
+
+        if (!preg_match(self::$validar_usuario, $data['nombre_usuario'])) {
+            echo json_encode(ResponseHTTP::status400('Nombre de usuario inválido'));
+            exit;
+        }
+
+        if (empty($data['contrasena']) || $data['contrasena'] !== $data['confirmar_contrasena']) {
+            echo json_encode(ResponseHTTP::status400('Las contraseñas no coinciden o están vacías'));
+            exit;
+        }
+
+        // Validar URL de foto si viene (opcional)
+        if (!empty($data['url_foto']) && !preg_match(self::$validar_url, $data['url_foto'])) {
+            echo json_encode(ResponseHTTP::status400('URL de foto no válida'));
+            exit;
+        }
+
+        // Asignar campos automáticos
+        $fecha_creacion = date('Y-m-d H:i:s');
+        $tipo_rol = 'visitante'; // por defecto
+        $activo = 1; // por defecto
+
+          new UserModel($this->data);
+          echo json_encode(UserModel::crear_usuario_completo);
+       
             exit;
         }
     }
-
-    
+ 
     final public function cambiar_contrasena($endpoint){
     // validamos el método y el endpoint
     if($this->method == 'patch' && $endpoint == $this->route){
