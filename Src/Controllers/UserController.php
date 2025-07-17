@@ -102,7 +102,7 @@ class UserController{
         $activo = 1; // por defecto
 
           new UserModel($this->data);
-          echo json_encode(UserModel::crear_usuario_completo);
+          echo json_encode(UserModel::crear_usuario_completo());
        
             exit;
         }

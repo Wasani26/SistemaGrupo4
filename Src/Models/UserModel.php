@@ -35,37 +35,85 @@ class UserModel extends ConnectionDB{
     }
 
     //metodos get
-    final public static function getnombre(){return self::$nombre;}
-    final public static function getcorreo(){return self::$correo;}
-    final public static function gettelefono(){return self::$telefono;}
-    final public static function getdni(){return self::$dni;}
-    final public static function getfecha_nacimiento(){return self::$fecha_nacimiento;}
-    final public static function getnacionalidad(){return self::$nacionalidad;}
-    final public static function getnombre_usuario(){return self::$nombre_usuario;}
-    final public static function getcontrasena(){return self::$contrasena;}
-    final public static function geturl_foto(){return self::$url_foto;}
-    final public static function getrol(){return self::$rol;}
-    final public static function getfecha_creacion(){return self::$fecha_creacion;}
-    final public static function getactivo(){return self::$activo;}
+    final public static function getNombre(){return self::$nombre;}
+    final public static function getCorreo(){return self::$correo;}
+    final public static function getTelefono(){return self::$telefono;}
+    final public static function getDni(){return self::$dni;}
+    final public static function getFechaNacimiento(){return self::$fecha_nacimiento;}
+    final public static function getNacionalidad(){return self::$nacionalidad;}
+    final public static function getNombreUsuario(){return self::$nombre_usuario;}
+    final public static function getContrasena(){return self::$contrasena;}
+    final public static function getUrlFoto(){return self::$url_foto;}
+    final public static function getRol(){return self::$rol;}
+    final public static function getFechaCreacion(){return self::$fecha_creacion;}
+    final public static function getActivo(){return self::$activo;}
 
     //metodos set
-    final public static function setnombre($nombre){self::$nombre = $nombre;}
-    final public static function setcorreo($correo){self::$correo = $correo;}
-    final public static function settelefono($telefono){self::$telefono = $telefono;}
-    final public static function setdni($dni){self::$dni = $dni;}
-    final public static function setfecha_nacimiento($fecha_nacimiento){self::$fecha_nacimiento = $fecha_nacimiento;}
-    final public static function setnacionalidad($nacionalidad){self::$nacionalidad = $nacionalidad;}
-    final public static function setnombre_usuario($nombre_usuario){self::$nombre_usuario = $nombre_usuario;}
-    final public static function setcontrasena($contrasena){self::$contrasena = $contrasena;}
-    final public static function seturl_foto($url_foto){self::$url_foto = $url_foto;}
-    final public static function setrol($rol){self::$rol = $rol;}
-    final public static function setfecha_creacion($fecha_creacion){self::$fecha_creacion = $fecha_creacion;}
-    final public static function setactivo($activo){self::$activo = $activo;}
+    final public static function setNombre($nombre){self::$nombre = $nombre;}
+    final public static function setCorreo($correo){self::$correo = $correo;}
+    final public static function setTelefono($telefono){self::$telefono = $telefono;}
+    final public static function setDni($dni){self::$dni = $dni;}
+    final public static function setFechaNacimiento($fecha_nacimiento){self::$fecha_nacimiento = $fecha_nacimiento;}
+    final public static function setNacionalidad($nacionalidad){self::$nacionalidad = $nacionalidad;}
+    final public static function setNombreUsuario($nombre_usuario){self::$nombre_usuario = $nombre_usuario;}
+    final public static function setContrasena($contrasena){self::$contrasena = $contrasena;}
+    final public static function setUrlFoto($url_foto){self::$url_foto = $url_foto;}
+    final public static function setRol($rol){self::$rol = $rol;}
+    final public static function setFechaCreacion($fecha_creacion){self::$fecha_creacion = $fecha_creacion;}
+    final public static function setActivo($activo){self::$activo = $activo;}
 
 
     //metodo para crear usuario
     final public static function crear_usuario_completo(){
-        
+        // Validar que nombre_usuario y correo no estén registrados
+    if (Sql::verificar_registro("CALL verificar_usuario(:p_usuario)", 'usuario', self::getNombreUsuario())) {
+        return responseHTTP::status400('El nombre de usuario ya está registrado en la base de datos.');
+    }
+
+    if (sql::verificarRegistro("CALL verificar_correo(:p_correo)", 'correo', self::getCorreo())) {
+        return responseHTTP::status400('El correo electrónico ya está registrado en la base de datos.');
+    }
+
+    // Generar fecha de creación y token (si lo usarás)
+    self::setFechaCreacion(date('Y-m-d H:i:s'));
+
+    // Opcional: podrías generar un token, por ejemplo, para validar cuenta
+    // self::setIDToken(hash('sha512', self::getCorreo().time()));
+
+    try {
+        $con = self::getConnection();
+
+        // Llamado a procedimiento almacenado para insertar en personas y usuarios
+        $query = "CALL crear_usuario_completo(
+            :nombre, :correo, :telefono, :dni, :fecha_nacimiento, :nacionalidad,
+            :nombre_usuario, :contrasena, :url_foto, :fecha_creacion, :activo, :rol
+        )";
+
+        $stmt = $con->prepare($query);
+        $stmt->execute([
+            ':nombre'           => self::getNombre(),
+            ':correo'           => self::getCorreo(),
+            ':telefono'         => self::getTelefono(),
+            ':dni'              => self::getDni(),
+            ':fecha_nacimiento' => date('Y-m-d', strtotime(str_replace('-', '/', self::getFechaNacimiento()))),
+            ':nacionalidad'     => self::getNacionalidad(),
+            ':usuario'          => self::getNombreUsuario(),
+            ':contrasena'            => password_hash(self::getContrasena(), PASSWORD_DEFAULT),
+            ':foto'             => self::getUrlFoto(),
+            ':fecha_creacion'   => self::getFechaCreacion(),
+            ':activo'           => self::getActivo(),
+            ':rol'              => self::getRol()
+        ]);
+
+        if ($stmt->rowCount() > 0) {
+            return responseHTTP::status200('El usuario ha sido registrado exitosamente.');
+        } else {
+            return responseHTTP::status400('No se pudo registrar el usuario.');
+        }
+
+    } catch (\PDOException $e) {
+        error_log('userModel::crear_usuario_completo -> ' . $e);
+        return responseHTTP::status500('Error al registrar el usuario.');
     }
 
 }

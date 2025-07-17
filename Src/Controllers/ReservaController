@@ -1,13 +1,24 @@
 <?php
+namespace App\Controllers; //te cree el nombre de espacio
+use App\Config\ResponseHTTP; 
+use App\Config\Security;
+
 
 class ReservaController {
     private $method; //Propiedad del metodo HTTP//
     private $route; //Propiedad para ruta//
+    private $params;
+    private $data;
+    private $headers;
+
 
     //Constructor para iniciar el method y route//
-    public function __construct($method){
-        $this ->method = strtolower($method);
+    public function __construct($method,$route,$params,$data,$headers){
+        $this ->method = strtolower();
         $this ->route = $route;
+        $this->params = $params;
+        $this->data = $data;
+        $this->headers = $headers;
     }
 
     //Metodo POST para crear reserva//
