@@ -1,0 +1,50 @@
+<?php
+
+class ReservaController {
+    private $method; //Propiedad del metodo HTTP//
+    private $route; //Propiedad para ruta//
+
+    //Constructor para iniciar el method y route//
+    public function __construct($method){
+        $this ->method = strtolower($method);
+        $this ->route = $route;
+    }
+
+    //Metodo POST para crear reserva//
+    final public function crear_reserva ($endpoint){
+        //Validacion para el metodo POST//
+        if($this->method == 'post' && $endpoint == $this->route){
+            echo json_encode('Crear nueva reserva - POST');
+            exit;
+        }
+    }
+
+    //Metodo GET para obtener las reservas//
+    final public function obtener_todas_reservas($endpoint){
+        //Validacion para el metodo GET// 
+        if($this->method == 'get' && $endpoint == $this->route){
+            echo json_encode('Obtener todas las reservas - GET');
+            exit;
+        }
+    }
+
+    //Metodo PUT para actualizar reserva//
+    final public function actualizar_reserva ($endpoint){
+        //Validacion para el metodo PUT//
+        if($this->method == 'put' && strpos($this->route, $endpoint) ===0){
+            echo json_encode('Actualizar reserva - PUT');
+            exit;
+        }
+    }
+
+    //Metodo DELETE para eliminar reserva//
+    final public function eliminar_reserva($endpoint){
+        //Validacion para el metodo DELETE//
+        if($this->method == 'delete' && strpos($this->route, $endpoint) === 0){
+            echo json_encode('Eliminar reserva - DELETE');
+            exit;
+        }
+    } 
+}
+
+?>
