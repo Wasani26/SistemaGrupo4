@@ -33,7 +33,7 @@ class Security{
     final public static function createTokenJwt(string $key , array $data){
         $payload = array (
             "iat" => time(), //almacena esta clave el tiempo en que creamos el JWT
-            "exp" => time() + (60*60*6), //define el tiempo en que expira el JWT
+            "exp" => time() + (60*60*6), //60 define el tiempo en que expira el JWT
             "data" => $data //almacena la data encriptada
         );
 
@@ -42,24 +42,23 @@ class Security{
         return $jwt;
     }
 
-    final public static function validateTokenJwt(string $key){
-        if(!isset(getallheaders()['Autorization'])){
-            die(json_encode(ResponseHTTP::status400()));
-            exit;
-        }
-         try{
-
-            $jwt = explode(" " ,getallheaders()['Autorization']);
-            $data = JWT::decode($jwt[1],$key,array('HS256'));
-
-            self::$jwt_data = $data;
-            return $data;
-         }catch (Exception $e){
-            error_log('El Token es invalido o expiro' .$e);
-            die(json_encode(ResponseHTTP::status401('Token es invalido o ha expirado')));
-
-         }
+    final public static function validateTokenJwt(array $token, string $key){
+    if(!isset($token['Authorization'])){
+        die(json_encode(ResponseHTTP::status400('Para proceder el token de acceso es requerido')));
+        exit;
     }
+    try{
+        $jwt = explode(" ", $token['Authorization']);
+        $data = JWT::decode($jwt[1], $key, array('HS256'));
+
+        self::$jwt_data = $data;
+        return $data;
+    } catch (Exception $e){
+        error_log('El Token es invalido o expiro' .$e);
+        die(json_encode(ResponseHTTP::status401('Token es invalido o ha expirado')));
+    }
+}
+
 
     final public static function getDataJwt(){
         $jwt_decoded_array = json_decode(json_encode(self::$jwt_data),true);

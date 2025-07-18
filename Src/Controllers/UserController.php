@@ -35,8 +35,8 @@ class UserController{
     final public function crear_usuario_completo($endpoint){
         //validamos el method y el endpoint
         if($this->method == 'post' && $endpoint == $this->route){
-
-            
+             
+            Security::validateTokenJwt($this->headers, Security::secretKey());
         $data = $this->data;
 
         // Validar existencia de campos
@@ -155,10 +155,11 @@ class UserController{
   
     
     //permite ver todos los usuarios
-    final public function obtener_usuario($endpoint){
+    final public function obtener_usuarios($endpoint){
     // validamos el método y el endpoint
     if($this->method == 'get' && $endpoint == $this->route){
-        echo json_encode('get');
+       Security::validateTokenJwt($this->headers, Security::secretKey());
+       echo json_encode(UserModel::obtener_usuarios());
         exit;
       }
     }

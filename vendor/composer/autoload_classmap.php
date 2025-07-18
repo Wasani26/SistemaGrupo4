@@ -12,6 +12,7 @@ return array(
     'App\\Controllers\\UserController' => $baseDir . '/Src/Controllers/UserController.php',
     'App\\DB\\ConnectionDB' => $baseDir . '/Src/DB/ConnectionDB.php',
     'App\\DB\\Sql' => $baseDir . '/Src/DB/Sql.php',
+    'App\\Models\\UserModel' => $baseDir . '/Src/Models/UserModel.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Dotenv\\Dotenv' => $vendorDir . '/vlucas/phpdotenv/src/Dotenv.php',

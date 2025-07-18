@@ -84,6 +84,7 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
         'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/Src/Controllers/UserController.php',
         'App\\DB\\ConnectionDB' => __DIR__ . '/../..' . '/Src/DB/ConnectionDB.php',
         'App\\DB\\Sql' => __DIR__ . '/../..' . '/Src/DB/Sql.php',
+        'App\\Models\\UserModel' => __DIR__ . '/../..' . '/Src/Models/UserModel.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Dotenv\\Dotenv' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Dotenv.php',

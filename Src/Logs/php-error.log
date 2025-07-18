@@ -191,3 +191,35 @@ Stack trace:
 [18-Jul-2025 02:11:11 America/Tegucigalpa] conexión es exitosa
 [18-Jul-2025 02:11:11 America/Tegucigalpa] La contraseña no coincide
 [18-Jul-2025 02:11:23 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 02:32:11 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 02:35:02 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[18-Jul-2025 02:40:01 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 02:40:02 America/Tegucigalpa] La contraseña no coincide
+[18-Jul-2025 02:40:11 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 03:05:55 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Config\ResponseHTTP::status400(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php on line 47 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php:32
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(47): App\Config\ResponseHTTP::status400()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(161): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php on line 32
+[18-Jul-2025 03:10:34 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 03:13:11 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 03:26:09 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 03:36:30 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 03:42:47 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 03:44:22 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Access to undeclared static property App\Config\Security::$jwt_data in C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php:54
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(161): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->obtener_usuarios('user/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php on line 54
+[18-Jul-2025 03:47:02 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Access to undeclared static property App\Config\Security::$jwt_data in C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php:54
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(161): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->obtener_usuarios('user/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php on line 54

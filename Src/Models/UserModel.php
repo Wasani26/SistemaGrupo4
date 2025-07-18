@@ -169,4 +169,18 @@ class UserModel extends ConnectionDB{
     }
 }
 
+
+    final public static function obtener_usuarios($endpoint){
+        try{
+            $con = self::getConnection();
+            $query = "CALL obtener_usuarios()";
+            $stmt->execute();
+            $res['data'] = $query->fetchAll(\PDO::FETCH_ASSOC);
+            return $res;
+        }catch (\PDOException $e){
+            error_log("UserModel::obtener_usuarios ->".$e);
+            dir(json_encode(ResponseHTTP::status500()));
+        }
+    }
+
 }
