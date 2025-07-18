@@ -30,34 +30,43 @@ class Security{
         }
     }
 
-    final public static function createTokenJwt(string $key , array $data){
-        $payload = array (
-            "iat" => time(), //almacena esta clave el tiempo en que creamos el JWT
-            "exp" => time() + (60*60*6), //60 define el tiempo en que expira el JWT
-            "data" => $data //almacena la data encriptada
-        );
-
-        //crea el JWT que recibe sobre todo los parametros payload y la key en el metodo encode de JWT
-        $jwt = JWT::encode($payload,$key);
-        return $jwt;
+    final public static function createTokenJwt(string $key, array $data, int $expSeconds = 60) {
+    $payload = array(
+        "iat" => time(),
+        "exp" => time() + $expSeconds,
+        "data" => $data
+    );
+    return JWT::encode($payload, $key);
     }
 
-    final public static function validateTokenJwt(array $token, string $key){
-    if(!isset($token['Authorization'])){
+
+ final public static function validateTokenJwt(array $token, string $key){
+    // Compatibilidad con capitalización: Authorization / authorization
+    $authHeader = $token['Authorization'] ?? $token['authorization'] ?? null;
+
+    if (!$authHeader) {
         die(json_encode(ResponseHTTP::status400('Para proceder el token de acceso es requerido')));
-        exit;
     }
-    try{
-        $jwt = explode(" ", $token['Authorization']);
-        $data = JWT::decode($jwt[1], $key, array('HS256'));
 
+    try {
+        // Separar esquema 'Bearer' del token
+        $jwtParts = explode(" ", $authHeader);
+        if (count($jwtParts) !== 2 || strtolower($jwtParts[0]) !== 'bearer') {
+            die(json_encode(ResponseHTTP::status400('Formato del token no válido')));
+        }
+
+        // Decodificar el JWT
+        $data = JWT::decode($jwtParts[1], $key, array('HS256'));
+
+        // Guardar los datos decodificados si los usarás en otras partes
         self::$jwt_data = $data;
         return $data;
-    } catch (Exception $e){
-        error_log('El Token es invalido o expiro' .$e);
-        die(json_encode(ResponseHTTP::status401('Token es invalido o ha expirado')));
+    } catch (Exception $e) {
+        error_log('El Token es inválido o expiró: ' . $e);
+        die(json_encode(ResponseHTTP::status401('Token es inválido o ha expirado')));
     }
 }
+
 
 
     final public static function getDataJwt(){

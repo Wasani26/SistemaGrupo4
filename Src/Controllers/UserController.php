@@ -37,7 +37,9 @@ class UserController{
         if($this->method == 'post' && $endpoint == $this->route){
              
             Security::validateTokenJwt($this->headers, Security::secretKey());
+
         $data = $this->data;
+
 
         // Validar existencia de campos
         $campos_requeridos = ['nombre', 'correo', 'telefono', 'dni', 'fecha_nacimiento', 'nacionalidad', 'nombre_usuario', 'contrasena', 'confirmar_contrasena'];
