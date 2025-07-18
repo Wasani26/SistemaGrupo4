@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers; //te cree el nombre de espacio
+namespace App\Controllers; //nombre de espacio//
 use App\Config\ResponseHTTP; 
 use App\Config\Security;
 
@@ -7,9 +7,9 @@ use App\Config\Security;
 class ReservaController {
     private $method; //Propiedad del metodo HTTP//
     private $route; //Propiedad para ruta//
-    private $params;
-    private $data;
-    private $headers;
+    private $params; //Propiedad para URL//
+    private $data; //Propiedad para cuerpo//
+    private $headers; //Propiedad para cabecera HTTP//
 
 
     //Constructor para iniciar el method y route//

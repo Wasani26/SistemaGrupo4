@@ -11,6 +11,8 @@ $url = explode('/',$_GET['route']);
 $lista = ['auth', 'user']; // lista de rutas permitidas
 $file = dirname(__DIR__) . '/Src/Routes/' . $url[0] . '.php'; 
 
+require_once __DIR__ . '/../src/Routes/reserva.php'; //ajusta la ruta para encontrarla//
+
 if(!in_array($url[0], $lista)){
 		echo json_encode(ResponseHTTP::status404('La ruta no existe'));
          error_log('Esto es una prueba de error');
