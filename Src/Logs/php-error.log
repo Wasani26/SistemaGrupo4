@@ -77,3 +77,90 @@ Stack trace:
 #0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require()
 #1 {main}
   thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php on line 13
+[17-Jul-2025 21:21:18 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "App\Config\Models\UserModel" not found in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php:104
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(14): App\Controllers\UserController->crear_usuario_completo('user/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 104
+[17-Jul-2025 21:23:45 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "App\Models\ConnectionDB" not found in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:7
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\vendor\composer\ClassLoader.php(576): include()
+#1 C:\xampp\htdocs\SistemaGrupo4\vendor\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(104): Composer\Autoload\ClassLoader->loadClass('App\\Models\\User...')
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(14): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 7
+[17-Jul-2025 21:28:17 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 21:28:17 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(70): App\DB\Sql::verificar_registro('CALL verificar_...', ':nombre_usuario', 'Adrian26')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(105): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(14): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#5 {main}
+[17-Jul-2025 21:34:09 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 21:34:09 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(70): App\DB\Sql::verificar_registro('CALL verificar_...', ':nombre_usuario', 'Adrian26')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(105): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(14): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#5 {main}
+[17-Jul-2025 21:48:09 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 21:48:09 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(70): App\DB\Sql::verificar_registro('CALL verificar_...', ':usuario', 'Adrian26')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(105): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(14): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#5 {main}
+[17-Jul-2025 21:48:45 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 21:55:55 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:01:31 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:01:32 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\DB\Sql::verificarRegistro() in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:74
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(105): App\Models\UserModel::crear_usuario_completo()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(14): App\Controllers\UserController->crear_usuario_completo('user/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 74
+[17-Jul-2025 22:02:38 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:02:39 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:02:39 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:02:39 America/Tegucigalpa] userModel::crear_usuario_completo -> PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:94
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(94): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(105): App\Models\UserModel::crear_usuario_completo()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(14): App\Controllers\UserController->crear_usuario_completo('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#4 {main}
+[17-Jul-2025 22:06:50 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:06:50 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:06:50 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:06:51 America/Tegucigalpa] userModel::crear_usuario_completo -> PDOException: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:94
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(94): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(105): App\Models\UserModel::crear_usuario_completo()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(14): App\Controllers\UserController->crear_usuario_completo('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(24): require('C:\\xampp\\htdocs...')
+#4 {main}
+[17-Jul-2025 22:07:15 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:07:16 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:07:16 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:53:59 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:53:59 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:53:59 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:54:34 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:54:34 America/Tegucigalpa] conexión es exitosa
+[17-Jul-2025 22:54:34 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 00:33:07 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 00:33:08 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 00:33:08 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 00:40:06 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 00:40:06 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 00:40:06 America/Tegucigalpa] conexión es exitosa

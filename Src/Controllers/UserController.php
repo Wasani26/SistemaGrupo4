@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use App\Config\ResponseHTTP;
 use App\Config\Security;
-use App\Config\Models\UserModel;
+use App\Models\UserModel;
 
 class UserController{
     private $method;

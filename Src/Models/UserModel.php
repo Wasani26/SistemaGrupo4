@@ -1,6 +1,7 @@
 <?php
 namespace App\Models;
 use App\DB\Sql;
+use App\DB\ConnectionDB;
 use App\Config\ResponseHTTP;
 use App\Config\Security;
 
@@ -66,11 +67,11 @@ class UserModel extends ConnectionDB{
     //metodo para crear usuario
     final public static function crear_usuario_completo(){
         // Validar que nombre_usuario y correo no estén registrados
-    if (Sql::verificar_registro("CALL verificar_usuario(:p_usuario)", 'usuario', self::getNombreUsuario())) {
+    if (Sql::verificar_registro("CALL verificar_usuario(:usuario)", ':usuario', self::getNombreUsuario())) {
         return responseHTTP::status400('El nombre de usuario ya está registrado en la base de datos.');
     }
 
-    if (sql::verificarRegistro("CALL verificar_correo(:p_correo)", 'correo', self::getCorreo())) {
+    if (Sql::verificar_registro("CALL verificar_correo(:correo)", ':correo', self::getCorreo())) {
         return responseHTTP::status400('El correo electrónico ya está registrado en la base de datos.');
     }
 
@@ -97,23 +98,24 @@ class UserModel extends ConnectionDB{
             ':dni'              => self::getDni(),
             ':fecha_nacimiento' => date('Y-m-d', strtotime(str_replace('-', '/', self::getFechaNacimiento()))),
             ':nacionalidad'     => self::getNacionalidad(),
-            ':usuario'          => self::getNombreUsuario(),
+            ':nombre_usuario'          => self::getNombreUsuario(),
             ':contrasena'            => password_hash(self::getContrasena(), PASSWORD_DEFAULT),
-            ':foto'             => self::getUrlFoto(),
+            ':url_foto'             => self::getUrlFoto(),
             ':fecha_creacion'   => self::getFechaCreacion(),
             ':activo'           => self::getActivo(),
             ':rol'              => self::getRol()
         ]);
 
         if ($stmt->rowCount() > 0) {
-            return responseHTTP::status200('El usuario ha sido registrado exitosamente.');
+            return responseHTTP::status201('El usuario ha sido registrado exitosamente.');
         } else {
             return responseHTTP::status400('No se pudo registrar el usuario.');
         }
 
     } catch (\PDOException $e) {
         error_log('userModel::crear_usuario_completo -> ' . $e);
-        return responseHTTP::status500('Error al registrar el usuario.');
+        die(json_encode(responseHTTP::status500()));
     }
 
+  }
 }
