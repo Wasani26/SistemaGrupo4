@@ -118,4 +118,55 @@ class UserModel extends ConnectionDB{
     }
 
   }
+
+  //metodo para ingresar al sistema
+  final public static function login()
+{
+    try {
+        $con = self::getConnection(); // Abrimos conexión
+
+        // Llamamos al procedimiento almacenado para buscar al usuario
+        $query = "CALL login_usuario(:usuario)";
+        $stmt = $con->prepare($query);
+        $stmt->execute([
+            ':usuario' => self::getNombreUsuario()
+        ]);
+
+        if ($stmt->rowCount() == 0) {
+            return responseHTTP::status400('Usuario o contraseña incorrectos');
+        } else {
+            foreach ($stmt as $val) {
+                // Validamos la contraseña comparando la ingresada con el hash de la BD
+                if (Security::validatePassword(self::getContrasena(), $val['contrasena'])) {
+
+                    // Construimos el payload para el JWT
+                    $payload = [
+                        'idUsuario' => $val['id_usuario'], // o cualquier identificador único
+                        'rol' => $val['tipo_rol'],
+                        'usuario' => $val['nombre_usuario']
+                    ];
+
+                    // Generamos el token
+                    $token = Security::createTokenJwt(Security::secretKey(), $payload);
+
+                    // Información de respuesta para el cliente
+                    $data = [
+                        'usuario' => $val['nombre_usuario'],
+                        'rol' => $val['tipo_rol'],
+                        'token' => $token
+                    ];
+
+                    return $data;
+                }
+            }
+
+            // Si llega aquí, la contraseña era incorrecta
+            return responseHTTP::status400('Usuario o contraseña incorrectos');
+        }
+    } catch (\PDOException $e) {
+        error_log("userModel::login -> " . $e);
+        return responseHTTP::status500('');
+    }
+}
+
 }

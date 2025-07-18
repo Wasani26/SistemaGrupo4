@@ -164,3 +164,30 @@ Stack trace:
 [18-Jul-2025 00:40:06 America/Tegucigalpa] conexión es exitosa
 [18-Jul-2025 00:40:06 America/Tegucigalpa] conexión es exitosa
 [18-Jul-2025 00:40:06 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 01:55:40 America/Tegucigalpa] PHP Warning:  require_once(C:\xampp\htdocs\SistemaGrupo4\Public/../src/Routes/reserva.php): Failed to open stream: No such file or directory in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 14
+[18-Jul-2025 01:55:40 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\xampp\htdocs\SistemaGrupo4\Public/../src/Routes/reserva.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\SistemaGrupo4\Public\index.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 14
+[18-Jul-2025 02:02:28 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 02:02:29 America/Tegucigalpa] userModel::login -> PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.login_usuario does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:131
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(131): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(124): App\Models\UserModel::login()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php(17): App\Controllers\UserController->login('auth/Adrian26/M...')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+[18-Jul-2025 02:06:34 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 02:06:35 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Models\UserModel::getClave() in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:140
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(124): App\Models\UserModel::login()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php(17): App\Controllers\UserController->login('auth/Adrian26/M...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 140
+[18-Jul-2025 02:08:10 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 02:10:55 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 02:10:55 America/Tegucigalpa] La contraseña no coincide
+[18-Jul-2025 02:11:11 America/Tegucigalpa] conexión es exitosa
+[18-Jul-2025 02:11:11 America/Tegucigalpa] La contraseña no coincide
+[18-Jul-2025 02:11:23 America/Tegucigalpa] conexión es exitosa

@@ -1,22 +1,21 @@
 <?php
-use App\Config\Security;
-//use App\Controllers\UserController;
- 
- echo json_encode(Security::secretKey());
- echo json_encode(Security::createPassword("hola"));
+use App\Controllers\UserController;
+use App\Config\ResponseHTTP;
+use App\Config;
 
- //valida contraseña
- $pass = Security::createPassword("hola");
- if(Security::validatePassword("hola", $pass)){
-    echo json_encode("Contraseña correcta");
- }else{
-    echo json_encode("Contraseña incorrecta");
- }
+$method = strtolower($_SERVER['REQUEST_METHOD']); //CAPTURA EL METODO HTTP
+$route = $_GET['route']; //CAPTURA TAMBIEN LA RUTA 
+$params = explode('/', $route); //explode de la ruta obteniendo un array cuando enviamos user/email/clave
+$data = json_decode(file_get_contents("php://input"),true); //contiene data mediante metodos http excepto get
+$headers = getallheaders(); //capturando todas las cabeceras que nos envian
 
 
- echo (json_encode(Security::createTokenjwt(Security::secretKey(),["hola"])));
+$app = new UserController($method,$route,$params,$data,$headers); //instanciación
+//llamada al metodo login con la ruta al recurso
+//recordemos  que $params[0] contiene la ruta
+//estos dos parametros corresponden al email y la contraseña
+$app->login("auth/{$params[1]}/{$params[2]}/"); 
 
- //prueba de la conexión a la BD
- use App\DB\ConnectionDB;
- ConnectionDB::getConnection();
+
+echo json_encode(ResponseHTTP::status404()); //ERROR EN CASO DE NO ENCONTRARSE LA RUTA
 

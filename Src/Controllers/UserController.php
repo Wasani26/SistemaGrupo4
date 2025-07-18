@@ -107,6 +107,25 @@ class UserController{
             exit;
         }
     }
+
+    //ingresar al sistema 
+    final public function login($endpoint){
+        //validacion del metodo y endpoint/ruta
+        if($this->method == 'get' && $endpoint == $this->route){
+            $usuario = strtolower($this->params[1]); //se pasa el correo
+            $pass = $this->params[2]; //se pasa la contraseña
+
+            //validaciones
+            if(empty($usuario) || empty($pass)){
+                echo json_encode(ResponseHTTP::status400('Todos los campos son requeridos, por favor proceda a llenarlos.'));
+            }else{
+                UserModel::setNombreUsuario($usuario);
+                UserModel::setContrasena($pass);
+                echo json_encode(UserModel::login());
+            }
+        exit;
+    }
+  }
  
     final public function cambiar_contrasena($endpoint){
     // validamos el método y el endpoint
