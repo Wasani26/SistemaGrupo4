@@ -28,3 +28,4 @@ $app->delete('/reserva', function() use ($reservaController){
 });
 
 echo json_encode(ResponseHTTP::status404()); //ERROR EN CASO DE NO ENCONTRARSE LA RUTA
+?>
