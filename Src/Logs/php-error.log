@@ -360,3 +360,75 @@ Stack trace:
 [20-Jul-2025 00:16:32 America/Tegucigalpa] Valor de route: user/contrasena/
 [20-Jul-2025 00:16:32 America/Tegucigalpa] >> Entrando a user.php <<
 [20-Jul-2025 00:23:14 America/Tegucigalpa] PHP Parse error:  syntax error, unexpected identifier "error_log", expecting "function" or "const" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 33
+[20-Jul-2025 00:49:36 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/
+[20-Jul-2025 00:49:36 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[20-Jul-2025 00:49:36 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(139): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[20-Jul-2025 00:50:37 America/Tegucigalpa] conexión es exitosa
+[20-Jul-2025 00:51:00 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(211): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[20-Jul-2025 00:55:46 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/
+[20-Jul-2025 00:55:46 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[20-Jul-2025 00:55:47 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(139): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[20-Jul-2025 00:56:04 America/Tegucigalpa] conexión es exitosa
+[20-Jul-2025 00:56:17 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/
+[20-Jul-2025 00:56:18 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[20-Jul-2025 00:56:18 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(139): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[20-Jul-2025 01:16:59 America/Tegucigalpa] conexión es exitosa
+[20-Jul-2025 01:19:08 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/password
+[20-Jul-2025 01:19:08 America/Tegucigalpa] >> Comparando contra: user/password
+[20-Jul-2025 01:19:09 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 176
+[20-Jul-2025 01:19:09 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 177 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(177): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/password')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[20-Jul-2025 01:26:52 America/Tegucigalpa] Datos del JWT decodificados: stdClass Object
+(
+    [iat] => 1752995820
+    [exp] => 1752996720
+    [data] => stdClass Object
+        (
+            [idUsuario] => 1
+            [rol] => visitante
+            [usuario] => Adrian26
+        )
+
+)
+
+[20-Jul-2025 01:26:52 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 177
+[20-Jul-2025 01:26:52 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 178 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(178): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/password')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23

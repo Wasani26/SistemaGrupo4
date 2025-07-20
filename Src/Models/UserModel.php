@@ -205,6 +205,8 @@ final public static function leer_usuario($usuario){
 
 //cambiar la contraseña
 public function updatePassword($id, $newHash) {
+    // Asegúrate de que el procedimiento almacenado 'cambiar_contrasena' en MySQL
+    // realmente actualice la columna 'clave' de la tabla de usuarios.
     $sql = "CALL cambiar_contrasena(:id, :clave)";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindParam(':id', $id);
@@ -212,13 +214,17 @@ public function updatePassword($id, $newHash) {
     return $stmt->execute();
 }
 
+// Método para obtener un usuario por ID
 public function obtener_usuario_id($id) {
+    // Asegúrate de que el procedimiento almacenado 'leer_usuario' en MySQL
+    // devuelva la columna 'clave' (o el nombre que uses para la contraseña hasheada).
     $sql = "CALL leer_usuario(:id)";
     $stmt = $this->conn->prepare($sql);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
 
 
 
