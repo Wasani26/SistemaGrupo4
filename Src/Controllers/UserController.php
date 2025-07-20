@@ -4,9 +4,7 @@ namespace App\Controllers;
 use App\Config\ResponseHTTP;
 use App\Config\Security;
 use App\Models\UserModel;
-use Firebase\JWT\ExpiredException; // Importa la excepción de JWT
-use Firebase\JWT\SignatureInvalidException; // Importa otras excepciones comunes de JWT
-use Firebase\JWT\BeforeValidException;
+
 
 class UserController{
     private $method;
@@ -138,76 +136,8 @@ class UserController{
         //error_log(">> Entrando a cambiar_contrasena. Route: " . $this->route);
         //error_log(">> Comparando contra: " . $endpoint); // Muestra la ruta esperada
 
-        try {
-            // 1. Validar token
-            // Captura las excepciones específicas de JWT
-            $userData = Security::validateTokenJwt($this->headers, Security::secretKey());
-            error_log("Datos del JWT decodificados: " . print_r($userData, true));
-        } catch (ExpiredException $e) {
-            ResponseHTTP::status401('Token expirado. Por favor, inicia sesión de nuevo.');
-            exit; // Importante para detener la ejecución
-        } catch (SignatureInvalidException $e) {
-            ResponseHTTP::status401('Firma de token inválida. Acceso denegado.');
-            exit;
-        } catch (BeforeValidException $e) {
-            ResponseHTTP::status401('Token aún no válido. Inténtalo de nuevo más tarde.');
-            exit;
-        } catch (\Exception $e) { // Captura cualquier otra excepción general de JWT o de validación
-            ResponseHTTP::status401('Token inválido o error de autenticación: ' . $e->getMessage());
-            exit;
-        }
-
-
-        // 2. Validar campos necesarios
-        if (!isset($this->data['contrasena_actual'], $this->data['nueva_contrasena'], $this->data['confirmar_contrasena'])) {
-            ResponseHTTP::status400('Faltan campos requeridos: contrasena_actual, nueva_contrasena, confirmar_contrasena.');
-            exit; // Importante para detener la ejecución
-        }
-
-        $contrasenaActual = $this->data['contrasena_actual'];
-        $nuevaContrasena = $this->data['nueva_contrasena'];
-        $confirmarContrasena = $this->data['confirmar_contrasena'];
-
-        if ($nuevaContrasena !== $confirmarContrasena) {
-            ResponseHTTP::status400('La nueva contraseña y la confirmación no coinciden.');
-            exit; // Importante para detener la ejecución
-        }
-
-        // 3. Obtener usuario por ID desde el token
-       // $userId = $userData->id;
-        //$usuarioModel = new UserModel();
-        $db_connection = ConnectionDB::getConnection(); // Llama al método estático para obtener la instancia PDO
-         $usuarioModel = new UserModel($db_connection);
-        // CORRECCIÓN AQUÍ: Usar el nombre de método correcto del modelo
-        $userId = $userData->data->idUsuario;
-        $usuario = $usuarioModel->obtener_usuario_id($userId);
-
-        if (!$usuario) {
-            ResponseHTTP::sttaus404('Usuario no encontrado.');
-            exit; // Importante para detener la ejecución
-        }
-
-        // 4. Verificar contraseña actual
-        // Asegúrate de que $usuario['clave'] contenga el hash de la contraseña de la DB
-        if (!password_verify($contrasenaActual, $usuario['clave'])) {
-            ResponseHTTP::status401('La contraseña actual es incorrecta.');
-            exit; // Importante para detener la ejecución
-        }
-
-        // 5. Hashear nueva contraseña y actualizar
-        $hash = password_hash($nuevaContrasena, PASSWORD_BCRYPT);
-        $resultado = $usuarioModel->updatePassword($userId, $hash);
-
-        if ($resultado) {
-            ResponseHTTP::status200('Contraseña actualizada correctamente.');
-        } else {
-            ResponseHTTP::status500('Error al actualizar la contraseña.');
-        }
-
-        exit; // Finaliza la ejecución después de enviar la respuesta
     }
-}
-
+     }
 
     
     final public function actualizar_usuario($endpoint){

@@ -63,8 +63,8 @@ class ReservaModel extends ConnectionDB{
             //El mensaje debería indicar que ya existe//
             return ResponseHTTP::status400('Ya existe una reserva con estos criterios.');
             }
-        }
-
+    
+    
         try {
             $con = self::getConnection();
             // Llamado a procedimiento almacenado para insertar la reserva//
@@ -98,6 +98,6 @@ class ReservaModel extends ConnectionDB{
         }
     
 
-}
+ }
 
-?>
+}
