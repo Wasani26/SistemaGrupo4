@@ -433,3 +433,11 @@ Stack trace:
 #3 {main}
   thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
 [20-Jul-2025 01:51:50 America/Tegucigalpa] conexión es exitosa
+[20-Jul-2025 01:57:32 America/Tegucigalpa] Esto es una prueba de error
+[20-Jul-2025 01:57:48 America/Tegucigalpa] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[20-Jul-2025 01:57:48 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[20-Jul-2025 01:57:52 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[20-Jul-2025 03:25:52 America/Tegucigalpa] Esto es una prueba de error
+[20-Jul-2025 04:01:15 America/Tegucigalpa] Esto es una prueba de error
+[20-Jul-2025 04:01:21 America/Tegucigalpa] Esto es una prueba de error
+[20-Jul-2025 04:01:43 America/Tegucigalpa] Esto es una prueba de error
