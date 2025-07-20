@@ -30,7 +30,7 @@ class UserController{
         $this->headers = $headers;
     }
 
-
+    
     //metodo que recibe un endpoint (ruta a un recurso)
     final public function crear_usuario_completo($endpoint){
         //validamos el method y el endpoint
@@ -129,13 +129,56 @@ class UserController{
     }
   }
  
-    final public function cambiar_contrasena($endpoint){
-    // validamos el método y el endpoint
-    if($this->method == 'patch' && $endpoint == $this->route){
-        echo json_encode('patch');
+    final public function cambiar_contrasena($endpoint) {
+    if ($this->method == 'patch' && $endpoint == $this->route) {
+     error_log(">> Entrando a cambiar_contrasena. Route: " . $this->route);
+     error_log(">> Comparando contra: user/contrasena");
+
+
+        // 1. Validar token
+        $userData = Security::validateTokenJwt($this->headers, Security::secretKey());
+
+        // 2. Validar campos necesarios
+        if (!isset($this->data['contrasena_actual'], $this->data['nueva_contrasena'], $this->data['confirmar_contrasena'])) {
+            ResponseHTTP::jsonResponse(400, 'Faltan campos requeridos.');
+        }
+
+        $contrasenaActual = $this->data['contrasena_actual'];
+        $nuevaContrasena = $this->data['nueva_contrasena'];
+        $confirmarContrasena = $this->data['confirmar_contrasena'];
+
+        if ($nuevaContrasena !== $confirmarContrasena) {
+            ResponseHTTP::jsonResponse(400, 'La nueva contraseña y la confirmación no coinciden.');
+        }
+
+        // 3. Obtener usuario por ID desde el token
+        $userId = $userData->id;
+        $usuarioModel = new UserModel();
+        $usuario = $usuarioModel->getUserById($userId);
+
+        if (!$usuario) {
+            ResponseHTTP::jsonResponse(404, 'Usuario no encontrado.');
+        }
+
+        // 4. Verificar contraseña actual
+        if (!password_verify($contrasenaActual, $usuario['clave'])) {
+            ResponseHTTP::jsonResponse(401, 'La contraseña actual es incorrecta.');
+        }
+
+        // 5. Hashear nueva contraseña y actualizar
+        $hash = password_hash($nuevaContrasena, PASSWORD_BCRYPT);
+        $resultado = $usuarioModel->updatePassword($userId, $hash);
+
+        if ($resultado) {
+            ResponseHTTP::jsonResponse(200, 'Contraseña actualizada correctamente.');
+        } else {
+            ResponseHTTP::jsonResponse(500, 'Error al actualizar la contraseña.');
+        }
+
         exit;
-       }
     }
+   }
+
 
     
     final public function actualizar_usuario($endpoint){

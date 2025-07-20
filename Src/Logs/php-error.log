@@ -355,3 +355,8 @@ Stack trace:
   thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
 [19-Jul-2025 23:03:50 America/Tegucigalpa] conexión es exitosa
 [19-Jul-2025 23:04:29 America/Tegucigalpa] conexión es exitosa
+[19-Jul-2025 23:54:04 America/Tegucigalpa] conexión es exitosa
+[20-Jul-2025 00:11:29 America/Tegucigalpa] Valor de route: user/contrasena/
+[20-Jul-2025 00:16:32 America/Tegucigalpa] Valor de route: user/contrasena/
+[20-Jul-2025 00:16:32 America/Tegucigalpa] >> Entrando a user.php <<
+[20-Jul-2025 00:23:14 America/Tegucigalpa] PHP Parse error:  syntax error, unexpected identifier "error_log", expecting "function" or "const" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 33

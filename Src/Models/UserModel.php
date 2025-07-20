@@ -203,5 +203,24 @@ final public static function leer_usuario($usuario){
     }
 }
 
+//cambiar la contraseña
+public function updatePassword($id, $newHash) {
+    $sql = "CALL cambiar_contrasena(:id, :clave)";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':clave', $newHash);
+    return $stmt->execute();
+}
+
+public function obtener_usuario_id($id) {
+    $sql = "CALL leer_usuario(:id)";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+
+
 
 }
