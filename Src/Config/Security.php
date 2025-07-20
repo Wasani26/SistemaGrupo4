@@ -6,6 +6,8 @@ use Firebase\JWT\JWT; //para generar el JWT
 
 
 class Security{
+    private static $jwt_data;
+
     final public static function secretKey(){
             
         $dotenv = Dotenv::createImmutable(dirname(__DIR__,2));
