@@ -182,5 +182,26 @@ final public static function obtener_usuarios(){
     }
 }
 
+final public static function leer_usuario($usuario){
+    try{
+        $con = self::getConnection();
+        $query = "CALL leer_usuario(:usuario)";
+        $stmt = $con->prepare($query);
+        $stmt->execute([
+            ':usuario' => $usuario
+        ]);
+
+        if($stmt->rowCount() > 0){
+            $res['data'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $res;
+        } else {
+            return ResponseHTTP::status400('No existe registro con este nombre de usuario');
+        }
+    } catch(\PDOException $e){
+        error_log("UserModel::leer_usuario -> ".$e);
+        die(json_encode(ResponseHTTP::status500()));
+    }
+}
+
 
 }

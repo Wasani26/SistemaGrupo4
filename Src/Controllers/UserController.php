@@ -146,14 +146,19 @@ class UserController{
        }
     }
 
-    // lee un usuario solo
-    final public function leer_usuario($endpoint){
-    // validamos el método y el endpoint
+   final public function leer_usuario($endpoint){
     if($this->method == 'get' && $endpoint == $this->route){
-        echo json_encode('get');
-        exit;
-      }
+        Security::validateTokenJwt($this->headers, Security::secretKey());
+        $usuario = $this->params[1] ?? null;
+        if(!$usuario){
+            echo json_encode(ResponseHTTP::status400('Debe ingresar un nombre de usuario!'));
+        } else {
+            echo json_encode(UserModel::leer_usuario($usuario));
+            exit;
+        }
     }
+   }
+
   
     
     //permite ver todos los usuarios

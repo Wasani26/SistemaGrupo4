@@ -32,7 +32,7 @@ class Security{
         }
     }
 
-    final public static function createTokenJwt(string $key, array $data, int $expSeconds = 60) {
+    final public static function createTokenJwt(string $key, array $data, int $expSeconds = 900) {
     $payload = array(
         "iat" => time(),
         "exp" => time() + $expSeconds,

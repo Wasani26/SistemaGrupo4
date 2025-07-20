@@ -13,5 +13,6 @@ $headers = getallheaders(); //capturando todas las cabeceras que nos envian
 $app = new UserController($method,$route,$params,$data,$headers); //instanciación
 $app->crear_usuario_completo('user/'); //llamada a metodo post con la ruta/endpoint al recurso
 $app->obtener_usuarios('user/'); //metodo para ver a todos los usuarios
+$app->leer_usuario("user/{$params[1]}/"); //trae información de un solo usuario
 
 echo json_encode(ResponseHTTP::status404()); //ERROR EN CASO DE NO ENCONTRARSE LA RUTA
