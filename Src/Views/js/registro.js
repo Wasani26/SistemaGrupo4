@@ -205,7 +205,5 @@ $(document).ready(function() {
         });
     });
 
-    // Removimos la lógica de 'Doctor-fields' ya que este es un formulario de registro de visitante.
+    
 });
-
-   
