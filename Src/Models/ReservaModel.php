@@ -20,26 +20,28 @@ class ReservaModel extends ConnectionDB{
     public function __construct(array $data) {
 
         if (isset($data['id_reserva'])) {
-            $this->id_reserva = $data['id_reserva'];
+            $this->id_reserva =$data['id_reserva'];
         }
-        $this->$fecha_reserva = $data['fecha_reserva'];
-        $this->$estado_reserva = $data['estado_reserva'];
-        $this->$pagada = $data['pagada'];
-        $this->$asistencia = $data['asistencia '];
-        $this->$comentarios = $data['comentarios'];
-        $this->cantidad_asistentes = $data['cantidad_asistentes'];
-        $this->$id_usuario = $data['id_usuario'];
-        $this->$id_tour = $data['id_tour'];
+        $this->fecha_reserva =$data['fecha_reserva'];
+        $this->estado_reserva =$data['estado_reserva'];
+        $this->pagada =$data['pagada'];
+        $this->asistencia =$data['asistencia '];
+        $this->comentarios =$data['comentarios'];
+        $this->cantidad_asistentes =$data['cantidad_asistentes'];
+        $this->id_usuario =$data['id_usuario'];
+        $this->id_tour = $data['id_tour'];
     }
 
     //metodos get
     final public function getId_reserva(){return $this->id_reserva;}
     final public function getFecha_reserva(){return $this->fecha_reserva;}
-    final public function getEstado_reserva (){return $this->$estado_reserva ;}
-    final public function getPagada(){return $this->$pagada;}
-    final public function getAsistencia(){return $this->$asistencia;}
-    final public function getComentarios(){return $this->$comentarios;}
-    final public function getCantidad_asistentes(){return $this->$cantidad_asistentes;}
+    final public function getEstado_reserva (){return $this->estado_reserva;}
+    final public function getPagada(){return $this->pagada;}
+    final public function getAsistencia(){return $this->asistencia;}
+    final public function getComentarios(){return $this->comentarios;}
+    final public function getCantidad_asistentes(){return $this->cantidad_asistentes;}
+    final public function getId_usuario(){return $this->id_usuario;}
+    final public function getId_tour(){return $this->id_tour;}
 
     //metodos set
     final public function setFecha_reserva($fecha_reserva){$this->fecha_reserva = $fecha_reserva;}
@@ -54,13 +56,15 @@ class ReservaModel extends ConnectionDB{
 
        final public function crear_reserva(){
         // Validar que la reserva no exista previamente verificando fecha, tour y usuario//
-        if (Sql::verificar_registro("CALL verificar_reserva(:fecha_reserva, :id_tour, :id_usuario)", //Parámetros para verificar la creacion//
+        if (Sql::verificar_registro(
+            "CALL verificar_reserva(:fecha_reserva, :id_tour, :id_usuario)", //Parámetros para verificar la creacion//
             [
                 ':fecha_reserva' => $this->getFecha_reserva(),
                 ':id_tour' => $this->getId_tour(),
                 ':id_usuario' => $this->getId_usuario()
-            ])) {
-            //El mensaje debería indicar que ya existe//
+            ]
+        )) {
+            //El mensaje debería indicar que ya existe/
             return ResponseHTTP::status400('Ya existe una reserva con estos criterios.');
             }
     
@@ -97,7 +101,6 @@ class ReservaModel extends ConnectionDB{
             return ResponseHTTP::status500('Error interno del servidor al crear la reserva.');
         }
     
-
- }
+    }
 
 }
