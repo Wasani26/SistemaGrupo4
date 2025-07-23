@@ -833,3 +833,185 @@ Stack trace:
 [23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "url_foto" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 32
 [23-Jul-2025 12:02:40 America/Tegucigalpa] conexión es exitosa
 [23-Jul-2025 12:02:42 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:04:07 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:04:07 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 13:04:50 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:04:50 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 13:05:07 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:05:07 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 13:06:41 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:06:41 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 13:07:06 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:07:06 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 13:07:42 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:09:27 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:09:27 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 13:36:10 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:36:10 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 13:40:32 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:42:00 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 13:42:10 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php:137
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 137
+[23-Jul-2025 14:08:50 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:09:18 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:09:24 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php:137
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 137
+[23-Jul-2025 14:16:02 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:16:34 America/Tegucigalpa] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 138
+[23-Jul-2025 14:16:50 America/Tegucigalpa] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 138
+[23-Jul-2025 14:25:08 America/Tegucigalpa] >> Entrando a cambiar_contrasena <<
+[23-Jul-2025 14:25:08 America/Tegucigalpa] Método recibido: patch
+[23-Jul-2025 14:25:08 America/Tegucigalpa] Endpoint recibido: user/contrasena/
+[23-Jul-2025 14:25:08 America/Tegucigalpa] Endpoint esperado: user/contrasena/
+[23-Jul-2025 14:25:09 America/Tegucigalpa] PHP Warning:  Undefined variable $usuario in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 145
+[23-Jul-2025 14:26:20 America/Tegucigalpa] >> Entrando a cambiar_contrasena <<
+[23-Jul-2025 14:26:20 America/Tegucigalpa] Método recibido: patch
+[23-Jul-2025 14:26:20 America/Tegucigalpa] Endpoint recibido: user/contrasena/
+[23-Jul-2025 14:26:20 America/Tegucigalpa] Endpoint esperado: user/contrasena/
+[23-Jul-2025 14:26:20 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Cannot use object of type stdClass as array in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php:147
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 147
+[23-Jul-2025 14:33:37 America/Tegucigalpa] >> Entrando a cambiar_contrasena <<
+[23-Jul-2025 14:33:37 America/Tegucigalpa] Método recibido: patch
+[23-Jul-2025 14:33:37 America/Tegucigalpa] Endpoint recibido: user/contrasena/
+[23-Jul-2025 14:33:37 America/Tegucigalpa] Endpoint esperado: user/contrasena/
+[23-Jul-2025 14:33:37 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(143): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[23-Jul-2025 14:34:15 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:34:46 America/Tegucigalpa] >> Entrando a cambiar_contrasena <<
+[23-Jul-2025 14:34:46 America/Tegucigalpa] Método recibido: patch
+[23-Jul-2025 14:34:46 America/Tegucigalpa] Endpoint recibido: user/contrasena/
+[23-Jul-2025 14:34:46 America/Tegucigalpa] Endpoint esperado: user/contrasena/
+[23-Jul-2025 14:34:47 America/Tegucigalpa] PHP Warning:  Undefined variable $str in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php on line 41
+[23-Jul-2025 14:35:21 America/Tegucigalpa] >> Entrando a cambiar_contrasena <<
+[23-Jul-2025 14:35:21 America/Tegucigalpa] Método recibido: patch
+[23-Jul-2025 14:35:21 America/Tegucigalpa] Endpoint recibido: user/contrasena/
+[23-Jul-2025 14:35:21 America/Tegucigalpa] Endpoint esperado: user/contrasena/
+[23-Jul-2025 14:35:22 America/Tegucigalpa] PHP Warning:  Undefined variable $str in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php on line 41
+[23-Jul-2025 14:37:28 America/Tegucigalpa] PHP Warning:  Undefined variable $str in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php on line 41
+[23-Jul-2025 14:45:53 America/Tegucigalpa] Token decodificado: Array
+(
+    [iat] => 1753302856
+    [exp] => 1753303756
+    [data] => stdClass Object
+        (
+            [idUsuario] => 2
+            [rol] => visitante
+            [usuario] => Saulito02
+        )
+
+)
+
+[23-Jul-2025 14:50:02 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:50:39 America/Tegucigalpa] Token decodificado: Array
+(
+    [iat] => 1753303803
+    [exp] => 1753304703
+    [data] => stdClass Object
+        (
+            [idUsuario] => 2
+            [rol] => visitante
+            [usuario] => Saulito02
+        )
+
+)
+
+[23-Jul-2025 14:50:41 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:50:42 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Models\UserModel::dbConnect() in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:234
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(185): App\Models\UserModel->cambiar_contrasena(2, '$2y$10$R1JUFwYB...')
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 234
+[23-Jul-2025 14:52:00 America/Tegucigalpa] Token decodificado: Array
+(
+    [iat] => 1753303803
+    [exp] => 1753304703
+    [data] => stdClass Object
+        (
+            [idUsuario] => 2
+            [rol] => visitante
+            [usuario] => Saulito02
+        )
+
+)
+
+[23-Jul-2025 14:52:02 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:52:07 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:52:07 America/Tegucigalpa] PHP Warning:  Undefined variable $conexion in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 236
+[23-Jul-2025 14:52:07 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:236
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(185): App\Models\UserModel->cambiar_contrasena(2, '$2y$10$8AxxTudK...')
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 236
+[23-Jul-2025 14:53:43 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:53:46 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:53:46 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "App\Models\PDO" not found in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:237
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(185): App\Models\UserModel->cambiar_contrasena(2, '$2y$10$Oy1v4Em8...')
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 237
+[23-Jul-2025 14:55:58 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:56:01 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 14:56:01 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "App\Models\PDO" not found in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:237
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(185): App\Models\UserModel->cambiar_contrasena(2, '$2y$10$EoRO09uk...')
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 237
+[23-Jul-2025 15:01:53 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:02:25 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:02:33 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:02:36 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:07:00 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:07:00 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 15:07:15 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:07:15 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 15:08:40 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:08:40 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 15:17:31 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:17:31 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 15:42:14 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:42:19 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:42:21 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:51:14 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:51:17 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:51:19 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:53:20 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:53:22 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:53:25 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:55:56 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:55:58 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:56:00 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:59:30 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 15:59:32 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 15:59:55 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 16:09:44 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 16:10:10 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 16:10:36 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 16:10:51 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 16:12:18 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 16:12:21 America/Tegucigalpa] conexión es exitosa

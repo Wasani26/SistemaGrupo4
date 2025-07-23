@@ -37,7 +37,7 @@ class ResponseHTTP{
         return self::$mensaje;
     }
 
-    final public static function status401(){
+    final public static function status401(string $str){
         $res = 'No tiene privilegios para acceder al recurso! '.$str;
         http_response_code(401);
         self::$mensaje['status'] = 'ERROR';

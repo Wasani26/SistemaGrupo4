@@ -37,7 +37,7 @@ class UserController{
         //validamos el method y el endpoint
         if($this->method == 'post' && $endpoint == $this->route){
              
-            Security::validateTokenJwt($this->headers, Security::secretKey());
+            //Security::validateTokenJwt($this->headers, Security::secretKey());
 
         $data = $this->data;
 
@@ -130,14 +130,27 @@ class UserController{
     }
   }
  
-    final public function cambiar_contrasena($endpoint) {
-    if ($this->method == 'patch' && $endpoint == $this->route) {
-
+ 
+  
+   final public function cambiar_contrasena($endpoint) {
+    if ($this->method === 'patch' && $endpoint === $this->route) {
+        
         $userData = Security::validateTokenJwt($this->headers, Security::secretKey());
-        $idUsuario = $userData['idUsuario'] ?? null;
 
+
+
+        //$idUsuario = $userData['idUsuario'] ?? null;
+        $idUsuario = $userData['data']->idUsuario ?? null;
+
+
+        if (!$idUsuario) {
+            echo json_encode(ResponseHTTP::status401('Token inválido o no contiene ID de usuario'));
+            exit;
+        }
+
+        
         if (!isset($this->data['contrasena'], $this->data['nueva_contrasena'], $this->data['confirmar_contrasena'])) {
-            echo json_encode(ResponseHTTP::status400('Faltan campos requeridos!!'));
+            echo json_encode(ResponseHTTP::status400('Faltan campos requeridos: contraseña actual, nueva y confirmación.'));
             exit;
         }
 
@@ -145,6 +158,7 @@ class UserController{
         $nuevaContrasena = $this->data['nueva_contrasena'];
         $confirmarContrasena = $this->data['confirmar_contrasena'];
 
+         var_dump($this->method, $this->route, $endpoint);
         if ($nuevaContrasena !== $confirmarContrasena) {
             echo json_encode(ResponseHTTP::status400('La nueva contraseña y la confirmación no coinciden.'));
             exit;
@@ -153,10 +167,11 @@ class UserController{
         $usuarioModel = new UserModel();
         $usuario = $usuarioModel->obtener_id($idUsuario);
 
-        if (!$usuario || empty($usuario['data'])) {
-            echo json_encode(ResponseHTTP::status404('Usuario no encontrado.'));
-            exit;
-        }
+        if (!is_array($usuario) || empty($usuario['data'])) {
+          echo json_encode(ResponseHTTP::status404('Usuario no encontrado.'));
+        exit;
+         }
+
 
         $datosUsuario = $usuario['data'][0];
 
@@ -167,7 +182,9 @@ class UserController{
 
         $newHash = password_hash($nuevaContrasena, PASSWORD_DEFAULT);
 
-        if ($usuarioModel->cambiar_contrasena($idUsuario, $newHash)) {
+        $resultado = $usuarioModel->cambiar_contrasena($idUsuario, $newHash);
+
+        if ($resultado) {
             echo json_encode(ResponseHTTP::status200('Contraseña actualizada exitosamente'));
         } else {
             echo json_encode(ResponseHTTP::status500('Error al actualizar la contraseña'));
@@ -175,6 +192,7 @@ class UserController{
         exit;
     }
 }
+
 
 
     

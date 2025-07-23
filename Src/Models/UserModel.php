@@ -229,26 +229,27 @@ final public function obtener_id($id) {
 }
 
 
-final public function cambiar_contrasena($id, $newHash) {
+public function cambiar_contrasena($idUsuario, $nuevaContrasenaHash) {
     try {
         $con = self::getConnection();
-        $sql = "CALL cambiar_contrasena(:id_usuario, :contrasena)";
-        $stmt = $con->prepare($sql);
-        $success = $stmt->execute([
-            ':id_usuario' => $id,
-            ':contrasena' => $newHash
-        ]);
+        $query = "CALL cambiar_contrasena(:id_usuario, :nueva_contrasena)";
+        $stmt = $con->prepare($query);
+        $stmt->bindParam(':id_usuario', $idUsuario, \PDO::PARAM_INT);
+        $stmt->bindParam(':nueva_contrasena', $nuevaContrasenaHash, \PDO::PARAM_STR);
 
-        return $success; // Devuelve true o false
+        if ($stmt->execute()) {
+            return true; // Éxito
+        } else {
+            error_log("Error al ejecutar el procedimiento almacenado cambiar_contrasena.");
+            return false;
+        }
     } catch (\PDOException $e) {
-        error_log("UserModel::cambiar_contrasena -> " . $e);
-        die(json_encode(ResponseHTTP::status500()));
+        error_log("Excepción al cambiar contraseña: " . $e);
+        return false;
     }
 }
 
-   
-   
-  
+
 
 }
 

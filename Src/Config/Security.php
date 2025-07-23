@@ -58,7 +58,9 @@ class Security{
         }
 
         // Decodificar el JWT
-        $data = JWT::decode($jwtParts[1], $key, array('HS256'));
+        //$data = JWT::decode($jwtParts[1], $key, array('HS256'));
+        $data = (array) JWT::decode($jwtParts[1], $key, array('HS256'));
+        //error_log('Token decodificado: ' . print_r($data, true));
 
         // Guardar los datos decodificados si los usarás en otras partes
         self::$jwt_data = $data;
