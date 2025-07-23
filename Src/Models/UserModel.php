@@ -20,7 +20,8 @@ class UserModel extends ConnectionDB{
     private static $activo;
 
     //constructor
-    public function __construct(array $data) {
+    public function __construct($data = []) {
+        if(!empty($data)){
         self::$nombre = $data['nombre'];
         self::$correo = $data['correo'];
         self::$telefono = $data['telefono'];
@@ -33,6 +34,7 @@ class UserModel extends ConnectionDB{
         self::$rol = 'visitante';
         self::$fecha_creacion = date('Y-m-d H:i:s'); //si se pasa a dentro del metodo
         self::$activo = 1;
+        }
     }
 
     //metodos get
@@ -195,7 +197,7 @@ final public static function leer_usuario($usuario){
             $res['data'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
             return $res;
         } else {
-            return ResponseHTTP::status400('No existe registro con este nombre de usuario');
+            return ResponseHTTP::status400('No existe registro con este nombre de usuario.');
         }
     } catch(\PDOException $e){
         error_log("UserModel::leer_usuario -> ".$e);
@@ -203,10 +205,52 @@ final public static function leer_usuario($usuario){
     }
 }
 
+final public function obtener_id($id) {
+    try {
+        $con = self::getConnection();
+        $sql = "CALL obtener_id(:id_usuario)";
+        $stmt = $con->prepare($sql);
+
+        $stmt->execute([
+            ':id_usuario' => $id
+        ]);
+
+        if ($stmt->rowCount() > 0) {
+            $res['data'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $res;
+        } else {
+            return ResponseHTTP::status400('No existe registro con este id');
+        }
+
+    } catch(\PDOException $e) {
+        error_log("UserModel::obtener_id -> ".$e);
+        die(json_encode(ResponseHTTP::status500()));
+    }
+}
 
 
+final public function cambiar_contrasena($id, $newHash) {
+    try {
+        $con = self::getConnection();
+        $sql = "CALL cambiar_contrasena(:id_usuario, :contrasena)";
+        $stmt = $con->prepare($sql);
+        $success = $stmt->execute([
+            ':id_usuario' => $id,
+            ':contrasena' => $newHash
+        ]);
 
+        return $success; // Devuelve true o false
+    } catch (\PDOException $e) {
+        error_log("UserModel::cambiar_contrasena -> " . $e);
+        die(json_encode(ResponseHTTP::status500()));
+    }
+}
 
-
+   
+   
+  
 
 }
+
+
+

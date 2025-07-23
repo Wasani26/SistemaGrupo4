@@ -651,3 +651,185 @@ Stack trace:
 [23-Jul-2025 05:03:01 America/Tegucigalpa] conexión es exitosa
 [23-Jul-2025 05:03:03 America/Tegucigalpa] conexión es exitosa
 [23-Jul-2025 05:03:05 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 09:24:46 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::post() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 13
+[23-Jul-2025 10:34:07 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 10:34:07 America/Tegucigalpa] La contraseña no coincide
+[23-Jul-2025 10:35:11 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 10:35:44 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 10:45:01 America/Tegucigalpa] Valor de route: user/contrasena/
+[23-Jul-2025 10:45:01 America/Tegucigalpa] >> Entrando a user.php <<
+[23-Jul-2025 10:45:01 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/contrasena/
+[23-Jul-2025 10:45:01 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[23-Jul-2025 10:52:41 America/Tegucigalpa] Valor de route: auth/Adrian26/MiPass123/
+[23-Jul-2025 10:52:48 America/Tegucigalpa] Valor de route: auth/Adrian26/MiPass123/
+[23-Jul-2025 10:52:50 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 10:53:26 America/Tegucigalpa] Valor de route: user/contrasena
+[23-Jul-2025 10:53:26 America/Tegucigalpa] >> Entrando a user.php <<
+[23-Jul-2025 10:53:26 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/contrasena
+[23-Jul-2025 10:53:26 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[23-Jul-2025 10:53:36 America/Tegucigalpa] Valor de route: user/contrasena
+[23-Jul-2025 10:53:36 America/Tegucigalpa] >> Entrando a user.php <<
+[23-Jul-2025 10:53:36 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/contrasena
+[23-Jul-2025 10:53:36 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[23-Jul-2025 10:53:36 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Config\ResponseHTTP::jsonResponse() in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php:146
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 146
+[23-Jul-2025 10:54:52 America/Tegucigalpa] Valor de route: user/contrasena
+[23-Jul-2025 10:54:52 America/Tegucigalpa] >> Entrando a user.php <<
+[23-Jul-2025 10:54:52 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/contrasena
+[23-Jul-2025 10:54:53 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[23-Jul-2025 10:54:53 America/Tegucigalpa] PHP Warning:  Undefined array key "nueva_contrasena" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 150
+[23-Jul-2025 10:54:53 America/Tegucigalpa] PHP Warning:  Undefined array key "confirmar_contrasena" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 151
+[23-Jul-2025 10:54:53 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 158
+[23-Jul-2025 10:54:53 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 159 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(159): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[23-Jul-2025 10:55:44 America/Tegucigalpa] Valor de route: user/contrasena
+[23-Jul-2025 10:55:44 America/Tegucigalpa] >> Entrando a user.php <<
+[23-Jul-2025 10:55:44 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/contrasena
+[23-Jul-2025 10:55:44 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[23-Jul-2025 10:55:44 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 158
+[23-Jul-2025 10:55:44 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 159 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(159): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[23-Jul-2025 10:55:55 America/Tegucigalpa] Valor de route: user/contrasena
+[23-Jul-2025 10:55:55 America/Tegucigalpa] >> Entrando a user.php <<
+[23-Jul-2025 10:55:55 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/contrasena
+[23-Jul-2025 10:55:55 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[23-Jul-2025 10:55:55 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 158
+[23-Jul-2025 10:55:55 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 159 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(159): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[23-Jul-2025 10:57:39 America/Tegucigalpa] Valor de route: user/contrasena
+[23-Jul-2025 10:57:39 America/Tegucigalpa] >> Entrando a user.php <<
+[23-Jul-2025 10:57:39 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/contrasena
+[23-Jul-2025 10:57:39 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[23-Jul-2025 10:57:40 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 158
+[23-Jul-2025 10:57:40 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 159 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(159): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[23-Jul-2025 10:58:56 America/Tegucigalpa] Valor de route: user/contrasena
+[23-Jul-2025 10:58:56 America/Tegucigalpa] >> Entrando a user.php <<
+[23-Jul-2025 10:58:57 America/Tegucigalpa] >> Entrando a cambiar_contrasena. Route: user/contrasena
+[23-Jul-2025 10:58:57 America/Tegucigalpa] >> Comparando contra: user/contrasena
+[23-Jul-2025 10:58:57 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 159
+[23-Jul-2025 10:58:57 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 160 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(160): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[23-Jul-2025 11:13:46 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 11:15:13 America/Tegucigalpa] stdClass Object
+(
+    [iat] => 1753290827
+    [exp] => 1753291727
+    [data] => stdClass Object
+        (
+            [idUsuario] => 1
+            [rol] => visitante
+            [usuario] => Adrian26
+        )
+
+)
+
+[23-Jul-2025 11:15:13 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 161
+[23-Jul-2025 11:15:13 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 162 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(162): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[23-Jul-2025 11:15:40 America/Tegucigalpa] stdClass Object
+(
+    [iat] => 1753290827
+    [exp] => 1753291727
+    [data] => stdClass Object
+        (
+            [idUsuario] => 1
+            [rol] => visitante
+            [usuario] => Adrian26
+        )
+
+)
+
+[23-Jul-2025 11:15:40 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 161
+[23-Jul-2025 11:15:40 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 162 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(162): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[23-Jul-2025 11:16:29 America/Tegucigalpa] stdClass Object
+(
+    [iat] => 1753290827
+    [exp] => 1753291727
+    [data] => stdClass Object
+        (
+            [idUsuario] => 1
+            [rol] => visitante
+            [usuario] => Adrian26
+        )
+
+)
+
+[23-Jul-2025 11:16:29 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$id in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 161
+[23-Jul-2025 11:16:29 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 162 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(162): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[23-Jul-2025 11:27:11 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 11:27:38 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 11:28:21 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 11:59:18 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 11:59:50 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 12:02:05 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 12:02:10 America/Tegucigalpa] ID extraído del token: 1
+[23-Jul-2025 12:02:10 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\Models\UserModel::__construct(), 0 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 164 and exactly 1 expected in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:23
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(164): App\Models\UserModel->__construct()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 23
+[23-Jul-2025 12:02:38 America/Tegucigalpa] ID extraído del token: 1
+[23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "nombre" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 24
+[23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "correo" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 25
+[23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "telefono" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 26
+[23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "dni" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 27
+[23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "fecha_nacimiento" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 28
+[23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "nacionalidad" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 29
+[23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "nombre_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 30
+[23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "contrasena" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 31
+[23-Jul-2025 12:02:38 America/Tegucigalpa] PHP Warning:  Undefined array key "url_foto" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 32
+[23-Jul-2025 12:02:40 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 12:02:42 America/Tegucigalpa] conexión es exitosa

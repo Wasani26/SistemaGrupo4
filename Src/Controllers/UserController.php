@@ -131,12 +131,51 @@ class UserController{
   }
  
     final public function cambiar_contrasena($endpoint) {
-    // La ruta esperada ahora es "user/password"
     if ($this->method == 'patch' && $endpoint == $this->route) {
-    
 
+        $userData = Security::validateTokenJwt($this->headers, Security::secretKey());
+        $idUsuario = $userData['idUsuario'] ?? null;
+
+        if (!isset($this->data['contrasena'], $this->data['nueva_contrasena'], $this->data['confirmar_contrasena'])) {
+            echo json_encode(ResponseHTTP::status400('Faltan campos requeridos!!'));
+            exit;
+        }
+
+        $contrasenaActual = $this->data['contrasena'];
+        $nuevaContrasena = $this->data['nueva_contrasena'];
+        $confirmarContrasena = $this->data['confirmar_contrasena'];
+
+        if ($nuevaContrasena !== $confirmarContrasena) {
+            echo json_encode(ResponseHTTP::status400('La nueva contraseña y la confirmación no coinciden.'));
+            exit;
+        }
+
+        $usuarioModel = new UserModel();
+        $usuario = $usuarioModel->obtener_id($idUsuario);
+
+        if (!$usuario || empty($usuario['data'])) {
+            echo json_encode(ResponseHTTP::status404('Usuario no encontrado.'));
+            exit;
+        }
+
+        $datosUsuario = $usuario['data'][0];
+
+        if (!password_verify($contrasenaActual, $datosUsuario['contrasena'])) {
+            echo json_encode(ResponseHTTP::status401('La contraseña actual no coincide.'));
+            exit;
+        }
+
+        $newHash = password_hash($nuevaContrasena, PASSWORD_DEFAULT);
+
+        if ($usuarioModel->cambiar_contrasena($idUsuario, $newHash)) {
+            echo json_encode(ResponseHTTP::status200('Contraseña actualizada exitosamente'));
+        } else {
+            echo json_encode(ResponseHTTP::status500('Error al actualizar la contraseña'));
+        }
+        exit;
     }
-     }
+}
+
 
     
     final public function actualizar_usuario($endpoint){

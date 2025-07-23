@@ -7,9 +7,9 @@ use App\Config\Security;
 
 Errorlogs::activa_error_logs();
 if(isset($_GET['route'])){
-//error_log("Valor de route: " . $_GET['route']);   
+    //error_log("Valor de route: " . $_GET['route']); //para probar
 $url = explode('/',$_GET['route']); 
-$lista = ['auth', 'user','reserva']; // lista de rutas permitidas
+$lista = ['auth', 'user','reserva','tour','museo','dasboard',]; // lista de rutas permitidas
 $file = dirname(__DIR__) . '/Src/Routes/' . $url[0] . '.php'; 
 
 
