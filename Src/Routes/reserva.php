@@ -1,7 +1,6 @@
 <?php
 use App\Controllers\ReservaController;
 use App\Config\ResponseHTTP;
-use App\DB\ConnectionDB;
 
 $method = strtolower($_SERVER['REQUEST_METHOD']); //CAPTURA EL METODO HTTP
 $route = $_GET['route']; //CAPTURA TAMBIEN LA RUTA 
@@ -19,7 +18,7 @@ $app->get('/reserva', function() use ($reservaController){
     $reservaController->obtener_todas_reservas('/reserva');
 });
 //ruta para actualizar reservas con PUT//
-$app->put('/reservas', function() use ($reservaController){
+$app->put('/reserva', function() use ($reservaController){
     $reservaController->actualizar_reserva('/reserva');
 });
 //ruta para eliminar reserva con DELETE//

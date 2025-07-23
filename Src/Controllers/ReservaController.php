@@ -2,7 +2,7 @@
 namespace App\Controllers; //nombre de espacio//
 use App\Config\ResponseHTTP; 
 use App\Config\Security;
-
+use App\Models\ReservaModel;
 
 class ReservaController {
     private $method; //Propiedad del metodo HTTP//
@@ -12,9 +12,9 @@ class ReservaController {
     private $headers; //Propiedad para cabecera HTTP//
 
 
-    //Constructor para iniciar el method y route//
+    //Constructor para iniciar los metodos//
     public function __construct($method,$route,$params,$data,$headers){
-        $this ->method = strtolower();
+        $this ->method = strtolower($method);
         $this ->route = $route;
         $this->params = $params;
         $this->data = $data;
@@ -26,6 +26,11 @@ class ReservaController {
         //Validacion para el metodo POST//
         if($this->method == 'post' && $endpoint == $this->route){
             echo json_encode('Crear nueva reserva - POST');
+            exit;
+        }
+        else{
+          $reserva = new ReservaModel($this->data);
+          echo json_encode($reserva->crear_reserva());
             exit;
         }
     }
