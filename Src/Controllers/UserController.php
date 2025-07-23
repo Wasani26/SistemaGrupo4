@@ -133,8 +133,7 @@ class UserController{
     final public function cambiar_contrasena($endpoint) {
     // La ruta esperada ahora es "user/password"
     if ($this->method == 'patch' && $endpoint == $this->route) {
-        //error_log(">> Entrando a cambiar_contrasena. Route: " . $this->route);
-        //error_log(">> Comparando contra: " . $endpoint); // Muestra la ruta esperada
+    
 
     }
      }

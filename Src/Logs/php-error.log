@@ -583,3 +583,71 @@ Stack trace:
 [20-Jul-2025 19:16:28 America/Tegucigalpa] La solicitud se ha procesado correctamente!
 [20-Jul-2025 19:16:31 America/Tegucigalpa] La solicitud se ha procesado correctamente!
 [20-Jul-2025 19:23:48 America/Tegucigalpa] La solicitud se ha procesado correctamente!
+[23-Jul-2025 04:46:52 America/Tegucigalpa] Error en la conexión a la BD! ERROR: PDOException: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\xampp\htdocs\SistemaGrupo4\Src\DB\ConnectionDB.php:28
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\ConnectionDB.php(28): PDO->__construct('mysql::host=127...', 'root', Object(SensitiveParameterValue), Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(126): App\DB\ConnectionDB::getConnection()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(127): App\Models\UserModel::login()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php(17): App\Controllers\UserController->login('auth/Adrian26/M...')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#5 {main}
+[23-Jul-2025 04:50:31 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 04:52:43 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(153): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(17): App\Controllers\UserController->leer_usuario('user/Adrian26/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[23-Jul-2025 04:53:30 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 04:53:44 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(153): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(17): App\Controllers\UserController->leer_usuario('user/Adrian26/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[23-Jul-2025 04:54:56 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 04:54:59 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(153): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(17): App\Controllers\UserController->leer_usuario('user/Adrian26/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[23-Jul-2025 04:55:34 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(170): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[23-Jul-2025 04:56:40 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 04:56:45 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(170): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[23-Jul-2025 04:57:05 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 04:57:27 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 04:58:36 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 05:00:50 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(61): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(40): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[23-Jul-2025 05:02:01 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 05:02:42 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 05:03:01 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 05:03:03 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 05:03:05 America/Tegucigalpa] conexión es exitosa
