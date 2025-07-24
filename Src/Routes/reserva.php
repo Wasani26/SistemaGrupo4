@@ -29,9 +29,11 @@ $app->delete('/reserva', function() use ($reservaController){
     $ReservaController->eliminar_reserva('/reserva');
 });*/
 
-/*
+
+
 //Métodos llamados directamente según el recurso
 $app->crear_reserva('reserva/');
+/*
 $app->obtener_todas_reservas('reserva/');
 $app->actualizar_reserva("reserva/{$params[1]}/"); 
 $app->eliminar_reserva("reserva/{$params[1]}/");

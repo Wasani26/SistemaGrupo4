@@ -25,7 +25,7 @@ class ReservaModel extends ConnectionDB{
         $this->fecha_reserva =$data['fecha_reserva'];
         $this->estado_reserva =$data['estado_reserva'];
         $this->pagada =$data['pagada'];
-        $this->asistencia =$data['asistencia '];
+        $this->asistencia =$data['asistencia'];
         $this->comentarios =$data['comentarios'];
         $this->cantidad_asistentes =$data['cantidad_asistentes'];
         $this->id_usuario =$data['id_usuario'];
