@@ -37,7 +37,7 @@ class UserController{
         //validamos el method y el endpoint
         if($this->method == 'post' && $endpoint == $this->route){
              
-            Security::validateTokenJwt($this->headers, Security::secretKey());
+            //Security::validateTokenJwt($this->headers, Security::secretKey());
 
         $data = $this->data;
 

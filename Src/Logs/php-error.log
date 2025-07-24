@@ -1030,3 +1030,118 @@ Stack trace:
 #0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
 #1 {main}
   thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 27
+[24-Jul-2025 09:25:20 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[24-Jul-2025 09:25:27 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[24-Jul-2025 09:25:31 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[24-Jul-2025 09:25:39 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[24-Jul-2025 09:25:57 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[24-Jul-2025 09:40:43 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 09:42:28 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 09:42:30 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 09:42:32 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 09:44:24 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 09:45:11 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 09:46:11 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 09:46:21 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 09:46:27 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 09:46:35 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 10:13:16 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Models\ReservaModel::__construct(): Argument #1 ($data) must be of type array, null given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 29 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:20
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(29): App\Models\ReservaModel->__construct(NULL)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(35): App\Controllers\ReservaController->crear_reserva('reserva/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 20
+[24-Jul-2025 10:26:41 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Models\ReservaModel::__construct(): Argument #1 ($data) must be of type array, null given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 29 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:20
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(29): App\Models\ReservaModel->__construct(NULL)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(35): App\Controllers\ReservaController->crear_reserva('reserva/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 20
+[24-Jul-2025 10:28:19 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Models\ReservaModel::__construct(): Argument #1 ($data) must be of type array, null given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 29 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:20
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(29): App\Models\ReservaModel->__construct(NULL)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(35): App\Controllers\ReservaController->crear_reserva('reserva')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 20
+[24-Jul-2025 10:37:36 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:38:09 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:38:44 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:39:17 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:39:32 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:39:33 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:39:34 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:39:34 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:39:35 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:39:35 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:46:52 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:49:09 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:49:11 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::crear_reserva() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:35
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 35
+[24-Jul-2025 10:50:09 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Models\ReservaModel::__construct(): Argument #1 ($data) must be of type array, null given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 29 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:20
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(29): App\Models\ReservaModel->__construct(NULL)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(35): App\Controllers\ReservaController->post('reserva/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 20
+[24-Jul-2025 10:52:27 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Models\ReservaModel::__construct(): Argument #1 ($data) must be of type array, null given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 31 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:20
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(31): App\Models\ReservaModel->__construct(NULL)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(35): App\Controllers\ReservaController->post('reserva/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 20
