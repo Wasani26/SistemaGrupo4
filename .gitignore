@@ -1,0 +1,17 @@
+# Ignorar la carpeta vendor (Composer)
+vendor/
+
+# Ignorar el archivo de variables de entorno
+.env
+
+# Ignorar logs, caché y otros archivos temporales
+*.log
+*.cache
+*.tmp
+
+# Ignorar dependencias de Node.js (si se usara)
+node_modules/
+
+# Ignorar archivos del sistema operativo
+.DS_Store
+Thumbs.db
