@@ -23,9 +23,11 @@ class ReservaController {
 
     //Metodo POST para crear reserva//
     final public function crear_reserva ($endpoint){
+
         //Validacion para el metodo POST//
         if($this->method == 'post' && $endpoint == $this->route){
             echo json_encode('Crear nueva reserva - POST');
+
             exit;
         }
         else{

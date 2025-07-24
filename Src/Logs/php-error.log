@@ -1015,3 +1015,18 @@ Stack trace:
 [23-Jul-2025 16:10:51 America/Tegucigalpa] conexión es exitosa
 [23-Jul-2025 16:12:18 America/Tegucigalpa] conexión es exitosa
 [23-Jul-2025 16:12:21 America/Tegucigalpa] conexión es exitosa
+[23-Jul-2025 16:24:59 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::post() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 13
+[23-Jul-2025 17:04:13 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::post() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:27
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 27
+[23-Jul-2025 17:04:49 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::post() in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php:27
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require()
+#1 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php on line 27
