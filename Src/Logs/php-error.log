@@ -1145,3 +1145,6 @@ Stack trace:
 #2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
 #3 {main}
   thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 20
+[24-Jul-2025 14:57:09 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 14:57:42 America/Tegucigalpa] conexión es exitosa
+[24-Jul-2025 14:57:50 America/Tegucigalpa] conexión es exitosa
