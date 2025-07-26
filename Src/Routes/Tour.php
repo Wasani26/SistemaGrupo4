@@ -2,7 +2,7 @@
 use App\Controllers\TourController;
 use App\Config\ResponseHTTP;
 
-error_log(">> Entrando a tour.php <<");
+//error_log(">> Entrando a tour.php <<");
 
 $method = strtolower($_SERVER['REQUEST_METHOD']); //CAPTURA EL METODO HTTP
 $route = $_GET['route']; //CAPTURA TAMBIEN LA RUTA 
