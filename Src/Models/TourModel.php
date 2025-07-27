@@ -38,7 +38,7 @@ class TourModel extends ConnectionDB {
     public static function setCupo($cupo) { self::$cupo = $cupo; }
 
     // Crear un tour
-    public static function createTour() {
+    public static function creartour() {
         try {
             $con = self::getConnection();
 
