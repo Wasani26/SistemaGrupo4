@@ -59,16 +59,27 @@ class ReservaModel extends ConnectionDB{
         if (Sql::verificar_registro(
             "CALL verificar_reserva(:fecha_reserva, :id_tour, :id_usuario)", //Parámetros para verificar la creacion//
             [
-                ':fecha_reserva' => $this->getFecha_reserva(),
-                ':id_tour' => $this->getId_tour(),
-                ':id_usuario' => $this->getId_usuario()
+                ':fecha_reserva' => $this->fecha_reserva(),
+                ':id_tour' => $this->id_tour(),
+                ':id_usuario' => $this->id_usuario()
             ]
         )) {
             //El mensaje debería indicar que ya existe/
             return ResponseHTTP::status400('Ya existe una reserva con estos criterios.');
             }
     
-    
+
+            // Crear reserva
+            $con = self::getConnection();
+            $stmt = $con->prepare("CALL crear_reserva(...)"); // Ajusta los parámetros
+            $stmt->execute([...]);
+
+            return ($stmt->rowCount() > 0) 
+                ? ResponseHTTP::status201('Reserva creada exitosamente') 
+                : ResponseHTTP::status400('Error al crear la reserva');
+
+
+
         try {
             $con = self::getConnection();
             // Llamado a procedimiento almacenado para insertar la reserva//

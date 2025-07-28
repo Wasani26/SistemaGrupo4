@@ -32,7 +32,7 @@ $app->delete('/reserva', function() use ($reservaController){
 
 
 //Métodos llamados directamente según el recurso
-$app->post('reserva/');
+$app->crear_reserva('reserva/');
 /*
 $app->obtener_todas_reservas('reserva/');
 $app->actualizar_reserva("reserva/{$params[1]}/"); 

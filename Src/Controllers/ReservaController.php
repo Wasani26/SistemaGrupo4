@@ -14,28 +14,25 @@ class ReservaController {
 
     //Constructor para iniciar los metodos//
     public function __construct($method,$route,$params,$data,$headers){
-        $this ->method = strtolower($method);
-        $this ->route = $route;
+        $this->method = strtolower($method);
+        $this->route = $route;
         $this->params = $params;
         $this->data = $data;
         $this->headers = $headers;
     }
 
     //Metodo POST para crear reserva//
-    final public function post ($endpoint){
+    final public function crear_reserva ($endpoint){
 
         //Validacion para el metodo POST//
         if($this->method == 'post' && $endpoint == $this->route){
-          /*$reserva = new ReservaModel($this->data);
-          echo json_encode($reserva->crear_reserva());*/
-           new ReservaModel($this->data);
-          echo json_encode(ReservaModel::crear_reserva());
+            $reserva = new ReservaModel($this->data);
+            $result = $reserva->crear_reserva();
+            echo json_encode($result);
             exit;
         }
-        /*else{
-            echo json_encoe(ResposeHTTP::methodNotAllowed());
-            exit;
-        }*/
+        echo json_encode('llegastes al metodo post');
+        exit;
     }
 
     //Metodo GET para obtener las reservas//
