@@ -15,7 +15,7 @@
 
 body {
   font-family: "Open Sans", sans-serif;
-  background: #f6f9ff;
+  background: #E5B245;
   color: #444444;
 }
 
@@ -218,10 +218,11 @@ h6 {
 
 /* Card */
 .card {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   border: none;
   border-radius: 5px;
   box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  padding: 5px 10px;
 }
 
 .card-header,
@@ -233,10 +234,10 @@ h6 {
 }
 
 .card-title {
-  padding: 20px 0 15px 0;
+  padding: 0 0 15px 0;
   font-size: 18px;
   font-weight: 500;
-  color: #012970;
+  color: #684513;
   font-family: "Poppins", sans-serif;
 }
 
@@ -247,7 +248,7 @@ h6 {
 }
 
 .card-body {
-  padding: 0 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
 }
 
 .card-img-overlay {
@@ -354,19 +355,27 @@ h6 {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+
+
 .logo {
   line-height: 1;
 }
 
+@media (max-width: 768px) {
+  .logo img {
+    max-height: 30px;
+  }
+}
+
 @media (min-width: 1200px) {
-  .logo {
-    width: 280px;
+  .logo img {
+    max-height: 40px;
   }
 }
 
 .logo img {
-  max-height: 26px;
-  margin-right: 6px;
+  max-height: 90px;
+  margin-right: 7px;
 }
 
 .logo span {
@@ -375,6 +384,8 @@ h6 {
   color: #012970;
   font-family: "Nunito", sans-serif;
 }
+
+
 
 .header {
   transition: all 0.5s;
@@ -1231,3 +1242,18 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+
+.input-ajustado {
+  max-width: 300px;      /* o el ancho que prefieras */
+  width: 100%;
+  margin: 0 auto;         /* centra el input si está en un contenedor más grande */
+}
+
+.label-izquierda {
+  display: block;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+
