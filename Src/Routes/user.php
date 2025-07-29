@@ -16,5 +16,6 @@ $app->crear_usuario_completo('user/'); //llamada a metodo post con la ruta/endpo
 $app->obtener_usuarios('user/'); //metodo para ver a todos los usuarios
 $app->leer_usuario("user/{$params[1]}/"); //trae información de un solo usuario
 $app->cambiar_contrasena("user/contrasena/");//metodo para actualizar la contraseñacambiar_contrasena
+$app->actualizar_usuario("user/{$params[1]}/");
 
 echo json_encode(ResponseHTTP::status404()); //ERROR EN CASO DE NO ENCONTRARSE LA RUTA
