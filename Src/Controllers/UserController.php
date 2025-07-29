@@ -115,7 +115,7 @@ class UserController{
     final public function login($endpoint){
         //validacion del metodo y endpoint/ruta
         if($this->method == 'get' && $endpoint == $this->route){
-            $usuario = strtolower($this->params[1]); //se pasa el correo
+            $usuario = strtolower($this->params[1]); //se pasa el usuario
             $pass = $this->params[2]; //se pasa la contraseña
 
             //validaciones
