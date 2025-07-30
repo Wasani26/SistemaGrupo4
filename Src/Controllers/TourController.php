@@ -85,17 +85,17 @@ class TourController {
     }
 
     final public function leer_tour($endpoint) {
-        if ($this->method === 'get' && $this->params[0] === trim($endpoint, '/')) {
-            $model = new TourModel();
+    if ($this->method === 'get' && $this->params[0] === trim($endpoint, '/')) {
+        $model = new TourModel();
 
-            if (isset($this->params[1])) {
-                $response = $model->getTour($this->params[1]);
-            } else {
-                $response = $model->getAllTours();
-            }
+        if (isset($this->params[1])) {
+            $response = $model->getTour($this->params[1]); // Obtiene un tour específico
+        } else {
+            $response = $model->getAllTours(); // Obtiene todos los tours
+        }
 
-            echo json_encode($response);
-            exit;
+        echo json_encode($response);
+        exit;
         }
     }
 
@@ -103,7 +103,7 @@ class TourController {
         if ($this->method === 'put' && $this->params[0] === trim($endpoint, '/')) {
             if (isset($this->params[1])) {
                 $model = new TourModel();
-                $response = $model->updateTour($this->params[1], $this->data);
+                $response = $model->actualizarTour($this->params[1], $this->data);
                 echo json_encode($response);
                 exit;
             }
@@ -114,7 +114,7 @@ class TourController {
         if ($this->method === 'delete' && $this->params[0] === trim($endpoint, '/')) {
             if (isset($this->params[1])) {
                 $model = new TourModel();
-                $response = $model->deleteTour($this->params[1]);
+                $response = $model->eliminarTour($this->params[1]);
                 echo json_encode($response);
                 exit;
             }
@@ -125,7 +125,7 @@ class TourController {
         if ($this->method === 'patch' && $this->route === $endpoint) {
             if (isset($this->params[1])) {
                 $model = new TourModel();
-                $response = $model->updateFecha($this->params[1], $this->data);
+                $response = $model->cambiarFecha($this->params[1], $this->data);
                 echo json_encode($response);
                 exit;
             }
@@ -136,7 +136,7 @@ class TourController {
         if ($this->method === 'patch' && $this->route === $endpoint) {
             if (isset($this->params[1])) {
                 $model = new TourModel();
-                $response = $model->updateCupo($this->params[1], $this->data);
+                $response = $model->cambiarCupo($this->params[1], $this->data);
                 echo json_encode($response);
                 exit;
             }
