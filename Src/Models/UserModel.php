@@ -290,6 +290,21 @@ final public function actualizar_usuario($id_usuario, $data) {
     }
 }
 
+//este metodo conecta con el flujo del metodo reserva entre otros
+ public static function verificar_id_usuario($id) {
+    try {
+        $con = self::getConnection();
+        $stmt = $con->prepare("CALL verificar_id_usuario(:id_usuario)");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchColumn() > 0;
+    } catch (\PDOException $e) {
+        error_log("UserModel::verificar_id_usuario -> " . $e);
+        return false;
+    }
+}
+
+
 
 }
 

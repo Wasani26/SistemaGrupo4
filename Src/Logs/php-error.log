@@ -1215,3 +1215,91 @@ Stack trace:
 [30-Jul-2025 09:03:09 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
 [30-Jul-2025 09:03:10 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
 [30-Jul-2025 09:13:51 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 12:19:50 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Models\ReservaModel::__construct(): Argument #1 ($data) must be of type array, null given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 29 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:20
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(29): App\Models\ReservaModel->__construct(NULL)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 20
+[30-Jul-2025 12:26:51 America/Tegucigalpa] PHP Parse error:  syntax error, unexpected variable "$reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 30
+[30-Jul-2025 13:51:13 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Controllers\ReservaController::existeUsuario() in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php:50
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 50
+[30-Jul-2025 15:28:02 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Non-static method App\Models\ReservaModel::crear_reserva() cannot be called statically in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php:63
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 63
+[30-Jul-2025 15:29:36 America/Tegucigalpa] PHP Warning:  Array to string conversion in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 62
+[30-Jul-2025 15:29:36 America/Tegucigalpa] PHP Warning:  Undefined property: App\Controllers\ReservaController::$Array in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 62
+[30-Jul-2025 15:29:36 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Models\ReservaModel::__construct(): Argument #1 ($data) must be of type array, null given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 62 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:20
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(62): App\Models\ReservaModel->__construct(NULL)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 20
+[30-Jul-2025 15:30:14 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Non-static method App\Models\ReservaModel::crear_reserva() cannot be called statically in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php:63
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 63
+[30-Jul-2025 15:36:43 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\DB\Sql::verificar_registro(), 2 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 59 and exactly 3 expected in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:9
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(59): App\DB\Sql::verificar_registro('CALL verificar_...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(63): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php on line 9
+[30-Jul-2025 16:00:51 America/Tegucigalpa] conexión es exitosa
+[30-Jul-2025 16:00:51 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42000]: Syntax error or access violation: 1318 Incorrect number of arguments for PROCEDURE sistematours.verificar_reserva; expected 3, got 1 in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(70): App\DB\Sql::verificar_registro('CALL verificar_...', ':fecha_reserva', '2025-07-30 16:0...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(63): App\Models\ReservaModel->crear_reserva()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[30-Jul-2025 17:16:23 America/Tegucigalpa] conexión es exitosa
+[30-Jul-2025 17:16:23 America/Tegucigalpa] PHP Warning:  Undefined variable $fecha_reserva in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 66
+[30-Jul-2025 17:16:23 America/Tegucigalpa] PHP Warning:  Undefined variable $id_usuario in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 67
+[30-Jul-2025 17:16:23 America/Tegucigalpa] PHP Warning:  Undefined variable $id_tour in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 68
+[30-Jul-2025 17:16:24 America/Tegucigalpa] PHP Warning:  Undefined variable $fecha_reserva in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 90
+[30-Jul-2025 17:16:24 America/Tegucigalpa] PHP Warning:  Undefined variable $id_usuario in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 96
+[30-Jul-2025 17:16:24 America/Tegucigalpa] PHP Warning:  Undefined variable $id_tour in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 97
+[30-Jul-2025 17:16:24 America/Tegucigalpa] Error al crear reserva: PDOException: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while there are pending result sets. Consider unsetting the previous PDOStatement or calling PDOStatement::closeCursor() in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:89
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(89): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(63): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[30-Jul-2025 17:17:45 America/Tegucigalpa] conexión es exitosa
+[30-Jul-2025 17:17:45 America/Tegucigalpa] PHP Warning:  Undefined variable $fecha_reserva in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 66
+[30-Jul-2025 17:17:45 America/Tegucigalpa] PHP Warning:  Undefined variable $id_usuario in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 67
+[30-Jul-2025 17:17:45 America/Tegucigalpa] PHP Warning:  Undefined variable $id_tour in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 68
+[30-Jul-2025 17:17:45 America/Tegucigalpa] PHP Warning:  Undefined variable $fecha_reserva in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 90
+[30-Jul-2025 17:17:45 America/Tegucigalpa] PHP Warning:  Undefined variable $id_usuario in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 96
+[30-Jul-2025 17:17:45 America/Tegucigalpa] PHP Warning:  Undefined variable $id_tour in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 97
+[30-Jul-2025 17:17:45 America/Tegucigalpa] Error al crear reserva: PDOException: SQLSTATE[HY000]: General error: 2014 Cannot execute queries while there are pending result sets. Consider unsetting the previous PDOStatement or calling PDOStatement::closeCursor() in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:89
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(89): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(63): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[30-Jul-2025 17:26:14 America/Tegucigalpa] conexión es exitosa
+[30-Jul-2025 17:26:14 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sistematours`.`reservas`, CONSTRAINT `fk_reservas_tour` FOREIGN KEY (`id_tour`) REFERENCES `tours` (`id_tour`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:89
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(89): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(63): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}

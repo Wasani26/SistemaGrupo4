@@ -4,13 +4,17 @@ use App\Config\ResponseHTTP;
 use App\Config\Security;
 use App\Models\ReservaModel;
 
+
 class ReservaController {
     private $method; //Propiedad del metodo HTTP//
     private $route; //Propiedad para ruta//
     private $params; //Propiedad para URL//
     private $data; //Propiedad para cuerpo//
     private $headers; //Propiedad para cabecera HTTP//
-
+   
+    //expresiones regulares para validacion de los campos ingresados por el usuario.
+    private static $validar_entero_positivo = '/^\d+$/';
+    private static $validar_comentario_texto = '/^[\p{L}\p{N}\s.,!?()\-]{0,100}$/u'; // texto opcional, hasta 100 caracteres
 
     //Constructor para iniciar los metodos//
     public function __construct($method,$route,$params,$data,$headers){
@@ -21,19 +25,46 @@ class ReservaController {
         $this->headers = $headers;
     }
 
-    //Metodo POST para crear reserva//
-    final public function crear_reserva ($endpoint){
+    
 
-        //Validacion para el metodo POST//
-        if($this->method == 'post' && $endpoint == $this->route){
-            $reserva = new ReservaModel($this->data);
-            $result = $reserva->crear_reserva();
-            echo json_encode($result);
+   final public function crear_reserva($endpoint){
+    if($this->method == 'post' && $endpoint == $this->route){
+        $data = $this->data;
+
+        // Campos requeridos para la reserva
+        $campos_requeridos = ['cantidad_asistentes', 'id_usuario', 'id_tour'];
+
+        foreach ($campos_requeridos as $campo) {
+            if (!isset($data[$campo]) || empty($data[$campo])) {
+                echo json_encode(ResponseHTTP::status400("El campo '$campo' es obligatorio."));
+                exit;
+            }
+        }
+
+        // Validar cantidad_asistentes
+        if (!preg_match(self::$validar_entero_positivo, $data['cantidad_asistentes'])) {
+            echo json_encode(ResponseHTTP::status400("La cantidad de asistentes debe ser un entero positivo."));
             exit;
         }
-        echo json_encode('llegastes al metodo post');
+
+        // Validar comentarios si viene
+        if (isset($data['comentarios']) && !preg_match(self::$validar_comentario_texto, $data['comentarios'])) {
+            echo json_encode(ResponseHTTP::status400("El campo comentarios contiene caracteres inválidos."));
+            exit;
+        }
+
+        // Asignar valores automáticos
+        $data['fecha_reserva'] = date('Y-m-d H:i:s');
+        $data['estado_reserva'] = 'pendiente';
+        $data['pagada'] = false;
+        $data['asistencia'] = false;
+
+        $reserva = new ReservaModel($data);
+        echo json_encode($reserva->crear_reserva());
         exit;
     }
+}
+
 
     //Metodo GET para obtener las reservas//
     final public function obtener_todas_reservas($endpoint){

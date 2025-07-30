@@ -12,7 +12,7 @@ $url = explode('/',$_GET['route']);
 $lista = ['auth', 'user','reserva','tour','museo','dasboard',]; // lista de rutas permitidas
 $file = dirname(__DIR__) . '/Src/Routes/' . $url[0] . '.php'; 
 
- print_r($data);
+ //print_r($data);
 
 if(!in_array($url[0], $lista)){
 		echo json_encode(ResponseHTTP::status404('La ruta no existe'));
