@@ -115,7 +115,7 @@ class UserController{
     final public function login($endpoint){
         //validacion del metodo y endpoint/ruta
         if($this->method == 'get' && $endpoint == $this->route){
-            $usuario = strtolower($this->params[1]); //se pasa el correo
+            $usuario = strtolower($this->params[1]); //se pasa el usuario
             $pass = $this->params[2]; //se pasa la contraseña
 
             //validaciones
@@ -195,14 +195,38 @@ class UserController{
 
 
 
-    
-    final public function actualizar_usuario($endpoint){
-    // validamos el método y el endpoint
-    if($this->method == 'put' && $endpoint == $this->route){
-        echo json_encode('put');
-        exit;
-       }
+    final public function actualizar_usuario($endpoint) {
+    if ($this->method == 'put' && $endpoint == $this->route) {
+
+        // 1. Validar token JWT
+        Security::validateTokenJwt($this->headers, Security::secretKey());
+
+        // 2. Obtener el ID desde la URL
+        $id_usuario = isset($this->params[1]) ? intval($this->params[1]) : 0;
+        if (!$id_usuario) {
+            ResponseHTTP::status400('ID de usuario inválido o no proporcionado');
+            return;
+        }
+
+
+        // 4. Validar campos requeridos (mínimos)
+        $campos_requeridos = ['nombre', 'correo', 'telefono', 'dni', 'fecha_nacimiento', 'nacionalidad', 'nombre_usuario', 'url_foto'];
+        foreach ($campos_requeridos as $campo) {
+            if (!isset($data[$campo])) {
+                ResponseHTTP::status400("Falta el campo requerido: $campo");
+                return;
+            }
+        }
+
+        // 5. Instanciar modelo con los datos
+        $userModel = new UserModel($data);
+
+        // 6. Llamar al método del modelo para actualizar
+        echo json_encode($userModel->actualizar_usuario($id_usuario, $data));
+        return;
     }
+}
+
 
    final public function leer_usuario($endpoint){
     if($this->method == 'get' && $endpoint == $this->route){

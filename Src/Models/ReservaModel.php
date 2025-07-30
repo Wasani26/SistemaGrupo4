@@ -9,7 +9,7 @@ class ReservaModel extends ConnectionDB{
     private $id_reserva;
     private $fecha_reserva;
     private $estado_reserva;
-    private $pagada;
+ /*   private $pagada;*/
     private $asistencia;
     private $comentarios;
     private $cantidad_asistentes;
@@ -24,7 +24,7 @@ class ReservaModel extends ConnectionDB{
         }
         $this->fecha_reserva =$data['fecha_reserva'];
         $this->estado_reserva =$data['estado_reserva'];
-        $this->pagada =$data['pagada'];
+      /*  $this->pagada =$data['pagada'];*/
         $this->asistencia =$data['asistencia'];
         $this->comentarios =$data['comentarios'];
         $this->cantidad_asistentes =$data['cantidad_asistentes'];
@@ -36,7 +36,7 @@ class ReservaModel extends ConnectionDB{
     final public function getId_reserva(){return $this->id_reserva;}
     final public function getFecha_reserva(){return $this->fecha_reserva;}
     final public function getEstado_reserva (){return $this->estado_reserva;}
-    final public function getPagada(){return $this->pagada;}
+ /*   final public function getPagada(){return $this->pagada;} */
     final public function getAsistencia(){return $this->asistencia;}
     final public function getComentarios(){return $this->comentarios;}
     final public function getCantidad_asistentes(){return $this->cantidad_asistentes;}
@@ -46,7 +46,7 @@ class ReservaModel extends ConnectionDB{
     //metodos set
     final public function setFecha_reserva($fecha_reserva){$this->fecha_reserva = $fecha_reserva;}
     final public function setEstado_reserva($estado_reserva){$this->estado_reserva = $estado_reserva;}
-    final public function setPagada($pagada){$this->pagada = $pagada;}
+ /*   final public function setPagada($pagada){$this->pagada = $pagada;} */
     final public function setAsistencia($asistencia){$this->asistencia = $asistencia;}
     final public function setComentarios($comentarios){$this->comentarios= $comentarios;}
     final public function setCantidad_asistentes($cantidad_asistentes){$this->cantidad_asistentes= $cantidad_asistentes;}
@@ -55,32 +55,30 @@ class ReservaModel extends ConnectionDB{
 
 
        final public function crear_reserva(){
-        // Validar que la reserva no exista previamente verificando fecha, tour y usuario//
-        if (Sql::verificar_registro(
-            "CALL verificar_reserva(:fecha_reserva, :id_tour, :id_usuario)", //Parámetros para verificar la creacion//
-            [
-                ':fecha_reserva' => $this->getFecha_reserva(),
-                ':id_tour' => $this->getId_tour(),
-                ':id_usuario' => $this->getId_usuario()
-            ]
-        )) {
-            //El mensaje debería indicar que ya existe/
-            return ResponseHTTP::status400('Ya existe una reserva con estos criterios.');
-            }
-    
-    
+        // Validar que exista una reserva //
+      if (Sql::verificar_registro(
+        "CALL verificar_reserva(:fecha_reserva, :id_tour, :id_usuario)",
+        [
+            ':fecha_reserva' => $this->getFecha_reserva(),
+            ':id_tour' => $this->getId_tour(),
+            ':id_usuario' => $this->getId_usuario()
+        ]
+    )) {
+        return ResponseHTTP::status400('Ya existe una reserva para este tour, fecha y usuario.');
+    }
+
+
         try {
             $con = self::getConnection();
             // Llamado a procedimiento almacenado para insertar la reserva//
-            $query = "CALL crear_reserva(
+            $stmt = $con->prepare("CALL crear_reserva(
                 :fecha_reserva, :estado_reserva, :pagada, :asistencia, :comentarios, :cantidad_asistentes, :id_usuario, :id_tour
-            )"; //Parámetros para id_usuario y id_tour//
+            )"); //Parámetros para id_usuario y id_tour//
 
-            $stmt = $con->prepare($query);
             $stmt->execute([
                 ':fecha_reserva'        => $this->getFecha_reserva(),
                 ':estado_reserva'       => $this->getEstado_reserva(),
-                ':pagada'               => $this->getPagada(),
+             /*   ':pagada'               => $this->getPagada(), */
                 ':asistencia'           => $this->getAsistencia(),
                 ':comentarios'          => $this->getComentarios(),
                 ':cantidad_asistentes'  => $this->getCantidad_asistentes(),

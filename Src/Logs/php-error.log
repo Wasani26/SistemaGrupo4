@@ -1146,3 +1146,72 @@ Stack trace:
 #3 {main}
   thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 20
 [24-Jul-2025 12:35:06 America/Tegucigalpa] >> Entrando a tour.php <<
+
+
+[29-Jul-2025 14:49:11 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:24:27 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:25:16 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:25:17 America/Tegucigalpa] La contraseña no coincide
+[29-Jul-2025 15:27:07 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:27:09 America/Tegucigalpa] La contraseña no coincide
+[29-Jul-2025 15:28:01 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:30:09 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:30:55 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:30:57 America/Tegucigalpa] La contraseña no coincide
+[29-Jul-2025 15:35:58 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:37:07 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:41:08 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:42:17 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:42:24 America/Tegucigalpa] La contraseña no coincide
+[29-Jul-2025 15:43:49 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:45:55 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:47:41 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:48:00 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:51:05 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:51:32 America/Tegucigalpa] conexión es exitosa
+[29-Jul-2025 15:51:42 America/Tegucigalpa] conexión es exitosa
+[30-Jul-2025 08:25:22 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[30-Jul-2025 08:25:22 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[30-Jul-2025 08:25:23 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\DB\Sql::verificar_registro(), 2 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 59 and exactly 3 expected in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:9
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(59): App\DB\Sql::verificar_registro('CALL verificar_...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(30): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(35): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php on line 9
+[30-Jul-2025 08:26:37 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[30-Jul-2025 08:26:37 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[30-Jul-2025 08:26:37 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\DB\Sql::verificar_registro(), 2 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 59 and exactly 3 expected in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:9
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(59): App\DB\Sql::verificar_registro('CALL verificar_...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(30): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(26): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php on line 9
+[30-Jul-2025 08:49:58 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:51:41 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:51:41 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:51:42 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:51:42 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:51:42 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:51:42 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:51:42 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:51:43 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:59:13 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 08:59:13 America/Tegucigalpa] PHP Warning:  Undefined array key "estado_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 26
+[30-Jul-2025 08:59:13 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[30-Jul-2025 08:59:13 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[30-Jul-2025 08:59:13 America/Tegucigalpa] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function App\DB\Sql::verificar_registro(), 2 passed in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 59 and exactly 3 expected in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:9
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(59): App\DB\Sql::verificar_registro('CALL verificar_...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(30): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php on line 9
+[30-Jul-2025 08:59:19 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 09:03:09 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 09:03:10 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15
+[30-Jul-2025 09:13:51 America/Tegucigalpa] PHP Warning:  Undefined variable $data in C:\xampp\htdocs\SistemaGrupo4\Public\index.php on line 15

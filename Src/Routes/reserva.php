@@ -11,28 +11,8 @@ $headers = getallheaders(); //capturando todas las cabeceras que nos envian
 
 $app = new ReservaController($method,$route,$params,$data,$headers); //instanciación
 
-/*
-//ruta para crear reserva con POST// 
-$app->post('/reserva', function() use ($reservaController){
-    $ReservaController->crear_reserva('/reserva');
-}); 
-//ruta para obtener las reservas con GET//
-$app->get('/reserva', function() use ($reservaController){
-    $ReservaController->obtener_todas_reservas('/reserva');
-});
-//ruta para actualizar reservas con PUT//
-$app->put('/reserva', function() use ($reservaController){
-    $ReservaController->actualizar_reserva('/reserva');
-});
-//ruta para eliminar reserva con DELETE//
-$app->delete('/reserva', function() use ($reservaController){
-    $ReservaController->eliminar_reserva('/reserva');
-});*/
-
-
-
 //Métodos llamados directamente según el recurso
-$app->post('reserva/');
+$app->crear_reserva('reserva/');
 /*
 $app->obtener_todas_reservas('reserva/');
 $app->actualizar_reserva("reserva/{$params[1]}/"); 

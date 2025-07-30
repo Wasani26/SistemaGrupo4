@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+  <title>BookMuse auth</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/LOGO.png" rel="icon">
-  <link href="assets/img/LOGO.png" rel="apple-touch-icon">
+  <link href="assets/img/BookMuse.png" rel="icon">
+  <link href="assets/img/BookMuse.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -49,8 +49,8 @@
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/LOGO.png" alt="">
+                <a href="auth.php" class="logo d-flex align-items-center w-auto">
+                  <img src="assets/img/BookMuse.png" alt="">
                   <span class="d-none d-lg-block">BookMuse</span>
                 </a>
               </div><!-- End Logo -->
@@ -67,17 +67,17 @@
                   <form class="row g-3 needs-validation" novalidate id="loginForm">
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Usuario</label>
+                      <label for="nombre-usuario" class="form-label">Usuario</label>
                       <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+            
+                        <input type="text" name="nombre_usuario" class="form-control" id="nombre_usuario" required>
                         <div class="invalid-feedback">Por favor, introduzca su nombre de usuario.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Contraseña</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
+                      <label for="contrasena" class="form-label">Contraseña</label>
+                      <input type="password" name="contrasena" class="form-control" id="contrasena" required>
                       <div class="invalid-feedback">¡Por favor, introduzca su contraseña!</div>
                     </div>
 
@@ -88,10 +88,11 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Iniciar Sesión</button>
+                      <button class="btn btn-primary w-100" type="buttom" onclick="login();">Iniciar Sesión</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">¿No tienes cuenta?<a href="pages-register.html"> Crea una cuenta</a></p>
+                      <p class="small mb-0">¿No tienes cuenta?<a href="registro.php"> Crea una cuenta</a></p>
+                      <p class="small mb-0">¿Deseas cambiar tu contraseña?<a href="registro.php">  Ingresa aqui</a></p>
                     </div>
                   </form>
 
@@ -130,7 +131,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <script src="assets/js/funciones.js"></script>
+  <script src="./js/auth.js"></script>
 
   <script src="assets/js/main.js"></script>
 </body>

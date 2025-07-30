@@ -249,6 +249,46 @@ public function cambiar_contrasena($idUsuario, $nuevaContrasenaHash) {
     }
 }
 
+// metodo actualizar un usuario en su mayoria
+final public function actualizar_usuario($id_usuario, $data) {
+    try {
+        $con = self::getConnection();
+
+        $sql = "CALL actualizar_usuario(
+                    :id_usuario,
+                    :nombre,
+                    :correo,
+                    :telefono,
+                    :dni,
+                    :fecha_nacimiento,
+                    :nacionalidad,
+                    :nombre_usuario,
+                    :url_foto
+                )";
+
+        $stmt = $con->prepare($sql);
+
+        $stmt->bindParam(':id_usuario', $id_usuario, \PDO::PARAM_INT);
+        $stmt->bindParam(':nombre', self::$nombre, \PDO::PARAM_STR);
+        $stmt->bindParam(':correo', self::$correo, \PDO::PARAM_STR);
+        $stmt->bindParam(':telefono', self::$telefono, \PDO::PARAM_STR);
+        $stmt->bindParam(':dni', self::$dni, \PDO::PARAM_STR);
+        $stmt->bindParam(':fecha_nacimiento', self::$fecha_nacimiento, \PDO::PARAM_STR);
+        $stmt->bindParam(':nacionalidad', self::$nacionalidad, \PDO::PARAM_STR);
+        $stmt->bindParam(':nombre_usuario', self::$nombre_usuario, \PDO::PARAM_STR);
+        $stmt->bindParam(':url_foto', self::$url_foto, \PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return ResponseHTTP::status200('Usuario actualizado correctamente');
+        } else {
+            return ResponseHTTP::status500('No se pudo actualizar el usuario');
+        }
+
+    } catch (\PDOException $e) {
+        error_log("UserModel::actualizar_usuario -> " . $e->getMessage());
+        return ResponseHTTP::status500('Error interno del servidor');
+    }
+}
 
 
 }
