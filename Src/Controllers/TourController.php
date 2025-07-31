@@ -14,7 +14,6 @@ class TourController {
     private $headers;
 
     private static $validar_texto = '/^[\wÁÉÍÓÚáéíóúñÑ\s]{2,255}$/';
-    private static $validar_precio = '/^\d+(\.\d{1,2})?$/';
     private static $validar_fecha = '/^\d{4}-\d{2}-\d{2}$/';
     private static $validar_hora = '/^\d{2}:\d{2}$/';
     private static $validar_numero = '/^\d+$/';
@@ -32,7 +31,7 @@ class TourController {
         if ($this->method === 'post' && $this->route === $endpoint) {
             $data = $this->data;
 
-            $campos_requeridos = ['nombre', 'descripcion', 'precio', 'fecha', 'hora_salida', 'cupo', 'id_idioma'];
+            $campos_requeridos = ['nombre', 'descripcion', 'fecha', 'hora_inicio', 'duracion', 'cupo_maximo', 'idioma_tour', 'punto_encuentro', 'comentario', 'id_museo', 'id_guia'];
 
             foreach ($campos_requeridos as $campo) {
                 if (!isset($data[$campo]) || empty($data[$campo])) {
@@ -43,37 +42,42 @@ class TourController {
 
             // Validaciones de contenido
             if (!preg_match(self::$validar_texto, $data['nombre'])) {
-                echo json_encode(ResponseHTTP::status400('Nombre inválido.'));
+                echo json_encode(ResponseHTTP::status400('Nombre invalido.'));
                 exit;
             }
 
             if (!preg_match(self::$validar_texto, $data['descripcion'])) {
-                echo json_encode(ResponseHTTP::status400('Descripción inválida.'));
-                exit;
-            }
-
-            if (!preg_match(self::$validar_precio, $data['precio'])) {
-                echo json_encode(ResponseHTTP::status400('Precio inválido.'));
+                echo json_encode(ResponseHTTP::status400('Descripcion invalida.'));
                 exit;
             }
 
             if (!preg_match(self::$validar_fecha, $data['fecha'])) {
-                echo json_encode(ResponseHTTP::status400('Fecha inválida. Formato correcto: YYYY-MM-DD'));
+                echo json_encode(ResponseHTTP::status400('fecha invalida.'));
                 exit;
             }
 
-            if (!preg_match(self::$validar_hora, $data['hora_salida'])) {
-                echo json_encode(ResponseHTTP::status400('Hora inválida. Formato correcto: HH:MM'));
+            if (!preg_match(self::$validar_hora, $data['hora_inicio'])) {
+                echo json_encode(ResponseHTTP::status400('Hora de inicio invalida.'));
                 exit;
             }
 
-            if (!preg_match(self::$validar_numero, $data['cupo'])) {
-                echo json_encode(ResponseHTTP::status400('Cupo inválido.'));
+            if (!preg_match(self::$validar_numero, $data['cupo_maximo'])) {
+                echo json_encode(ResponseHTTP::status400('Cupo maximo inválido.'));
                 exit;
             }
 
-            if (!preg_match(self::$validar_numero, $data['id_idioma'])) {
+            if (!preg_match(self::$validar_numero, $data['idioma_tour'])) {
                 echo json_encode(ResponseHTTP::status400('ID de idioma inválido.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_numero, $data['id_museo'])) {
+                echo json_encode(ResponseHTTP::status400('ID de museo inválido.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_numero, $data['id_guia'])) {
+                echo json_encode(ResponseHTTP::status400('ID de guía inválido.'));
                 exit;
             }
 

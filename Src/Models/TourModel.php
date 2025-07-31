@@ -266,4 +266,11 @@ public static function cambiarCupo($id, $data) {
         return ResponseHTTP::status500('Error en la base de datos.');
     }
 }
+public function getAllTours() {
+    return self::obtenerTodosLosTours();
+}
+
+public function getTour($id) {
+    return self::obtenerTour($id);
+}
 }
