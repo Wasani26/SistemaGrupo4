@@ -1303,3 +1303,20 @@ Stack trace:
 #2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
 #3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
 #4 {main}
+[30-Jul-2025 18:30:54 America/Tegucigalpa] conexión es exitosa
+[30-Jul-2025 18:30:55 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sistematours`.`reservas`, CONSTRAINT `fk_reservas_tour` FOREIGN KEY (`id_tour`) REFERENCES `tours` (`id_tour`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:89
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(89): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(63): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[30-Jul-2025 18:32:05 America/Tegucigalpa] conexión es exitosa
+[30-Jul-2025 18:32:05 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sistematours`.`reservas`, CONSTRAINT `fk_reservas_tour` FOREIGN KEY (`id_tour`) REFERENCES `tours` (`id_tour`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:89
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(89): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(63): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[30-Jul-2025 18:36:28 America/Tegucigalpa] conexión es exitosa
