@@ -1,12 +1,12 @@
 <?php
 // Src/Routes/dashboard.php
 
-namespace Aplicación\Modelos;
+namespace App\Modelos;
 
-use Aplicación\Base de datos\SQL;
-use Aplicación\Base de datos\ConnectionDB;
-use Aplicación\Configuración\Respuesta HTTP;
-use Aplicación\Configuración\Seguridad;
+use App\SQL;
+use App\ConnectionDB;
+use App\Config\ResponseHTTP;
+use Appp\Config\Security;
 
 class DashboardModel {
     public function __construct() {
