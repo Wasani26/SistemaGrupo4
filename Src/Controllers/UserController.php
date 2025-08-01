@@ -196,36 +196,43 @@ class UserController{
 
 
     final public function actualizar_usuario($endpoint) {
-    if ($this->method == 'put' && $endpoint == $this->route) {
+    if ($this->method == 'put' && rtrim($endpoint, '/') == rtrim($this->route, '/')) {
 
         // 1. Validar token JWT
         Security::validateTokenJwt($this->headers, Security::secretKey());
 
-        // 2. Obtener el ID desde la URL
-        $id_usuario = isset($this->params[1]) ? intval($this->params[1]) : 0;
-        if (!$id_usuario) {
-            ResponseHTTP::status400('ID de usuario inválido o no proporcionado');
+        // 2. Obtener nombre de usuario desde la URL
+        $nombre_usuario = $this->params[1] ?? null;
+        if (!$nombre_usuario) {
+            echo json_encode(ResponseHTTP::status400('Nombre de usuario no proporcionado'));
             return;
         }
 
+        // 3. Llamar al modelo para obtener el ID real
+        $id_usuario = UserModel::obtener_id_por_nombre_usuario($nombre_usuario);
+        if (!$id_usuario) {
+            echo json_encode(ResponseHTTP::status404('Usuario no encontrado'));
+            return;
+        }
 
         // 4. Validar campos requeridos (mínimos)
         $campos_requeridos = ['nombre', 'correo', 'telefono', 'dni', 'fecha_nacimiento', 'nacionalidad', 'nombre_usuario', 'url_foto'];
         foreach ($campos_requeridos as $campo) {
-            if (!isset($data[$campo])) {
-                ResponseHTTP::status400("Falta el campo requerido: $campo");
+            if (!isset($this->data[$campo])) {
+                echo json_encode(ResponseHTTP::status400("Falta el campo requerido: $campo"));
                 return;
             }
         }
 
         // 5. Instanciar modelo con los datos
-        $userModel = new UserModel($data);
+        $userModel = new UserModel($this->data);
 
         // 6. Llamar al método del modelo para actualizar
-        echo json_encode($userModel->actualizar_usuario($id_usuario, $data));
+        echo json_encode($userModel->actualizar_usuario($id_usuario, $this->data));
         return;
     }
 }
+
 
 
    final public function leer_usuario($endpoint){

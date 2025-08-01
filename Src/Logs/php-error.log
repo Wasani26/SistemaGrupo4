@@ -1320,3 +1320,17 @@ Stack trace:
 #3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
 #4 {main}
 [30-Jul-2025 18:36:28 America/Tegucigalpa] conexión es exitosa
+[31-Jul-2025 20:53:08 America/Tegucigalpa] conexión es exitosa
+[31-Jul-2025 21:10:17 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(202): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(19): App\Controllers\UserController->actualizar_usuario('user/EzeCalde/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[31-Jul-2025 21:19:56 America/Tegucigalpa] conexión es exitosa
+[31-Jul-2025 22:38:55 America/Tegucigalpa] conexión es exitosa
+[31-Jul-2025 22:40:06 America/Tegucigalpa] conexión es exitosa
+[31-Jul-2025 22:40:16 America/Tegucigalpa] conexión es exitosa
+[31-Jul-2025 22:40:16 America/Tegucigalpa] UserModel::obtener_id_por_nombre_usuario -> SQLSTATE[HY093]: Invalid parameter number: parameter was not defined

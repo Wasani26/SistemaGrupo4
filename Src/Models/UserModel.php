@@ -304,6 +304,23 @@ final public function actualizar_usuario($id_usuario, $data) {
     }
 }
 
+final public static function obtener_id_por_nombre_usuario($nombre_usuario) {
+    try {
+        $con = self::getConnection();
+        $sql = "CALL verificar_usuario(:usuario)";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':usuario', $nombre_usuario, \PDO::PARAM_STR);
+        $stmt->execute();
+
+        $resultado = $stmt->fetch(\PDO::FETCH_ASSOC);
+        return $resultado ? $resultado['id_usuario'] : false;
+
+    } catch (\PDOException $e) {
+        error_log("UserModel::obtener_id_por_nombre_usuario -> " . $e);
+        return false;
+    }
+}
+
 
 
 }
