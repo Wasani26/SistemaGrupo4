@@ -1,45 +1,64 @@
 <?php
 // Src/Routes/dashboard.php
 
-use App\Config\ResponseHTTP;
+function getDashboardData() {
+    $months = [];
+    $userRegistrations = [];
+    $tourRevenue = [];
+    $monthlyTours = [];
 
-// --- Simulación de Base de Datos en Memoria ---
-// Estos arrays simulan las tablas de tu base de datos para el proyecto
-$users_db = [
-    "admin_user" => ["password" => "admin_password", "role" => "admin"],
-    "guide_user" => ["password" => "guide_password", "role" => "guide"],
-    "regular_user" => ["password" => "user_password", "role" => "user"],
-];
+    for ($i = 5; $i >= 0; $i--) {
+        $month = date('M Y', strtotime("-$i months"));
+        $months[] = $month;
+        $userRegistrations[] = rand(50 + $i * 10, 150 + $i * 20);
+        $tourRevenue[] = rand(1000 + $i * 200, 5000 + $i * 500);
+        $monthlyTours[] = rand(5 + $i * 1, 20 + $i * 2);
+    }
 
-$tours_db = [
-    ["id" => 1, "name" => "Arte Precolombino", "price" => 25.00, "duration_minutes" => 90],
-    ["id" => 2, "name" => "Maestros del Renacimiento", "price" => 30.00, "duration_minutes" => 120],
-    ["id" => 3, "name" => "Exposición de Arte Moderno", "price" => 20.00, "duration_minutes" => 60],
-    ["id" => 4, "name" => "Historia del Museo", "price" => 15.00, "duration_minutes" => 45],
-];
+    $data = [
+        'userRegistrations' => [
+            'labels' => $months,
+            'data' => $userRegistrations
+        ],
+        'tourRevenue' => [
+            'labels' => $months,
+            'data' => $tourRevenue
+        ],
+        'monthlyTours' => [
+            'labels' => $months,
+            'data' => $monthlyTours
+        ]
+    ];
 
-$bookings_db = [
-    ["id" => 1, "tour_id" => 1, "user_id" => "regular_user", "purchase_date" => "2025-07-10", "quantity" => 1],
-    // ... (rest of your bookings data) ...
-];
-
-// --- Funciones de Autenticación y Endpoints del Dashboard ---
-// (Aquí irían tus funciones get_kpis, get_sales_by_date, get_popular_tours)
-// El código de estas funciones es exactamente el mismo que el de tu programa original.
-
-// --- Enrutador del Dashboard ---
-$dashboard_route = $url[1] ?? null;
-$request_method = $_SERVER['REQUEST_METHOD'];
-
-if ($dashboard_route === 'kpis' && $request_method === 'GET') {
-    get_kpis($users_db, $tours_db, $bookings_db);
-} elseif ($dashboard_route === 'sales-by-date' && $request_method === 'GET') {
-    get_sales_by_date($users_db, $tours_db, $bookings_db);
-} elseif ($dashboard_route === 'popular-tours' && $request_method === 'GET') {
-    get_popular_tours($users_db, $tours_db, $bookings_db);
-} else {
-    echo json_encode(ResponseHTTP::status404('Sub-ruta de dashboard no encontrada'));
+    return $data;
 }
 
-exit;
-?>
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    try {
+        $dashboardData = getDashboardData();
+        http_response_code(200);
+        echo json_encode([
+            'success' => true,
+            'message' => 'Datos del dashboard obtenidos con éxito',
+            'data' => $dashboardData
+        ]);
+    } catch (Exception $e) {
+        http_response_code(500);
+        echo json_encode([
+            'success' => false,
+            'message' => 'Error al obtener datos del dashboard: ' . $e->getMessage()
+        ]);
+    }
+} else {
+    http_response_code(405);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Método no permitido'
+    ]);
+}
