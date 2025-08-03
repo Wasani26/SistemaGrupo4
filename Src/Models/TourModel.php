@@ -124,6 +124,18 @@ class TourModel extends ConnectionDB {
         return ResponseHTTP::status500('Error en la base de datos.');
     }
 }
+final public static function obtener_tour(){
+    try {
+        $con = self::getConnection(); // conexión
+        $stmt = $con->prepare("CALL obtener_tour()");
+        $stmt->execute();
+        $res['data'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $res;
+    } catch (\PDOException $e) {
+        error_log("tourModel::obtener_tour ->" . $e);
+        die(json_encode(ResponseHTTP::status500()));
+    }
+}
 
     // Obtener tour por id
     public static function obtenerTour($id) {

@@ -114,6 +114,16 @@ class TourController {
         }
     }
 
+     //permite ver todos los tour
+    final public function obtener_tour($endpoint){
+    // validamos el método y el endpoint
+    if($this->method == 'get' && $endpoint == $this->route){
+       Security::validateTokenJwt($this->headers, Security::secretKey());
+       echo json_encode(tourModel::obtener_tour());
+        exit;
+      }
+    }
+
     final public function eliminar_tour($endpoint) {
         if ($this->method === 'delete' && $this->params[0] === trim($endpoint, '/')) {
             if (isset($this->params[1])) {
