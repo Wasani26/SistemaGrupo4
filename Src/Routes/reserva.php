@@ -13,10 +13,9 @@ $app = new ReservaController($method,$route,$params,$data,$headers); //instancia
 
 //Métodos llamados directamente según el recurso
 $app->crear_reserva('reserva/');
-/*
 $app->obtener_todas_reservas('reserva/');
 $app->actualizar_reserva("reserva/{$params[1]}/"); 
 $app->eliminar_reserva("reserva/{$params[1]}/");
-*/
+
 echo json_encode(ResponseHTTP::status404()); //ERROR EN CASO DE NO ENCONTRARSE LA RUTA
 ?>

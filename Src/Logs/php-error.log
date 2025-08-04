@@ -1337,3 +1337,138 @@ Stack trace:
 [02-Aug-2025 16:22:35 America/Tegucigalpa] conexión es exitosa
 [02-Aug-2025 16:24:05 America/Tegucigalpa] conexión es exitosa
 [02-Aug-2025 16:29:51 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:35:03 America/Tegucigalpa] PHP Warning:  Undefined array key "id_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 126
+[03-Aug-2025 22:35:05 America/Tegucigalpa] PHP Warning:  Undefined array key "fecha_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 26
+[03-Aug-2025 22:35:05 America/Tegucigalpa] PHP Warning:  Undefined array key "estado_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 27
+[03-Aug-2025 22:35:05 America/Tegucigalpa] PHP Warning:  Undefined array key "pagada" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[03-Aug-2025 22:35:05 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[03-Aug-2025 22:35:05 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 30
+[03-Aug-2025 22:35:05 America/Tegucigalpa] PHP Warning:  Undefined array key "cantidad_asistentes" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 31
+[03-Aug-2025 22:35:05 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 32
+[03-Aug-2025 22:35:05 America/Tegucigalpa] PHP Warning:  Undefined array key "id_tour" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 33
+[03-Aug-2025 22:35:05 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:35:05 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_reserva does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:69
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(69): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(132): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[03-Aug-2025 22:37:55 America/Tegucigalpa] PHP Warning:  Undefined array key "id_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 126
+[03-Aug-2025 22:37:55 America/Tegucigalpa] PHP Warning:  Undefined array key "fecha_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 26
+[03-Aug-2025 22:37:55 America/Tegucigalpa] PHP Warning:  Undefined array key "estado_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 27
+[03-Aug-2025 22:37:55 America/Tegucigalpa] PHP Warning:  Undefined array key "pagada" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[03-Aug-2025 22:37:55 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[03-Aug-2025 22:37:55 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 30
+[03-Aug-2025 22:37:55 America/Tegucigalpa] PHP Warning:  Undefined array key "cantidad_asistentes" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 31
+[03-Aug-2025 22:37:55 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 32
+[03-Aug-2025 22:37:55 America/Tegucigalpa] PHP Warning:  Undefined array key "id_tour" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 33
+[03-Aug-2025 22:37:55 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:37:55 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_reserva does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:69
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(69): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(132): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[03-Aug-2025 22:37:56 America/Tegucigalpa] PHP Warning:  Undefined array key "id_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 126
+[03-Aug-2025 22:37:56 America/Tegucigalpa] PHP Warning:  Undefined array key "fecha_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 26
+[03-Aug-2025 22:37:56 America/Tegucigalpa] PHP Warning:  Undefined array key "estado_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 27
+[03-Aug-2025 22:37:56 America/Tegucigalpa] PHP Warning:  Undefined array key "pagada" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[03-Aug-2025 22:37:56 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[03-Aug-2025 22:37:56 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 30
+[03-Aug-2025 22:37:56 America/Tegucigalpa] PHP Warning:  Undefined array key "cantidad_asistentes" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 31
+[03-Aug-2025 22:37:56 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 32
+[03-Aug-2025 22:37:56 America/Tegucigalpa] PHP Warning:  Undefined array key "id_tour" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 33
+[03-Aug-2025 22:37:56 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:37:56 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_reserva does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:69
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(69): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(132): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[03-Aug-2025 23:03:19 America/Tegucigalpa] PHP Warning:  Undefined array key "id_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 126
+[03-Aug-2025 23:03:19 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[03-Aug-2025 23:03:19 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[03-Aug-2025 23:03:19 America/Tegucigalpa] PHP Warning:  Undefined array key "cantidad_asistentes" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 30
+[03-Aug-2025 23:03:19 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 31
+[03-Aug-2025 23:03:19 America/Tegucigalpa] PHP Warning:  Undefined array key "id_tour" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 32
+[03-Aug-2025 23:03:19 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:03:19 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_reserva does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:71
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(71): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(132): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[03-Aug-2025 23:03:20 America/Tegucigalpa] PHP Warning:  Undefined array key "id_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 126
+[03-Aug-2025 23:03:20 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[03-Aug-2025 23:03:20 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[03-Aug-2025 23:03:20 America/Tegucigalpa] PHP Warning:  Undefined array key "cantidad_asistentes" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 30
+[03-Aug-2025 23:03:20 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 31
+[03-Aug-2025 23:03:20 America/Tegucigalpa] PHP Warning:  Undefined array key "id_tour" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 32
+[03-Aug-2025 23:03:20 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:03:20 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_reserva does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:71
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(71): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(132): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[03-Aug-2025 23:17:44 America/Tegucigalpa] PHP Warning:  Undefined array key "id_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 126
+[03-Aug-2025 23:17:44 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[03-Aug-2025 23:17:44 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[03-Aug-2025 23:17:44 America/Tegucigalpa] PHP Warning:  Undefined array key "cantidad_asistentes" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 30
+[03-Aug-2025 23:17:44 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 31
+[03-Aug-2025 23:17:44 America/Tegucigalpa] PHP Warning:  Undefined array key "id_tour" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 32
+[03-Aug-2025 23:17:44 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:17:44 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_reserva does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:76
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(76): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(132): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[03-Aug-2025 23:24:10 America/Tegucigalpa] PHP Warning:  Undefined array key "id_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 126
+[03-Aug-2025 23:24:10 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[03-Aug-2025 23:24:10 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[03-Aug-2025 23:24:10 America/Tegucigalpa] PHP Warning:  Undefined array key "cantidad_asistentes" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 30
+[03-Aug-2025 23:24:10 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 31
+[03-Aug-2025 23:24:10 America/Tegucigalpa] PHP Warning:  Undefined array key "id_tour" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 32
+[03-Aug-2025 23:24:10 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:24:10 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_reserva does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:76
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(76): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(132): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[03-Aug-2025 23:25:49 America/Tegucigalpa] PHP Warning:  Undefined array key "id_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 126
+[03-Aug-2025 23:25:49 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[03-Aug-2025 23:25:49 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[03-Aug-2025 23:25:49 America/Tegucigalpa] PHP Warning:  Undefined array key "cantidad_asistentes" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 30
+[03-Aug-2025 23:25:49 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 31
+[03-Aug-2025 23:25:49 America/Tegucigalpa] PHP Warning:  Undefined array key "id_tour" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 32
+[03-Aug-2025 23:25:49 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:25:49 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_reserva does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:76
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(76): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(132): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[03-Aug-2025 23:29:15 America/Tegucigalpa] PHP Warning:  Undefined array key "id_reserva" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php on line 126
+[03-Aug-2025 23:29:15 America/Tegucigalpa] PHP Warning:  Undefined array key "asistencia" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 28
+[03-Aug-2025 23:29:15 America/Tegucigalpa] PHP Warning:  Undefined array key "comentarios" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 29
+[03-Aug-2025 23:29:15 America/Tegucigalpa] PHP Warning:  Undefined array key "cantidad_asistentes" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 30
+[03-Aug-2025 23:29:15 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 31
+[03-Aug-2025 23:29:15 America/Tegucigalpa] PHP Warning:  Undefined array key "id_tour" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php on line 32
+[03-Aug-2025 23:29:15 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:29:15 America/Tegucigalpa] Error en crear_reserva: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_reserva does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:76
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(76): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(132): App\Models\ReservaModel->crear_reserva()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
