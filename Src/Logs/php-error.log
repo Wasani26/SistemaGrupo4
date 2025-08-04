@@ -1337,3 +1337,86 @@ Stack trace:
 [02-Aug-2025 16:22:35 America/Tegucigalpa] conexión es exitosa
 [02-Aug-2025 16:24:05 America/Tegucigalpa] conexión es exitosa
 [02-Aug-2025 16:29:51 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:17:59 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:18:35 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:18:43 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:19:06 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:19:27 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:19:55 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:20:00 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:20:21 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:20:26 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:21:51 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:21:57 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:22:39 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:49:29 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:50:40 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 22:50:40 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_usuario does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(72): App\DB\Sql::verificar_registro('CALL verificar_...', ':usuario', 'calde')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(108): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[03-Aug-2025 23:01:58 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:01:58 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:01:58 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_correo does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(76): App\DB\Sql::verificar_registro('CALL verificar_...', ':correo', 'calde01@gmail.c...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(108): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[03-Aug-2025 23:02:38 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:02:38 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:02:38 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_correo does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(76): App\DB\Sql::verificar_registro('CALL verificar_...', ':correo', 'calde01@gmail.c...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(108): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[03-Aug-2025 23:06:04 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:06:04 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:06:04 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'correo ' in 'where clause' in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(76): App\DB\Sql::verificar_registro('CALL verificar_...', ':correo', 'calde01@gmail.c...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(108): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[03-Aug-2025 23:12:15 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:12:15 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:12:15 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'correo ' in 'where clause' in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(76): App\DB\Sql::verificar_registro('CALL verificar_...', ':correo', 'normal@gmail.co...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(108): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[03-Aug-2025 23:24:46 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:24:46 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:24:46 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column ' p_correo' in 'where clause' in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(76): App\DB\Sql::verificar_registro('CALL verificar_...', ':correo', 'normal@gmail.co...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(108): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[03-Aug-2025 23:25:32 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:25:32 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:25:32 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:27:08 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:27:08 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:27:08 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:33:15 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:33:55 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:34:53 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:34:53 America/Tegucigalpa] conexión es exitosa
+[03-Aug-2025 23:34:53 America/Tegucigalpa] conexión es exitosa
