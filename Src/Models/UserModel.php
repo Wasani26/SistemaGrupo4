@@ -93,6 +93,8 @@ class UserModel extends ConnectionDB{
         )";
 
         $stmt = $con->prepare($query);
+        error_log('ROL A INSERTAR: ' . self::getRol());
+
         $stmt->execute([
             ':nombre'           => self::getNombre(),
             ':correo'           => self::getCorreo(),
@@ -238,6 +240,7 @@ public function cambiar_contrasena($idUsuario, $nuevaContrasenaHash) {
         $stmt->bindParam(':nueva_contrasena', $nuevaContrasenaHash, \PDO::PARAM_STR);
 
         if ($stmt->execute()) {
+              return ResponseHTTP::status200('Contraseña actualizada correctamente');
             return true; // Éxito
         } else {
             error_log("Error al ejecutar el procedimiento almacenado cambiar_contrasena.");

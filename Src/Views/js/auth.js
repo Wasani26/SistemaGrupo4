@@ -1,28 +1,29 @@
-function login(){
-    const nombre_usuario = $("#nombre_usuario").val();
-    const contrasena = $("#contrasena").val();
-
-    if(!nombre_usuario || !contrasena){
-        alert('usuario o contrasena vacios');
-        return false;
-    }else{
-        const url = `http://localhost/sistemaGrupo4/Public/auth/${nombre_usuario}/${contrasena}/`;
+$("#loginForm").submit(function () {
+    let user = $("#nombre_usuario").val();
+    let clave = $("#contrasena").val();
+    var caso = "login";
+    if(user != "" && clave != ""){
         $.ajax({
-            url: url,
-            type:"GET",
-            dataType:"json",
-            success:function(resp){
-                if(resp){
-                    alert('Entra en if');
+            url: 'login',
+            type: 'get',
+            data: {usuario:user, clave:clave, caso:caso},
+            success: function (resp) {
+                //alert(resp);
+                var json = JSON.parse(resp);
+                //alert(json.access);
+                if(json.access == 1){
+                    window.location.href = "menu";
                 }else{
-                    alert('Entra en else');
-                }
-               
-                /*const result = JSON.parse(resp);
-                window.location.href="../admin.php";*/
+                    window.location.href = "login";
+                }                
             }
-        })
+        });
+    }else{
+        Swal.fire({
+            title: "Debes llenar todos los campos!",
+            text: " ",
+            icon: "warning"
+        });
     }
-
-
-}
+    return false;
+});

@@ -64,7 +64,7 @@
                     <p class="text-center small">Ingrese su nombre de usuario y contraseña</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate id="loginForm">
+                  <form class="row g-3 needs-validation" novalidate id="loginForm" name="loginForm>
 
                     <div class="col-12">
                       <label for="nombre-usuario" class="form-label">Usuario</label>
@@ -88,11 +88,11 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="buttom" onclick="login();">Iniciar Sesión</button>
+                      <button class="btn btn-primary w-100" type="submit">Iniciar Sesión</button>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">¿No tienes cuenta?<a href="registro.php"> Crea una cuenta</a></p>
-                      <p class="small mb-0">¿Deseas cambiar tu contraseña?<a href="registro.php">  Ingresa aqui</a></p>
+                     
                     </div>
                   </form>
 
@@ -104,7 +104,7 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+               
               </div>
 
             </div>

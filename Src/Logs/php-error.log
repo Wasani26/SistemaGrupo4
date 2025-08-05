@@ -1558,3 +1558,75 @@ Stack trace:
 [03-Aug-2025 23:34:53 America/Tegucigalpa] conexión es exitosa
 [03-Aug-2025 23:34:53 America/Tegucigalpa] conexión es exitosa
 >>>>>>> 591dabdb747c6a8ba039f1698b78bae49b2210ab
+[05-Aug-2025 01:43:50 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 01:43:50 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.verificar_usuario does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(72): App\DB\Sql::verificar_registro('CALL verificar_...', ':usuario', 'visitante01')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(108): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[05-Aug-2025 01:51:13 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 01:51:13 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 01:51:13 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 01:53:35 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 01:53:35 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 01:53:35 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:27:41 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:27:41 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:27:41 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:33:34 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:33:37 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:33:37 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:33:37 America/Tegucigalpa] PHP Warning:  Undefined variable $response in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 96
+[05-Aug-2025 02:33:37 America/Tegucigalpa] 
+[05-Aug-2025 02:40:03 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:40:03 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:40:03 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:40:03 America/Tegucigalpa] ROL A INSERTAR: visitante
+[05-Aug-2025 02:52:56 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:52:56 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:52:56 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 02:52:56 America/Tegucigalpa] ROL A INSERTAR: visitante
+[05-Aug-2025 03:03:01 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:03:02 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:03:02 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:03:02 America/Tegucigalpa] ROL A INSERTAR: visitante
+[05-Aug-2025 03:11:17 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:11:18 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:11:18 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:11:18 America/Tegucigalpa] ROL A INSERTAR: visitante
+[05-Aug-2025 03:12:32 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:13:12 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:13:12 America/Tegucigalpa] UserModel::obtener_usuarios ->PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.obtener_usuarios does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:180
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(180): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(258): App\Models\UserModel::obtener_usuarios()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[05-Aug-2025 03:18:33 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:20:42 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:26:39 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:26:39 America/Tegucigalpa] UserModel::obtener_id -> PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.obtener_id does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:216
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(216): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(168): App\Models\UserModel->obtener_id(3)
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[05-Aug-2025 03:37:05 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(138): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(18): App\Controllers\UserController->cambiar_contrasena('user/contrasena...')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[05-Aug-2025 03:39:44 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:40:40 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:40:41 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:42:18 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:47:17 America/Tegucigalpa] conexión es exitosa
+[05-Aug-2025 03:47:17 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 319
