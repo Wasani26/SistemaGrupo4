@@ -13,8 +13,8 @@ class TourController {
     private $data;
     private $headers;
 
-    private static $validar_texto = '/^[\wÁÉÍÓÚáéíóúñÑ\s]{2,255}$/';
-    private static $validar_fecha = '/^\d{4}-\d{2}-\d{2}$/';
+    private static $validar_texto = '/^[\p{L}\p{N}\s\.,;:!?-]{2,255}$/u';
+    private static $validar_fecha = '/^\d{2}-\d{2}-\d{4}$/';
     private static $validar_hora = '/^\d{2}:\d{2}$/';
     private static $validar_numero = '/^\d+$/';
 

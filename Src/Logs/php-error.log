@@ -1630,3 +1630,86 @@ Stack trace:
 [05-Aug-2025 03:42:18 America/Tegucigalpa] conexión es exitosa
 [05-Aug-2025 03:47:17 America/Tegucigalpa] conexión es exitosa
 [05-Aug-2025 03:47:17 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 319
+[06-Aug-2025 14:54:31 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 14:54:31 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column ' p_usuario' in 'where clause' in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(72): App\DB\Sql::verificar_registro('CALL verificar_...', ':usuario', 'calde')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(108): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[06-Aug-2025 14:55:55 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 14:55:55 America/Tegucigalpa] sql::verificar_registro -> PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column ' p_usuario' in 'where clause' in C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php:13
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\DB\Sql.php(13): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(72): App\DB\Sql::verificar_registro('CALL verificar_...', ':usuario', 'calde')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(108): App\Models\UserModel::crear_usuario_completo()
+#3 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(15): App\Controllers\UserController->crear_usuario_completo('user/')
+#4 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#5 {main}
+[06-Aug-2025 14:58:53 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 14:58:53 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 14:58:53 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 14:58:53 America/Tegucigalpa] ROL A INSERTAR: visitante
+[06-Aug-2025 14:59:09 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:08:30 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:08:30 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:08:30 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:08:30 America/Tegucigalpa] ROL A INSERTAR: visitante
+[06-Aug-2025 15:13:40 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:22:41 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:38:36 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:38:57 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:39:03 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:40:43 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:42:30 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:43:04 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:45:46 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:49:21 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:49:31 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:49:50 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:50:40 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:50:48 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:51:07 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:53:12 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:54:02 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 15:55:27 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 16:05:35 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 16:10:16 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 16:15:49 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 16:21:23 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 16:21:39 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 16:23:58 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 16:48:02 America/Tegucigalpa] RAW PHP Input:   {
+  "nombre": "Tour por el Museo de Historia Natural",
+  "descripcion": "Un tour guiado muy interesante para conocer la historia del museo",
+  "fecha": "08-08-2025",
+  "hora_inicio": "10:00",
+  "duracion": "120",
+  "cupo_maximo": "20",
+  "idioma_tour": "1",
+  "punto_encuentro": "Entrada principal del museo",
+  "comentario": "Tour ideal para familias y estudiantes.",
+  "id_museo": "1",
+  "id_guia": "2"
+}
+[06-Aug-2025 16:48:02 America/Tegucigalpa] Decoded Data (print_r): Array
+(
+    [nombre] => Tour por el Museo de Historia Natural
+    [descripcion] => Un tour guiado muy interesante para conocer la historia del museo
+    [fecha] => 08-08-2025
+    [hora_inicio] => 10:00
+    [duracion] => 120
+    [cupo_maximo] => 20
+    [idioma_tour] => 1
+    [punto_encuentro] => Entrada principal del museo
+    [comentario] => Tour ideal para familias y estudiantes.
+    [id_museo] => 1
+    [id_guia] => 2
+)
+
+[06-Aug-2025 16:48:02 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 17:24:04 America/Tegucigalpa] >> Entrando a tour.php <<
+[06-Aug-2025 17:24:04 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 17:48:50 America/Tegucigalpa] >> Entrando a tour.php <<
