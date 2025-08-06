@@ -59,9 +59,9 @@ class ReservaModel extends ConnectionDB{
     final public function setId_tour($id_tour){$this->id_tour= $id_tour;}
     final public function setMonto($monto){$this->monto= $monto;}
     final public function setMoneda($moneda){$this->moneda= $moneda;}
-    final public function setMetodo_pago($metodo_pago){$this->metodo_pago;}
+    final public function setMetodo_pago($metodo_pago){$this->metodo_pago=$metodo_pago;}
     final public function setfecha_pago($fecha_pago){$this->fecha_pago= $fecha_pago;}
-    final public function setEstado($estado){$this->estado;}
+    final public function setEstado($estado){$this->estado=$estado;}
 
     final public function crear_reserva() {
     // Captura de datos
@@ -74,12 +74,13 @@ class ReservaModel extends ConnectionDB{
         // Validación de duplicado por procedimiento almacenado
         $stmt_verificar = $con->prepare("CALL verificar_reserva( :id_usuario, :id_tour)");
         $stmt_verificar->execute([
-            ':id_usuario'    => $id_usuario,
-            ':id_tour'       => $id_tour
+           /* ':id_usuario'    => $id_usuario,
+            ':id_tour'       => $id_tour */
+            ':id_usuario' => $this->getId_usuario(),
+            ':id_tour' => $this->getId_tour()
         ]);
 
         $resultado = $stmt_verificar->fetch(\PDO::FETCH_ASSOC);
-
         // Cierre del cursor para evitar el error 2014
         $stmt_verificar->closeCursor();
 
@@ -93,11 +94,21 @@ class ReservaModel extends ConnectionDB{
         )");
 
         $stmt_crear->execute([
-            ':asistencia'           => $this->getAsistencia(),
+        /*   ':asistencia'           => $this->getAsistencia(),
             ':comentarios'          => $this->getComentarios(),
             ':cantidad_asistentes'  => $this->getCantidad_asistentes(),
             ':id_usuario'           => $id_usuario,
-            ':id_tour'              => $id_tour,
+            ':id_tour'              => $id_tour, */
+            ':asistencia' => $this->getAsistencia(),
+            ':comentarios' => $this->getComentarios(),
+            ':cantidad_asistentes' => $this->getCantidad_asistentes(),
+            ':id_usuario' => $this->getId_usuario(),
+            ':id_tour' => $this->getId_tour(),
+            ':monto' => $this->getMonto(),
+            ':moneda' => $this->getMoneda(),
+            ':metodo_pago' => $this->getMetodo_pago(),
+            ':fecha_pago' => $this->getFecha_pago(),
+            ':estado' => $this->getEstado()
         ]);
 
         if ($stmt_crear->rowCount() > 0) {

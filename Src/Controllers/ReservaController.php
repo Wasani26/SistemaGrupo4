@@ -25,47 +25,8 @@ class ReservaController {
         $this->headers = $headers;
     }
 
-   /* 
-   //Metodo POST para crear las reservas//
-   final public function crear_reserva($endpoint){
-    if($this->method == 'post' && $endpoint == $this->route){
-        $data = $this->data;
 
-        // Campos requeridos para la reserva
-        $campos_requeridos = ['cantidad_asistentes', 'id_usuario', 'id_tour'];
-
-        foreach ($campos_requeridos as $campo) {
-            if (!isset($data[$campo]) || empty($data[$campo])) {
-                echo json_encode(ResponseHTTP::status400("El campo '$campo' es obligatorio."));
-                exit;
-            }
-        }
-
-        // Validar cantidad_asistentes
-        if (!preg_match(self::$validar_entero_positivo, $data['cantidad_asistentes'])) {
-            echo json_encode(ResponseHTTP::status400("La cantidad de asistentes debe ser un entero positivo."));
-            exit;
-        }
-
-        // Validar comentarios si viene
-        if (isset($data['comentarios']) && !preg_match(self::$validar_comentario_texto, $data['comentarios'])) {
-            echo json_encode(ResponseHTTP::status400("El campo comentarios contiene caracteres inválidos."));
-            exit;
-        }
-
-        // Asignar valores automáticos
-        $data['fecha_reserva'] = date('Y-m-d H:i:s');
-        $data['estado_reserva'] = 'pendiente';
-        $data['pagada'] = false;
-        $data['asistencia'] = false;
-
-        $reserva = new ReservaModel($data);
-        echo json_encode($reserva->crear_reserva());
-        exit;
-    }
-}
-*/
-
+  //Metodo POST para crear las reservas//
 final public function crear_reserva($endpoint) {
     if($this->method == 'post' && $endpoint == $this->route) {
         $data = $this->data;
@@ -76,20 +37,20 @@ final public function crear_reserva($endpoint) {
         foreach ($campos_requeridos as $campo) {
             if (!isset($data[$campo]) || empty($data[$campo])) {
                 echo json_encode(ResponseHTTP::status400("El campo '$campo' es obligatorio."));
-                exit;
+                return;
             }
         }
 
         // Validar cantidad_asistentes
         if (!preg_match(self::$validar_entero_positivo, $data['cantidad_asistentes']) || $data['cantidad_asistentes'] <= 0) {
             echo json_encode(ResponseHTTP::status400("La cantidad de asistentes debe ser un entero positivo mayor a cero."));
-            exit;
+            return;
         }
 
         // Validar comentarios si viene
         if (isset($data['comentarios']) && !preg_match(self::$validar_comentario_texto, $data['comentarios'])) {
             echo json_encode(ResponseHTTP::status400("El campo comentarios contiene caracteres inválidos."));
-            exit;
+            return;
         }
 
         // Validar moneda si viene (si no viene, usaremos LPS por defecto)
@@ -97,7 +58,7 @@ final public function crear_reserva($endpoint) {
             $monedas_validas = ['LPS', '$'];
             if (!in_array($data['moneda'], $monedas_validas)) {
                 echo json_encode(ResponseHTTP::status400("Moneda no válida. Solo se acepta 'LPS' o '$'."));
-                exit;
+                return;
             }
         } else {
             $data['moneda'] = 'LPS'; // Valor por defecto
@@ -111,12 +72,6 @@ final public function crear_reserva($endpoint) {
         $data['estado'] = 'pendiente';
         $data['asistencia'] = false;
 
-       /*
-            // Crear la reserva
-            $reservaModel = new ReservaModel($data);
-            $resultado_reserva = $reservaModel->crear_reserva();
-            $id_reserva = $resultado_reserva['data']['id_reserva'];
-*/
             // Preparar datos para el pago
             $datos_pago = [
                 'monto' => $monto,
@@ -131,12 +86,9 @@ final public function crear_reserva($endpoint) {
             $reservaModel = new ReservaModel($datos_pago);
             $resultado_pago = $reservaModel->crear_reserva();
 
-            
           exit;
 
         }
-                          echo json_encode("llegastes a post");
-        exit;
     }
 
 
