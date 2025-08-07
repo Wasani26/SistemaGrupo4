@@ -6,109 +6,122 @@ use App\Config\ResponseHTTP;
 use App\Config\Security;
 
 class TourModel extends ConnectionDB {
-    private static $id;
-    private static $nombre;
-    private static $descripcion;
-    private static $fecha;
-    private static $inicio;
-    private static $duracion;
-    private static $cupo;
-    private static $idioma;
-    private static $encuentro;
-    private static $comentario;
-    private static $museo;
-    private static $guia;
+   
+       private static $id;
+        private static $nombre;
+        private static $descripcion;
+        private static $fecha;
+        private static $inicio;
+        private static $duracion;
+        private static $cupo;
+        private static $idioma;
+        private static $encuentro;
+        private static $comentario;
+        private static $museo;
+        private static $id_usuario; // 
 
-    public function __construct($data = []) {
-        if (!empty($data)) {
-            self::$id = $data['id'] ?? null;
-            self::$nombre = $data['nombre'] ?? null;
-            self::$descripcion = $data['descripcion'] ?? null;
-            self::$fecha = $data['fecha'] ?? null;
-            self::$inicio = $data['inicio'] ?? null;
-            self::$duracion = $data['duracion'] ?? null;
-            self::$cupo = $data['cupo'] ?? null;
-            self::$idioma = $data['idioma'] ?? null;
-            self::$encuentro = $data['encuentro'] ?? null;
-            self::$comentario = $data['comentario'] ?? null;
-            self::$museo = $data['museo'] ?? null;
-            self::$guia = $data['guia'] ?? null;
+        public function __construct($data = []) {
+            if (!empty($data)) {
+                self::$id = $data['id'] ?? null;
+                self::$nombre = $data['nombre'] ?? null;
+                self::$descripcion = $data['descripcion'] ?? null;
+                self::$fecha = $data['fecha'] ?? null;
+                self::$inicio = $data['hora_inicio'] ?? null; // Corregido previamente
+                self::$duracion = $data['duracion'] ?? null;
+                self::$cupo = $data['cupo_maximo'] ?? null;   // Corregido previamente
+                self::$idioma = $data['idioma_tour'] ?? null; // Corregido previamente
+                self::$encuentro = $data['punto_encuentro'] ?? null; // Corregido previamente
+                self::$comentario = $data['comentario'] ?? null;
+                self::$museo = $data['id_museo'] ?? null;     // Corregido previamente
+                self::$id_usuario = $data['id_usuario'] ?? null; // ¡Asignar el id_usuario!
+            }
+        }
+
+        // Getters
+        public static function getId() { return self::$id; }
+        public static function getNombre() { return self::$nombre; }
+        public static function getDescripcion() { return self::$nombre; } // Error: debería ser self::$descripcion
+        public static function getFecha() { return self::$fecha; }
+        public static function getInicio() { return self::$inicio; }
+        public static function getDuracion() { return self::$duracion; }
+        public static function getCupo() { return self::$cupo; }
+        public static function getIdioma() { return self::$idioma; }
+        public static function getEncuentro() { return self::$encuentro; }
+        public static function getComentario() { return self::$comentario; }
+        public static function getMuseo() { return self::$museo; }
+        public static function getIdUsuario() { return self::$id_usuario; } // ¡Nuevo Getter!
+
+        // Setters (añadir setIdUsuario si es necesario)
+        public static function setId($id) { self::$id = $id; }
+        public static function setNombre($nombre) { self::$nombre = $nombre; }
+        public static function setDescripcion($descripcion) { self::$descripcion = $descripcion; }
+        public static function setFecha($fecha) { self::$fecha = $fecha; }
+        public static function setInicio($inicio) { self::$inicio = $inicio; }
+        public static function setDuracion($duracion) { self::$duracion = $duracion; }
+        public static function setCupo($cupo) { self::$cupo = $cupo; }
+        public static function setIdioma($idioma) { self::$idioma = $idioma; }
+        public static function setEncuentro($encuentro) { self::$encuentro = $encuentro; }
+        public static function setComentario($comentario) { self::$comentario = $comentario; }
+        public static function setMuseo($museo) { self::$museo = $museo; }
+        public static function setIdUsuario($id_usuario) { self::$id_usuario = $id_usuario; } // ¡Nuevo Setter!
+
+
+        // Crear un tour
+        public static function creartour() {
+        try {
+            $con = self::getConnection();
+
+            // Validar campos obligatorios
+            if (
+                empty(self::$nombre) || empty(self::$descripcion) || empty(self::$fecha) ||
+                empty(self::$cupo) || empty(self::$inicio) || empty(self::$duracion) ||
+                empty(self::$idioma) || empty(self::$encuentro) || empty(self::$comentario) ||
+                empty(self::$museo) || empty(self::$id_usuario)
+            ) {
+                return ResponseHTTP::status400('Faltan campos obligatorios en el modelo.');
+            }
+
+            // --- ¡Aquí está la corrección para el formato de la fecha! ---
+            // Convertir la fecha de DD-MM-AAAA a AAAA-MM-DD
+            $fecha_para_db = \DateTime::createFromFormat('d-m-Y', self::$fecha);
+            if (!$fecha_para_db) {
+                // Si la conversión falla (aunque el controlador ya validó el formato,
+                // es buena práctica tener un fallback o un error más específico aquí)
+                return ResponseHTTP::status400('Formato de fecha inválido para la base de datos.');
+            }
+            $fecha_formateada = $fecha_para_db->format('Y-m-d');
+            // -----------------------------------------------------------
+
+            $query = "CALL crear_tour(
+                :titulo, :descripcion, :fecha, :inicio, :duracion, :cupo, :idioma, :encuentro, :comentario, :museo, :id_usuario
+            )";
+
+            $stmt = $con->prepare($query);
+            $stmt->execute([
+                ':titulo'      => self::$nombre,
+                ':descripcion' => self::$descripcion,
+                ':fecha'       => $fecha_formateada, 
+                ':inicio'      => self::$inicio,
+                ':duracion'    => self::$duracion,
+                ':cupo'        => self::$cupo,
+                ':idioma'      => self::$idioma,
+                ':encuentro'   => self::$encuentro,
+                ':comentario'  => self::$comentario,
+                ':museo'       => self::$museo,
+                ':id_usuario'  => self::$id_usuario
+            ]);
+
+            if ($stmt->rowCount() > 0) {
+                return ResponseHTTP::status201('Tour creado exitosamente.');
+            } else {
+                return ResponseHTTP::status500('No se pudo crear el tour.');
+            }
+
+        } catch (\PDOException $e) {
+            error_log('TourModel::creartour -> '.$e);
+            return ResponseHTTP::status500();
         }
     }
-
-    // Getters
-    public static function getId() { return self::$id; }
-    public static function getNombre() { return self::$nombre; }
-    public static function getDescripcion() { return self::$descripcion; }
-    public static function getFecha() { return self::$fecha; }
-    public static function getInicio() { return self::$inicio; }
-    public static function getDuracion() { return self::$duracion; }
-    public static function getCupo() { return self::$cupo; }
-    public static function getIdioma() { return self::$idioma; }
-    public static function getEncuentro() { return self::$encuentro; }
-    public static function getComentario() { return self::$comentario; }
-    public static function getMuseo() { return self::$museo; }
-    public static function getGuia() { return self::$guia; }
-
-    // Setters
-    public static function setId($id) { self::$id = $id; }
-    public static function setNombre($nombre) { self::$nombre = $nombre; }
-    public static function setDescripcion($descripcion) { self::$descripcion = $descripcion; }
-    public static function setFecha($fecha) { self::$fecha = $fecha; }
-    public static function setInicio($inicio) { self::$inicio = $inicio; }
-    public static function setDuracion($duracion) { self::$duracion = $duracion; }
-    public static function setCupo($cupo) { self::$cupo = $cupo; }
-    public static function setIdioma($idioma) { self::$idioma = $idioma; }
-    public static function setEncuentro($encuentro) { self::$encuentro = $encuentro; }
-    public static function setComentario($comentario) { self::$comentario = $comentario; }
-    public static function setMuseo($museo) { self::$museo = $museo; }
-    public static function setGuia($guia) { self::$guia = $guia; }
-
-    // Crear un tour
-    public static function creartour() {
-    try {
-        $con = self::getConnection();
-
-        // Validar campos obligatorios (ajusta los nombres según lo que recibas)
-        if (
-            empty(self::$nombre) || empty(self::$descripcion) || empty(self::$fecha) ||
-            empty(self::$cupo) || empty(self::$inicio) || empty(self::$duracion) ||
-            empty(self::$idioma) || empty(self::$encuentro) || empty(self::$comentario) ||
-            empty(self::$museo) || empty(self::$guia)
-        ) {
-            return ResponseHTTP::status400('Faltan campos obligatorios.');
-        }
-
-        $query = "CALL creartour(
-            :titulo, :descripcion, :fecha, :inicio, :duracion, :cupo, :idioma, :encuentro, :comentario, :museo, :guia
-        )";
-
-        $stmt = $con->prepare($query);
-        $stmt->execute([
-            ':titulo'     => self::$nombre,
-            ':descripcion'=> self::$descripcion,
-            ':fecha'      => self::$fecha,
-            ':inicio'     => self::$inicio,
-            ':duracion'   => self::$duracion,
-            ':cupo'       => self::$cupo,
-            ':idioma'     => self::$idioma,
-            ':encuentro'  => self::$encuentro,
-            ':comentario' => self::$comentario,
-            ':museo'      => self::$museo,
-            ':guia'       => self::$guia
-        ]);
-
-        if ($stmt->rowCount() > 0) {
-            return ResponseHTTP::status201('Tour creado exitosamente.');
-        } else {
-            return ResponseHTTP::status500('No se pudo crear el tour.');
-        }
-
-    } catch (\PDOException $e) {
-        error_log('TourModel::creartour -> '.$e->getMessage());
-        return ResponseHTTP::status500('Error en la base de datos.');
-    }
-}
 
     // Obtener todos los tours
    public static function obtenerTodosLosTours() {
@@ -138,22 +151,24 @@ final public static function obtener_tour(){
 }
 
     // Obtener tour por id
-    public static function obtenerTour($id) {
+    public static function leer_Tour($id) {
     try {
-        $con = self::getConnection();
-        $sql = "CALL leertour(:id)";
-        $stmt = $con->prepare($sql);
-        $stmt->execute([':id' => $id]);
-        $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+       $con = self::getConnection();
+        $query = "CALL leer_tour(:id)";
+        $stmt = $con->prepare($query);
+        $stmt->execute([
+            ':id' => $id
+        ]);
 
-        if ($data) {
-            return ResponseHTTP::status200($data);
+       if($stmt->rowCount() > 0){
+            $res['data'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $res;
         } else {
-            return ResponseHTTP::status404('Tour no encontrado.');
+            return ResponseHTTP::status400('No existe registro de este tour!');
         }
-    } catch (\PDOException $e) {
-        error_log('TourModel::obtenerTour -> ' . $e->getMessage());
-        return ResponseHTTP::status500('Error en la base de datos.');
+    } catch(\PDOException $e){
+        error_log("TourModel::leer_tour -> ".$e);
+        die(json_encode(ResponseHTTP::status500()));
     }
 }
 

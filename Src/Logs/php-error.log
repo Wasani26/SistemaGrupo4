@@ -1713,3 +1713,107 @@ Stack trace:
 [06-Aug-2025 17:24:04 America/Tegucigalpa] >> Entrando a tour.php <<
 [06-Aug-2025 17:24:04 America/Tegucigalpa] conexión es exitosa
 [06-Aug-2025 17:48:50 America/Tegucigalpa] >> Entrando a tour.php <<
+[06-Aug-2025 20:04:44 America/Tegucigalpa] >> Entrando a tour.php <<
+[06-Aug-2025 20:08:19 America/Tegucigalpa] >> Entrando a tour.php <<
+[06-Aug-2025 20:10:10 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:10:20 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:10:31 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:11:10 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:11:18 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:12:42 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:15:55 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:16:05 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 20:20:16 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:20:17 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 20:35:40 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:35:58 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:35:59 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 20:35:59 America/Tegucigalpa] TourModel::creartour -> SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.creartour does not exist
+[06-Aug-2025 20:39:25 America/Tegucigalpa] >> Entrando a tourController.php <<
+[06-Aug-2025 20:39:26 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 20:39:26 America/Tegucigalpa] TourModel::creartour -> SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sistematours`.`tours`, CONSTRAINT `fk_tours_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[06-Aug-2025 21:24:50 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 21:26:14 America/Tegucigalpa] PHP Parse error:  syntax error, unexpected token "||" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php on line 79
+[06-Aug-2025 21:26:44 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 21:26:44 America/Tegucigalpa] TourModel::creartour -> SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.creartour does not exist
+[06-Aug-2025 21:28:46 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 21:43:23 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 22:22:22 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 22:35:31 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 22:35:31 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Access to undeclared static property App\Models\TourModel::$fecha_final in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php:101
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php(109): App\Models\TourModel::creartour()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(17): App\Controllers\TourController->crear_tour('tour/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php on line 101
+[06-Aug-2025 22:37:06 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 22:37:07 America/Tegucigalpa] TourModel::creartour -> SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'fecha' cannot be null
+[06-Aug-2025 22:38:27 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 22:38:27 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Access to undeclared static property App\Models\TourModel::$fecha_formateada in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php:101
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php(109): App\Models\TourModel::creartour()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(17): App\Controllers\TourController->crear_tour('tour/')
+#2 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php on line 101
+[06-Aug-2025 22:41:15 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 22:44:31 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Class "App\Controllers\Security" not found in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php:144
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(18): App\Controllers\TourController->obtener_tour('tour/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php on line 144
+[06-Aug-2025 22:49:41 America/Tegucigalpa] PHP Parse error:  syntax error, unexpected namespace-relative name "namespace\Config\Security" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php on line 6
+[06-Aug-2025 22:50:48 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 22:50:48 America/Tegucigalpa] tourModel::obtener_tour ->PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.obtener_tour does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php:144
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php(144): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php(146): App\Models\TourModel::obtener_tour()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(18): App\Controllers\TourController->obtener_tour('tour/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[06-Aug-2025 22:54:55 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 23:16:21 America/Tegucigalpa] conexión es exitosa
+[06-Aug-2025 23:16:21 America/Tegucigalpa] tourModel::obtener_tours ->PDOException: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.obtener_tours does not exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php:144
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php(144): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php(146): App\Models\TourModel::obtener_tours()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(18): App\Controllers\TourController->obtener_tours('tour/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[06-Aug-2025 23:16:58 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Models\TourModel::obtener_tours() in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php:146
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(18): App\Controllers\TourController->obtener_tours('tour/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php on line 146
+[06-Aug-2025 23:17:21 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 01:18:31 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 01:21:25 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Config\Security::secret() in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php:117
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(19): App\Controllers\TourController->leer_tour('tour/2/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php on line 117
+[07-Aug-2025 01:23:02 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 01:23:31 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Models\TourModel::leer_tour() in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php:122
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(19): App\Controllers\TourController->leer_tour('tour/2/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php on line 122
+[07-Aug-2025 01:25:05 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 01:25:05 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Config\ResponseHTTP::status200(): Argument #1 ($res) must be of type string, array given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php on line 163 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php:16
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php(163): App\Config\ResponseHTTP::status200(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php(122): App\Models\TourModel::leer_Tour('2')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(19): App\Controllers\TourController->leer_tour('tour/2/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php on line 16
+[07-Aug-2025 01:27:28 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 01:29:27 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 01:29:47 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 01:29:56 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 01:31:24 America/Tegucigalpa] conexión es exitosa
