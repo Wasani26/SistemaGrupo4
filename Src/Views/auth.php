@@ -83,12 +83,12 @@
 
                     <div class="col-12">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Acuérdate de mí</label>
+                      
+                       
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Iniciar Sesión</button>
+                      <button class="btn btn-primary w-100" type = "submit">Iniciar Sesión</button>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">¿No tienes cuenta?<a href="registro.php"> Crea una cuenta</a></p>
@@ -131,7 +131,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <script src="./js/auth.js"></script>
+  <script src="js/auth.js"></script>
 
   <script src="assets/js/main.js"></script>
 </body>

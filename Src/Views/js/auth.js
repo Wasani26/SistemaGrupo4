@@ -4,19 +4,55 @@ $("#loginForm").submit(function () {
     var caso = "login";
     if(user != "" && clave != ""){
         $.ajax({
-            url: 'login',
+            url: `http://localhost/sistemaGrupo4/Public/auth/${user}/${clave}/`,
             type: 'get',
-            data: {usuario:user, clave:clave, caso:caso},
+            dataType: 'json',
             success: function (resp) {
-                //alert(resp);
+
+               const token = resp.token;
+               localStorage.setItem("Authorization", "Bearer " + token);
+               
+                alert (token);
+
+                $.ajax({
+                    url:"./funciones/sesion.php",
+                    type: "POST",
+                    contentType: "application/json",
+                    headers: {"Authorization": "Bearer" + resp.token, "Accept": "application/json"},
+
+                    data: JSON.stringify({
+                        usuario: resp.usuario,
+                        rol: resp.rol,
+                        token: resp.token
+                    }),
+                    success: function(respuesta){
+                        const resultado = JSON.parse(respuesta);
+                        alert (resultado.data);
+
+                        if(resultado.success){
+                              alert("Usuario logueado exitosamente")
+                            if(resp.rol == "visitante"){;
+                              window.location.href = "./menu.php";
+                             }else{
+                              window.location.href = "admin.php";
+                            } // validar todos los roles siendo primero el administrador
+                             //más tarde darle vuelta al acceso segun rol siendo primero admin, guia y por ultimo (else) el de menu.php
+                        }else{
+                            alert('Error de sesión!');
+                        }
+                      
+                    }
+        
+                })
+               // alert(resp);
                 var json = JSON.parse(resp);
-                //alert(json.access);
-                if(json.access == 1){
-                    window.location.href = "menu";
-                }else{
-                    window.location.href = "login";
-                }                
-            }
+               // alert(json.access);
+
+                           
+            },
+            error: function (resp){
+                alert ("Usuario o contraseña incorrectas");
+            } 
         });
     }else{
         Swal.fire({
