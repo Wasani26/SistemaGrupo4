@@ -17,10 +17,10 @@ $app = new TourController($method,$route,$params,$data,$headers); //instanciaciÃ
 $app->crear_tour('tour/'); //llamada a metodo post con la ruta/endpoint al recurso
 $app->obtener_tour('tour/'); //metodo para ver a todos los usuarios
 $app->leer_tour("tour/{$params[1]}/"); //trae informaciÃ³n de un solo usuario
-$app->actualizar_tour("tour/{$params[1]}/");
-$app->eliminar_tour("tour/{$params[1]}/");
-$app->cambiar_fecha("tour/{$params[1]}/");
-$app->cambiar_cupo("tour/{$params[1]}/");
+$app->actualizar_tour("tour/");
+$app->eliminar_tour("tour/"); 
+$app->cambiar_fecha("tour/"); 
+$app->cambiar_cupo("tour/"); 
 
 
 echo json_encode(ResponseHTTP::status404()); //ERROR EN CASO DE NO ENCONTRARSE LA RUTA

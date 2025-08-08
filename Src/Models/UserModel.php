@@ -19,23 +19,23 @@ class UserModel extends ConnectionDB{
     private static $fecha_creacion;
     private static $activo;
 
-    //constructor
-    public function __construct($data = []) {
-        if(!empty($data)){
-        self::$nombre = $data['nombre'];
-        self::$correo = $data['correo'];
-        self::$telefono = $data['telefono'];
-        self::$dni = $data['dni'];
-        self::$fecha_nacimiento = $data['fecha_nacimiento'];
-        self::$nacionalidad = $data['nacionalidad'];
-        self::$nombre_usuario = $data['nombre_usuario'];
-        self::$contrasena = $data['contrasena']; //password_hash($data['contrasena'], PASSWORD_DEFAULT);
-        self::$url_foto = $data['url_foto']; //isset($data['url_foto']) ? $data['url_foto'] : null;
+   public function __construct($data = []) {
+    if (!empty($data)) {
+        self::$nombre = $data['nombre'] ?? null;
+        self::$correo = $data['correo'] ?? null;
+        self::$telefono = $data['telefono'] ?? null;
+        self::$dni = $data['dni'] ?? null;
+        self::$fecha_nacimiento = $data['fecha_nacimiento'] ?? null;
+        self::$nacionalidad = $data['nacionalidad'] ?? null;
+        self::$nombre_usuario = $data['nombre_usuario'] ?? null;
+        self::$contrasena = isset($data['contrasena']) ? $data['contrasena'] : null;
+        self::$url_foto = $data['url_foto'] ?? null;
         self::$rol = 'visitante';
-        self::$fecha_creacion = date('Y-m-d H:i:s'); //si se pasa a dentro del metodo
+        self::$fecha_creacion = date('Y-m-d H:i:s');
         self::$activo = 1;
-        }
     }
+}
+
 
     //metodos get
     final public static function getNombre(){return self::$nombre;}
@@ -288,7 +288,7 @@ final public function actualizar_usuario($id_usuario, $data) {
         }
 
     } catch (\PDOException $e) {
-        error_log("UserModel::actualizar_usuario -> " . $e->getMessage());
+        
         return ResponseHTTP::status500('Error interno del servidor');
     }
 }
@@ -307,24 +307,65 @@ final public function actualizar_usuario($id_usuario, $data) {
     }
 }
 
-final public static function obtener_id_por_nombre_usuario($nombre_usuario) {
+final public static function obtener_id_usuario_por_nombre($nombre_usuario) {
     try {
         $con = self::getConnection();
-        $sql = "CALL verificar_usuario(:usuario)";
+        $sql = "CALL obtener_id_usuario_por_nombre(:usuario)";
         $stmt = $con->prepare($sql);
         $stmt->bindParam(':usuario', $nombre_usuario, \PDO::PARAM_STR);
         $stmt->execute();
 
         $resultado = $stmt->fetch(\PDO::FETCH_ASSOC);
+     
         return $resultado ? $resultado['id_usuario'] : false;
 
     } catch (\PDOException $e) {
-        error_log("UserModel::obtener_id_por_nombre_usuario -> " . $e);
+        error_log("UserModel::obtener_id_usuario_por_nombre -> " . $e);
         return false;
     }
 }
 
+ final public static function eliminar_usuario($id_usuario) {
+    try {
+        $con = self::getConnection();
+        $sql = "CALL eliminar_usuario(:id_usuario)";
+        $stmt = $con->prepare($sql);
+        $stmt->bindParam(':id_usuario', $id_usuario, \PDO::PARAM_INT);
 
+        if ($stmt->execute()) {
+            return ResponseHTTP::status200('Usuario eliminado (inhabilitado) correctamente');
+        } else {
+            return ResponseHTTP::status500('No se pudo eliminar el usuario');
+        }
+    } catch (\PDOException $e) {
+        error_log("UserModel::eliminar_usuario -> " . $e->getMessage());
+        return ResponseHTTP::status500('Error interno del servidor');
+    }
+ }
+ 
+
+   final public static function cambiar_rol($nombreUsuario, $nuevoRol) {
+    try {
+        $con = self::getConnection();
+        // Llamada al nuevo procedimiento almacenado
+        $query = "CALL cambiar_rol(:nombre_usuario, :tipo_rol)";
+        $stmt = $con->prepare($query);
+        
+        // Asignación de parámetros
+        $stmt->bindParam(':nombre_usuario', $nombreUsuario, \PDO::PARAM_STR);
+        $stmt->bindParam(':tipo_rol', $nuevoRol, \PDO::PARAM_STR);
+        
+        if ($stmt->execute()) {
+            return true; // Éxito
+        } else {
+            error_log("Error al ejecutar el procedimiento almacenado cambiar_rol_por_nombre.");
+            return false;
+        }
+    } catch (\PDOException $e) {
+        error_log("Excepción al cambiar rol: " . $e);
+        return false;
+    }
+}
 
 }
 
