@@ -1,13 +1,12 @@
 <?php
 namespace App\Models;
-use App\DB\Sql;
 use App\DB\ConnectionDB;
 use App\Config\ResponseHTTP;
 use App\Config\Security;
-use App\Models\UserModel;
 
 class ReservaModel extends ConnectionDB{
     private $id_reserva;
+    private $fechar_reserva; 
     private $asistencia;
     private $comentarios;
     private $cantidad_asistentes;
@@ -15,30 +14,29 @@ class ReservaModel extends ConnectionDB{
     private $id_tour;
     private $monto;
     private $moneda;
-    private $metodo_pago; 
+    private $metodo_pago;
     private $fecha_pago;
-    private $estado;   
 
-    //constructor
+
+    // Constructor refactorizado para asignar propiedades de instancia de forma segura
     public function __construct(array $data) {
-
-        if (isset($data['id_reserva'])) {
-            $this->id_reserva =$data['id_reserva'];
-        }
-        $this->asistencia =$data['asistencia'];
-        $this->comentarios =$data['comentarios'];
-        $this->cantidad_asistentes =$data['cantidad_asistentes'];
-        $this->id_usuario =$data['id_usuario'];
-        $this->id_tour = $data['id_tour'];
-        $this->monto = $data['monto'];
-        $this->moneda = $data['moneda'];
-        $this->metodo_pago = $data['metodo_pago'];
-        $this->fecha_pago = $data['fecha_pago'];
-        $this->estado = $data['estado'];
+        $this->id_reserva = $data['id_reserva'] ?? null;
+        $this->fechar_reserva = $data['fechar_reserva'] ?? null;
+        $this->asistencia = $data['asistencia'] ?? false;
+        $this->comentarios = $data['comentarios'] ?? null;
+        $this->cantidad_asistentes = $data['cantidad_asistentes'] ?? null;
+        $this->id_usuario = $data['id_usuario'] ?? null;
+        $this->id_tour = $data['id_tour'] ?? null;
+        // Propiedades de pago
+        $this->monto = $data['monto'] ?? null;
+        $this->moneda = $data['moneda'] ?? null;
+        $this->metodo_pago = $data['metodo_pago'] ?? null;
+        $this->fecha_pago = $data['fecha_pago'] ?? null;
     }
 
-    //metodos get
+    // Getters
     final public function getId_reserva(){return $this->id_reserva;}
+    final public function getFechar_reserva(){return $this->fechar_reserva;}
     final public function getAsistencia(){return $this->asistencia;}
     final public function getComentarios(){return $this->comentarios;}
     final public function getCantidad_asistentes(){return $this->cantidad_asistentes;}
@@ -48,80 +46,97 @@ class ReservaModel extends ConnectionDB{
     final public function getMoneda(){return $this->moneda;}
     final public function getMetodo_pago(){return $this->metodo_pago;}
     final public function getFecha_pago(){return $this->fecha_pago;}
-    final public function getEstado(){return $this->estado;}
 
-    //metodos set
-    final public function setId_reserva($id_reserva){$this->id_reserva= $id_reserva;}
+    // Setters
+    final public function setId_reserva($id_reserva){$this->id_reserva = $id_reserva;}
+    final public function setFechar_reserva($fechar_reserva){$this->fechar_reserva = $fechar_reserva;}
     final public function setAsistencia($asistencia){$this->asistencia = $asistencia;}
-    final public function setComentarios($comentarios){$this->comentarios= $comentarios;}
-    final public function setCantidad_asistentes($cantidad_asistentes){$this->cantidad_asistentes= $cantidad_asistentes;}
-    final public function setId_usuario($id_usuario){$this->id_usuario= $id_usuario;}
-    final public function setId_tour($id_tour){$this->id_tour= $id_tour;}
-    final public function setMonto($monto){$this->monto= $monto;}
-    final public function setMoneda($moneda){$this->moneda= $moneda;}
-    final public function setMetodo_pago($metodo_pago){$this->metodo_pago=$metodo_pago;}
-    final public function setfecha_pago($fecha_pago){$this->fecha_pago= $fecha_pago;}
-    final public function setEstado($estado){$this->estado=$estado;}
+    final public function setComentarios($comentarios){$this->comentarios = $comentarios;}
+    final public function setCantidad_asistentes($cantidad_asistentes){$this->cantidad_asistentes = $cantidad_asistentes;}
+    final public function setId_usuario($id_usuario){$this->id_usuario = $id_usuario;}
+    final public function setId_tour($id_tour){$this->id_tour = $id_tour;}
+    final public function setMonto($monto){$this->monto = $monto;}
+    final public function setMoneda($moneda){$this->moneda = $moneda;}
+    final public function setMetodo_pago($metodo_pago){$this->metodo_pago = $metodo_pago;}
+    final public function setFecha_pago($fecha_pago){$this->fecha_pago = $fecha_pago;}
 
-    final public function crear_reserva() {
-    // Captura de datos
-    $id_tour       = $this->getId_tour();
-    $id_usuario    = $this->getId_usuario();
 
-    try {
+    //fusiono tablas resrerva y pago para caso de uso realizar pago de un tour
+    final public function crear_reserva_y_pago() {
         $con = self::getConnection();
 
-        // Validación de duplicado por procedimiento almacenado
-        $stmt_verificar = $con->prepare("CALL verificar_reserva( :id_usuario, :id_tour)");
-        $stmt_verificar->execute([
-           /* ':id_usuario'    => $id_usuario,
-            ':id_tour'       => $id_tour */
-            ':id_usuario' => $this->getId_usuario(),
-            ':id_tour' => $this->getId_tour()
-        ]);
+        $con->beginTransaction();
 
-        $resultado = $stmt_verificar->fetch(\PDO::FETCH_ASSOC);
-        // Cierre del cursor para evitar el error 2014
-        $stmt_verificar->closeCursor();
+        try {
+            // 1. Validar duplicado por procedimiento almacenado (incluyendo fecha)
+            $stmt_verificar = $con->prepare("CALL verificar_reserva(:id_usuario, :id_tour, :fechar_reserva)");
+            $stmt_verificar->execute([
+                ':id_usuario'    => $this->getId_usuario(),
+                ':id_tour'       => $this->getId_tour(),
+                ':fechar_reserva' => $this->getFechar_reserva()
+            ]);
+            $resultado = $stmt_verificar->fetch(\PDO::FETCH_ASSOC);
+            $stmt_verificar->closeCursor();
 
-        if ($resultado && isset($resultado['existe']) && $resultado['existe'] > 0) {
-            return ResponseHTTP::status400("Ya existe una reserva para este usuario, tour y fecha.");
+            if ($resultado && isset($resultado['existe']) && $resultado['existe'] > 0) {
+                $con->rollBack();
+                return ResponseHTTP::status400("Ya existe una reserva para este usuario, tour y fecha.");
+            }
+
+            // 2. Insertar en la tabla 'reservas'
+            $stmt_reserva = $con->prepare("CALL crear_reserva(
+                :fechar_reserva, :asistencia, :comentarios,
+                :cantidad_asistentes, :id_usuario, :id_tour
+            )");
+
+            $stmt_reserva->execute([
+                ':fechar_reserva'       => $this->getFechar_reserva(),
+                ':asistencia'           => $this->getAsistencia(),
+                ':comentarios'          => $this->getComentarios(),
+                ':cantidad_asistentes'  => $this->getCantidad_asistentes(),
+                ':id_usuario'           => $this->getId_usuario(),
+                ':id_tour'              => $this->getId_tour()
+            ]);
+
+            if ($stmt_reserva->rowCount() == 0) {
+                $con->rollBack();
+                return ResponseHTTP::status400('No se pudo crear la reserva. Verifique los datos de la reserva.');
+            }
+
+            $id_reserva_creada = $con->lastInsertId();
+
+            // 3. Insertar en la tabla 'pagos'
+            $stmt_pago = $con->prepare("CALL crear_pago(
+                :monto, :moneda, :metodo_pago, :fecha_pago, :id_reserva
+            )");
+
+            $stmt_pago->execute([
+                ':monto'         => $this->getMonto(),
+                ':moneda'        => $this->getMoneda(),
+                ':metodo_pago'   => $this->getMetodo_pago(),
+                ':fecha_pago'    => $this->getFecha_pago(),
+                ':id_reserva'    => $id_reserva_creada
+            ]);
+
+            if ($stmt_pago->rowCount() == 0) {
+                $con->rollBack();
+                return ResponseHTTP::status400('No se pudo crear el pago asociado a la reserva.');
+            }
+
+            $con->commit();
+
+            return ResponseHTTP::status201('La reserva y el pago asociado han sido creados exitosamente.');
+
+        } catch (\PDOException $e) {
+            $con->rollBack();
+            error_log("Error en crear_reserva_y_pago: " . $e);
+            return ResponseHTTP::status500();
         }
-
-        // Si no existe, crear reserva
-        $stmt_crear = $con->prepare("CALL crear_reserva(
-           :asistencia, :comentarios, :cantidad_asistentes, :id_usuario, :id_tour
-        )");
-
-        $stmt_crear->execute([
-        /*   ':asistencia'           => $this->getAsistencia(),
-            ':comentarios'          => $this->getComentarios(),
-            ':cantidad_asistentes'  => $this->getCantidad_asistentes(),
-            ':id_usuario'           => $id_usuario,
-            ':id_tour'              => $id_tour, */
-            ':asistencia' => $this->getAsistencia(),
-            ':comentarios' => $this->getComentarios(),
-            ':cantidad_asistentes' => $this->getCantidad_asistentes(),
-            ':id_usuario' => $this->getId_usuario(),
-            ':id_tour' => $this->getId_tour(),
-            ':monto' => $this->getMonto(),
-            ':moneda' => $this->getMoneda(),
-            ':metodo_pago' => $this->getMetodo_pago(),
-            ':fecha_pago' => $this->getFecha_pago(),
-            ':estado' => $this->getEstado()
-        ]);
-
-        if ($stmt_crear->rowCount() > 0) {
-            return ResponseHTTP::status201('La reserva ha sido creada exitosamente.');
-        } else {
-            return ResponseHTTP::status400('No se pudo crear la reserva. Verifique los datos.');
-        }
-
-    } catch (\PDOException $e) {
-        error_log("Error en crear_reserva: " . $e);
-        return ResponseHTTP::status500();
     }
-   }
 
-  }
+    final public static function obtener_todas_reservas(){ /* ... Implementar lógica para JOIN */ } // Debería hacer un JOIN de reservas y pagos
+    final public function actualizar_reserva(){ /* ... */ }
+    final public function eliminar_reserva(){ /* ... */ }
+}
+
 
