@@ -1,14 +1,8 @@
 <?php
-// Este archivo sería tu enrutador principal, por ejemplo, index.php o router.php
 
-// Importa las clases de controladores y configuración necesarias
 use App\Config\ResponseHTTP;
 use App\Controllers\DashboardController;
-// Si tienes otros controladores, impórtalos aquí también, por ejemplo:
-// use App\Controllers\ReservaController;
-// use App\Controllers\UserController;
-// use App\Controllers\TourController;
-// use App\Controllers\BookingController;
+
 
 
 $method = strtolower($_SERVER['REQUEST_METHOD']);
@@ -17,7 +11,7 @@ $params = explode('/', $route);
 $data = json_decode(file_get_contents("php://input"), true);
 $headers = getallheaders();
 
-// --- Lógica de Enrutamiento Principal ---
+
 
 // Verifica si la primera parte de la ruta es 'dashboard'
 if (isset($params[0]) && $params[0] === 'dashboard') {
@@ -62,3 +56,4 @@ else {
     echo json_encode(ResponseHTTP::status404());
 }
 ?>
+
