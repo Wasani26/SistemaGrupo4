@@ -2082,3 +2082,37 @@ Stack trace:
 [07-Aug-2025 23:38:09 America/Tegucigalpa] conexión es exitosa
 [07-Aug-2025 23:38:12 America/Tegucigalpa] conexión es exitosa
 [08-Aug-2025 00:05:37 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:29:17 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:29:26 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:29:58 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:49:30 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:50:04 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:50:04 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Config\ResponseHTTP::status200(): Argument #1 ($message) must be of type string, array given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php on line 151 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php:15
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php(151): App\Config\ResponseHTTP::status200(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php(223): App\Models\TourModel::obtener_tour()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(18): App\Controllers\TourController->obtener_tour('tour/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php on line 15
+[08-Aug-2025 00:50:26 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:50:26 America/Tegucigalpa] PHP Fatal error:  Uncaught TypeError: App\Config\ResponseHTTP::status200(): Argument #1 ($message) must be of type string, array given, called in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php on line 151 and defined in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php:15
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php(151): App\Config\ResponseHTTP::status200(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php(223): App\Models\TourModel::obtener_tour()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(18): App\Controllers\TourController->obtener_tour('tour/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Config\ResponseHTTP.php on line 15
+[08-Aug-2025 00:50:42 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:51:02 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:51:19 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 00:52:00 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(257): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[08-Aug-2025 00:52:28 America/Tegucigalpa] conexión es exitosa

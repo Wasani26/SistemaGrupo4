@@ -137,18 +137,27 @@ class TourModel extends ConnectionDB {
         return ResponseHTTP::status500('Error en la base de datos.');
     }
 }
-final public static function obtener_tour(){
-    try {
-        $con = self::getConnection(); // conexión
-        $stmt = $con->prepare("CALL obtener_tour()");
-        $stmt->execute();
-        $res['data'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $res;
-    } catch (\PDOException $e) {
-        error_log("tourModel::obtener_tour ->" . $e);
-        die(json_encode(ResponseHTTP::status500()));
+
+  public static function obtener_tour() {
+        try {
+            $con = self::getConnection();
+            // ¡IMPORTANTE!: Solo selecciona tours donde 'activo' es 1
+            $sql = "CALL obtener_tour()";
+            $stmt = $con->prepare($sql);
+            $stmt->execute();
+            $tours = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            if ($tours) {
+                return ResponseHTTP::status200('Tours obtenidos exitosamente.', $tours);
+            } else {
+                return ResponseHTTP::status404('No se encontraron tours activos.');
+            }
+        } catch (\PDOException $e) {
+            error_log('TourModel::obtener_tour -> ' . $e);
+            return ResponseHTTP::status500('Error en la base de datos.');
+        }
     }
-}
+
 
     // Obtener tour por id
     public static function leer_Tour($id) {
@@ -234,26 +243,28 @@ final public static function obtener_tour(){
         }
     }
 
-    // Eliminar tour
-public static function eliminarTour($id) {
-    try {
-        $con = self::getConnection();
+    
+    // Método para marcar un tour como inactivo (Soft Delete)
+    public static function eliminarTour($id) {
+        try {
+            $con = self::getConnection();
 
-        // Usamos el procedimiento almacenado 'borrartour'
-        $sql = "CALL borrartour(:id)";
-        $stmt = $con->prepare($sql);
-        $stmt->execute([':id' => $id]);
+            // Usamos el procedimiento almacenado 'borrartour' para realizar un "soft delete"
+            $sql = "CALL eliminar_tour(:id)";
+            $stmt = $con->prepare($sql);
+            $stmt->execute([':id' => $id]);
 
-        if ($stmt->rowCount() > 0) {
-            return ResponseHTTP::status200('Tour eliminado correctamente.');
-        } else {
-            return ResponseHTTP::status404('No se encontró el tour para eliminar.');
+            if ($stmt->rowCount() > 0) {
+                return ResponseHTTP::status200('Tour marcado como inactivo correctamente.');
+            } else {
+                // Si rowCount es 0, puede ser que el ID no exista o ya estuviera inactivo
+                return ResponseHTTP::status404('No se encontró el tour para marcar como inactivo o ya estaba inactivo.');
+            }
+        } catch (\PDOException $e) {
+            error_log('TourModel::eliminar_tour -> ' . $e->getMessage());
+            return ResponseHTTP::status500('Error en la base de datos.');
         }
-    } catch (\PDOException $e) {
-        error_log('TourModel::eliminarTour -> ' . $e->getMessage());
-        return ResponseHTTP::status500('Error en la base de datos.');
     }
-}
 
     // Cambiar fecha tour
 public static function cambiarFecha($id, $data) {

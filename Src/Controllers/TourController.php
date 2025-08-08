@@ -225,16 +225,23 @@ class TourController {
       }
     }
 
-    final public function eliminar_tour($endpoint) {
+     final public function eliminar_tour($endpoint) {
+        // La ruta esperada es 'tour/{id}'
         if ($this->method === 'delete' && $this->params[0] === trim($endpoint, '/')) {
-            if (isset($this->params[1])) {
-                $model = new TourModel();
-                $response = $model->eliminarTour($this->params[1]);
-                echo json_encode($response);
+            // Validar que el ID del tour esté presente en la URL y sea numérico
+            if (!isset($this->params[1]) || !preg_match(self::$validar_numero, $this->params[1])) {
+                echo json_encode(ResponseHTTP::status400('ID de tour inválido o no proporcionado en la URL para eliminar.'));
                 exit;
             }
+            $id_tour = $this->params[1];
+
+            // Llamar al método estático del modelo para "eliminar" (marcar como inactivo)
+            $response = TourModel::eliminarTour($id_tour);
+            echo json_encode($response);
+            exit;
         }
     }
+
 
     final public function cambiar_fecha($endpoint) {
         if ($this->method === 'patch' && $this->route === $endpoint) {
