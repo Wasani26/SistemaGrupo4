@@ -2116,3 +2116,17 @@ Stack trace:
 #4 {main}
   thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
 [08-Aug-2025 00:52:28 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 01:42:04 America/Tegucigalpa] >> Entrando a MUSEO.php <<
+[08-Aug-2025 01:45:56 America/Tegucigalpa] Estoy aca en controller
+[08-Aug-2025 01:54:30 America/Tegucigalpa] PHP Warning:  preg_match(): Unknown modifier ']' in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\MuseoController.php on line 51
+[08-Aug-2025 01:56:09 America/Tegucigalpa] PHP Warning:  preg_match(): Unknown modifier ']' in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\MuseoController.php on line 51
+[08-Aug-2025 01:56:19 America/Tegucigalpa] PHP Warning:  preg_match(): Unknown modifier ']' in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\MuseoController.php on line 51
+[08-Aug-2025 01:59:46 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 02:06:37 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 02:30:21 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 02:38:03 America/Tegucigalpa] PHP Parse error:  syntax error, unexpected token ";" in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\MuseoController.php on line 125
+[08-Aug-2025 02:49:23 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 02:58:18 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 02:59:02 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 03:04:54 America/Tegucigalpa] conexión es exitosa
+[08-Aug-2025 03:05:06 America/Tegucigalpa] conexión es exitosa
