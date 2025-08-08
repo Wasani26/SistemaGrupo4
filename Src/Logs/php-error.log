@@ -1856,3 +1856,228 @@ Stack trace:
 [07-Aug-2025 16:25:41 America/Tegucigalpa] conexión es exitosa
 [07-Aug-2025 16:27:52 America/Tegucigalpa] conexión es exitosa
 [07-Aug-2025 16:29:59 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:21:41 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:24:20 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:24:20 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 319
+[07-Aug-2025 19:35:27 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:35:27 America/Tegucigalpa] Resultado verificar_usuario: Array
+(
+    [existe] => 1
+)
+
+[07-Aug-2025 19:35:27 America/Tegucigalpa] PHP Warning:  Undefined array key "id_usuario" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 320
+[07-Aug-2025 19:44:16 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(202): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(19): App\Controllers\UserController->actualizar_usuario('user/Yanei2015/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[07-Aug-2025 19:44:43 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:45:13 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Models\UserModel::obtener_id_por_nombre_usuario() in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php:212
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(19): App\Controllers\UserController->actualizar_usuario('user/Yanei2015/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 212
+[07-Aug-2025 19:46:13 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:46:13 America/Tegucigalpa] Resultado obtener_id_usuario_por_nombre: Array
+(
+    [id_usuario] => 3
+)
+
+[07-Aug-2025 19:46:13 America/Tegucigalpa] PHP Warning:  Undefined array key "contrasena" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 32
+[07-Aug-2025 19:46:13 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:46:13 America/Tegucigalpa] UserModel::actualizar_usuario -> SQLSTATE[42000]: Syntax error or access violation: 1318 Incorrect number of arguments for PROCEDURE sistematours.actualizar_usuario; expected 8, got 9
+[07-Aug-2025 19:51:06 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:51:06 America/Tegucigalpa] Resultado obtener_id_usuario_por_nombre: Array
+(
+    [id_usuario] => 3
+)
+
+[07-Aug-2025 19:51:06 America/Tegucigalpa] PHP Warning:  Undefined array key "contrasena" in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php on line 32
+[07-Aug-2025 19:51:06 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:56:43 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:56:43 America/Tegucigalpa] Resultado obtener_id_usuario_por_nombre: 
+[07-Aug-2025 19:56:59 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 19:56:59 America/Tegucigalpa] Resultado obtener_id_usuario_por_nombre: 
+[07-Aug-2025 19:57:44 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:05:11 America/Tegucigalpa] DEBUG endpoint=user/Yanei2015/ route=user/Yanei2015/ method=put
+[07-Aug-2025 20:05:11 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(204): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(19): App\Controllers\UserController->actualizar_usuario('user/Yanei2015/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[07-Aug-2025 20:05:29 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:05:43 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:06:41 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:08:58 America/Tegucigalpa] DEBUG endpoint=user/Yanei2016/ route=user/Yanei2016/ method=put
+[07-Aug-2025 20:08:59 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(204): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(19): App\Controllers\UserController->actualizar_usuario('user/Yanei2016/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[07-Aug-2025 20:09:32 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:09:55 America/Tegucigalpa] DEBUG endpoint=user/Yanei2016/ route=user/Yanei2016/ method=put
+[07-Aug-2025 20:09:55 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:09:55 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:20:46 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:21:14 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:21:14 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:23:26 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:35:38 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:36:05 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:36:05 America/Tegucigalpa] UserModel::obtener_usuarios ->PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nombre' in 'field list' in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:180
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(180): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(258): App\Models\UserModel::obtener_usuarios()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 20:37:02 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:37:02 America/Tegucigalpa] UserModel::obtener_usuarios ->PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nombre' in 'field list' in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:180
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(180): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(258): App\Models\UserModel::obtener_usuarios()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 20:41:43 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:41:43 America/Tegucigalpa] UserModel::obtener_usuarios ->PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nombre' in 'field list' in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:180
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(180): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(258): App\Models\UserModel::obtener_usuarios()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 20:41:56 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:44:27 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:44:33 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:44:33 America/Tegucigalpa] UserModel::obtener_usuarios ->PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'sistematours.rol' doesn't exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:180
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(180): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(258): App\Models\UserModel::obtener_usuarios()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 20:52:16 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:52:41 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(257): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[07-Aug-2025 20:53:22 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:53:22 America/Tegucigalpa] UserModel::obtener_usuarios ->PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'r.tipo_rol' in 'field list' in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:180
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(180): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(258): App\Models\UserModel::obtener_usuarios()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 20:59:26 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:59:51 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 20:59:51 America/Tegucigalpa] UserModel::obtener_usuarios ->PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.id_rol' in 'on clause' in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:180
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(180): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(258): App\Models\UserModel::obtener_usuarios()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 21:01:27 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 21:01:27 America/Tegucigalpa] UserModel::obtener_usuarios ->PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'u.tipo_rol_rol' in 'field list' in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:180
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(180): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(258): App\Models\UserModel::obtener_usuarios()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 21:02:09 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 21:03:32 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 21:27:56 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 21:35:30 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 21:46:16 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$tipo_rol in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 299
+[07-Aug-2025 21:46:16 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Config\ResponseHTTP::status403() in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php:300
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(21): App\Controllers\UserController->cambiar_rol('user/guia01/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 300
+[07-Aug-2025 21:46:47 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 21:47:12 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 21:47:21 America/Tegucigalpa] PHP Warning:  Undefined property: stdClass::$tipo_rol in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 299
+[07-Aug-2025 21:47:21 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Config\ResponseHTTP::status403() in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php:300
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(21): App\Controllers\UserController->cambiar_rol('user/guia01/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 300
+[07-Aug-2025 21:56:12 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 21:56:13 America/Tegucigalpa] La contraseña no coincide
+[07-Aug-2025 21:56:23 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 21:58:12 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:07:18 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:08:44 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:13:56 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:13:56 America/Tegucigalpa] Excepción al cambiar rol: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'sistematours.usuario' doesn't exist in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:358
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(358): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(322): App\Models\UserModel::cambiar_rol('', 'Gu\xC3\xADa')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(21): App\Controllers\UserController->cambiar_rol('user/guia01/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 22:16:25 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:16:25 America/Tegucigalpa] Excepción al cambiar rol: PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p_nombre_usuario' in 'where clause' in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:358
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(358): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(322): App\Models\UserModel::cambiar_rol('', 'Gu\xC3\xADa')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(21): App\Controllers\UserController->cambiar_rol('user/guia01/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 22:16:35 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:16:35 America/Tegucigalpa] Excepción al cambiar rol: PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'p_nombre_usuario' in 'where clause' in C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php:358
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\UserModel.php(358): PDOStatement->execute()
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(322): App\Models\UserModel::cambiar_rol('', 'Gu\xC3\xADa')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(21): App\Controllers\UserController->cambiar_rol('user/guia01/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[07-Aug-2025 22:17:49 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:35:12 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:35:13 America/Tegucigalpa] La contraseña no coincide
+[07-Aug-2025 22:35:30 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:50:34 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(240): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(17): App\Controllers\UserController->leer_usuario('user/admin01/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[07-Aug-2025 22:50:50 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 22:51:12 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 23:02:46 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 23:02:46 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 23:02:46 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 23:02:46 America/Tegucigalpa] ROL A INSERTAR: visitante
+[07-Aug-2025 23:26:20 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 23:27:26 America/Tegucigalpa] PHP Fatal error:  Uncaught Error: Call to undefined method App\Models\UserModel::cambiar_rol_por_nombre() in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php:321
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(21): App\Controllers\UserController->cambiar_rol('user/example01/')
+#1 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php on line 321
+[07-Aug-2025 23:28:02 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 23:37:56 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 23:38:03 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 23:38:09 America/Tegucigalpa] conexión es exitosa
+[07-Aug-2025 23:38:12 America/Tegucigalpa] conexión es exitosa
