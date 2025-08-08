@@ -298,6 +298,6 @@ public function getAllTours() {
 }
 
 public function getTour($id) {
-    return self::obtenerTour($id);
+    return self::obtener_Tour($id);
 }
 }
