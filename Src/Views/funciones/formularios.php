@@ -71,7 +71,8 @@ function form_usuarios(){
                                         </tr>
                                     </tfoot>
                                     <tbody id="body_usuarios">
-                                      
+                                      <tr>
+                                      </tr>
                                     </tbody>
                                 </table>
                             </div>
