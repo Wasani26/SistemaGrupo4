@@ -2359,3 +2359,79 @@ Stack trace:
 [10-Aug-2025 03:49:06 America/Tegucigalpa] conexión es exitosa
 [10-Aug-2025 03:49:06 America/Tegucigalpa] conexión es exitosa
 [10-Aug-2025 03:49:23 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 10:20:33 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 10:21:00 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 10:54:30 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 10:54:45 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:00:56 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:01:30 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:08:54 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:17:53 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:19:48 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:21:15 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:32:05 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:38:01 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:42:19 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:44:44 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:48:40 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:52:16 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:57:58 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:58:31 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 11:59:59 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 12:03:33 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 12:03:47 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 12:08:54 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 12:27:53 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 12:28:13 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 12:39:58 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 12:40:11 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:17:44 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:25:13 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:25:25 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:25:25 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:27:42 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:34:26 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(257): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[10-Aug-2025 14:34:37 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:35:05 America/Tegucigalpa] PHP Fatal error:  Uncaught UnexpectedValueException: Wrong number of segments in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:92
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(257): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 92
+[10-Aug-2025 14:35:32 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:35:55 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:40:11 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 14:40:38 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 15:50:43 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 15:50:44 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 15:50:44 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 15:50:44 America/Tegucigalpa] ROL A INSERTAR: visitante
+[10-Aug-2025 15:59:40 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:03:22 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:03:22 America/Tegucigalpa] La contraseña no coincide
+[10-Aug-2025 16:05:15 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:05:15 America/Tegucigalpa] La contraseña no coincide
+[10-Aug-2025 16:05:23 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:07:21 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:07:49 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:07:57 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:25:37 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:39:59 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:40:13 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:44:37 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:46:52 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:48:20 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:48:39 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 16:56:52 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 17:01:43 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 17:02:46 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 17:02:52 America/Tegucigalpa] conexión es exitosa

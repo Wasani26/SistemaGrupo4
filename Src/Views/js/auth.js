@@ -44,9 +44,9 @@ $("#loginForm").submit(function () {
                     }
         
                 })
-               // alert(resp);
+               //alert(resp);
                 var json = JSON.parse(resp);
-               // alert(json.access);
+               
 
                            
             },
@@ -77,3 +77,4 @@ $("#loginForm").submit(function () {
         }
      });
    }
+
