@@ -62,61 +62,37 @@ class ReservaModel extends ConnectionDB{
 
 
     //fusiono tablas resrerva y pago para caso de uso realizar pago de un tour
+  
     final public function crear_reserva_y_pago() {
         $con = self::getConnection();
-
         $con->beginTransaction();
 
         try {
-            // 1. Validar duplicado por procedimiento almacenado (incluyendo fecha)
-            $stmt_verificar = $con->prepare("CALL verificar_reserva(:id_usuario, :id_tour, :fechar_reserva)");
-            $stmt_verificar->execute([
-                ':id_usuario'    => $this->getId_usuario(),
-                ':id_tour'       => $this->getId_tour(),
-                ':fechar_reserva' => $this->getFechar_reserva()
-            ]);
-            $resultado = $stmt_verificar->fetch(\PDO::FETCH_ASSOC);
-            $stmt_verificar->closeCursor();
-
-            if ($resultado && isset($resultado['existe']) && $resultado['existe'] > 0) {
-                $con->rollBack();
-                return ResponseHTTP::status400("Ya existe una reserva para este usuario, tour y fecha.");
-            }
-
-            // 2. Insertar en la tabla 'reservas'
-            $stmt_reserva = $con->prepare("CALL crear_reserva(
-                :fechar_reserva, :asistencia, :comentarios,
-                :cantidad_asistentes, :id_usuario, :id_tour
-            )");
-
-            $stmt_reserva->execute([
-                ':fechar_reserva'       => $this->getFechar_reserva(),
-                ':asistencia'           => $this->getAsistencia(),
-                ':comentarios'          => $this->getComentarios(),
-                ':cantidad_asistentes'  => $this->getCantidad_asistentes(),
-                ':id_usuario'           => $this->getId_usuario(),
-                ':id_tour'              => $this->getId_tour()
-            ]);
-
-            if ($stmt_reserva->rowCount() == 0) {
-                $con->rollBack();
-                return ResponseHTTP::status400('No se pudo crear la reserva. Verifique los datos de la reserva.');
-            }
+            // ... (código para verificar_reserva y crear_reserva_sp) ...
 
             $id_reserva_creada = $con->lastInsertId();
 
             // 3. Insertar en la tabla 'pagos'
-            $stmt_pago = $con->prepare("CALL crear_pago(
+            $query_pago_sql = "CALL crear_pago(
                 :monto, :moneda, :metodo_pago, :fecha_pago, :id_reserva
-            )");
+            )";
 
-            $stmt_pago->execute([
+            // Parámetros que se ejecutarán
+            $params_pago = [
                 ':monto'         => $this->getMonto(),
                 ':moneda'        => $this->getMoneda(),
                 ':metodo_pago'   => $this->getMetodo_pago(),
                 ':fecha_pago'    => $this->getFecha_pago(),
                 ':id_reserva'    => $id_reserva_creada
-            ]);
+            ];
+
+            // --- ¡AÑADE ESTAS LÍNEAS PARA DEPURACIÓN! ---
+            error_log("DEBUG: Query para pago: " . $query_pago_sql);
+            error_log("DEBUG: Parámetros para pago: " . print_r($params_pago, true));
+            // ---------------------------------------------
+
+            $stmt_pago = $con->prepare($query_pago_sql);
+            $stmt_pago->execute($params_pago); // Esta es la línea 92 que da error
 
             if ($stmt_pago->rowCount() == 0) {
                 $con->rollBack();
@@ -129,11 +105,13 @@ class ReservaModel extends ConnectionDB{
 
         } catch (\PDOException $e) {
             $con->rollBack();
-            error_log("Error en crear_reserva_y_pago: " . $e);
-            return ResponseHTTP::status500();
+            error_log("Error en crear_reserva_y_pago: " . $e->getMessage());
+            return ResponseHTTP::status500('Error en la base de datos al crear la reserva y el pago: ' . $e->getMessage());
         }
     }
 
+
+    
     final public static function obtener_todas_reservas(){ /* ... Implementar lógica para JOIN */ } // Debería hacer un JOIN de reservas y pagos
     final public function actualizar_reserva(){ /* ... */ }
     final public function eliminar_reserva(){ /* ... */ }

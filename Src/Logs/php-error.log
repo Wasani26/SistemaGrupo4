@@ -2194,3 +2194,42 @@ Stack trace:
 #2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
 #3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
 #4 {main}
+[09-Aug-2025 15:46:46 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 15:46:46 America/Tegucigalpa] Error en crear_reserva_y_pago: PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'referencia' in 'field list' in C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php:92
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\ReservaModel.php(92): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\ReservaController.php(70): App\Models\ReservaModel->crear_reserva_y_pago()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\reserva.php(15): App\Controllers\ReservaController->crear_reserva('reserva/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[09-Aug-2025 16:24:05 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 16:24:05 America/Tegucigalpa] Error en crear_reserva_y_pago: SQLSTATE[42000]: Syntax error or access violation: 1305 PROCEDURE sistematours.crear_reserva_sp does not exist
+[09-Aug-2025 16:24:35 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 16:24:36 America/Tegucigalpa] Error en crear_reserva_y_pago: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'referencia' in 'field list'
+[09-Aug-2025 16:26:17 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 16:26:19 America/Tegucigalpa] Error en crear_reserva_y_pago: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'referencia' in 'field list'
+[09-Aug-2025 16:26:29 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 16:26:29 America/Tegucigalpa] Error en crear_reserva_y_pago: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'referencia' in 'field list'
+[09-Aug-2025 16:39:26 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 16:39:30 America/Tegucigalpa] Error en crear_reserva_y_pago: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'referencia' in 'field list'
+[09-Aug-2025 16:45:43 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 16:45:43 America/Tegucigalpa] DEBUG: Query para pago: CALL crear_pago(
+                :monto, :moneda, :metodo_pago, :fecha_pago, :id_reserva
+            )
+[09-Aug-2025 16:45:43 America/Tegucigalpa] DEBUG: Parámetros para pago: Array
+(
+    [:monto] => 100
+    [:moneda] => USD
+    [:metodo_pago] => paypal
+    [:fecha_pago] => 2025-08-09 16:45:43
+    [:id_reserva] => 0
+)
+
+[09-Aug-2025 16:45:43 America/Tegucigalpa] Error en crear_reserva_y_pago: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sistematours`.`pagos`, CONSTRAINT `fk_pago_reserva` FOREIGN KEY (`id_reserva`) REFERENCES `reservas` (`id_reserva`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[09-Aug-2025 17:29:42 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 17:30:33 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 17:31:13 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 17:31:47 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 17:58:55 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 18:02:14 America/Tegucigalpa] conexión es exitosa
+[09-Aug-2025 18:04:05 America/Tegucigalpa] conexión es exitosa

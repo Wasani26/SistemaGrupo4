@@ -70,7 +70,7 @@ class ReservaController {
                 $resultado = $reservaModel->crear_reserva_y_pago();
 
                 echo json_encode($resultado);
-                exit; // ¡CAMBIADO A EXIT!
+                exit; 
             }
         }
 
