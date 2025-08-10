@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+  
+  function encabezado(){
+     $html = '';
+      $html = '<!DOCTYPE html> 
+ <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,10 +12,17 @@
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="assets/css/styles.css" rel="stylesheet" />
+        <link href="../assets/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="sb-nav-fixed">
+    </head>';
+
+    echo $html;
+  }
+
+
+  function body(){
+  $html = '';
+  $html = '<body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="admin.php">BookMuse</a>
@@ -29,7 +40,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="auth.php">Cerrar Sesión</a></li>
+                        <li><a class="dropdown-item" type="button" onclick="cerrar_sesion()">Cerrar Sesión</a></li>
                     </ul>
                 </li>
             </ul>
@@ -88,12 +99,12 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Gestión</div>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" type="button" onclick="form_usuarios()">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Usuarios
                             </a>
                             <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Tours
                             </a>
                              <a class="nav-link" href="tables.html">
@@ -103,7 +114,7 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
+                        <div class="small">Coopiright</div>
                         Start Bootstrap
                     </div>
                 </nav>
@@ -157,9 +168,14 @@
                             <div class="col-xl-6">
                                <!--info a poner-->
                            </div>
-                        <div class="card mb-4">
-                           
-                <footer class="py-4 bg-light mt-auto">
+                        <div class="card mb-4">';
+   echo $html;
+  }
+
+  
+  function footer(){
+    $html = '';
+    $html = '<footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Your Website 2023</div>
@@ -180,5 +196,15 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="../js/auth.js"></script>
+        <script src="../js/forms.js"></script>
+        <script src="../js/obtener_usuarios.js"></script>
     </body>
 </html>
+';
+ echo $html;
+  }
+
+
+  
