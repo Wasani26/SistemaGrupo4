@@ -2318,3 +2318,44 @@ Stack trace:
 [10-Aug-2025 01:39:26 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
 [10-Aug-2025 01:44:37 America/Tegucigalpa] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
 [10-Aug-2025 01:44:37 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[10-Aug-2025 01:49:50 America/Tegucigalpa] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[10-Aug-2025 01:49:50 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[10-Aug-2025 02:19:27 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 02:19:27 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 02:19:27 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 02:19:27 America/Tegucigalpa] ROL A INSERTAR: visitante
+[10-Aug-2025 02:19:30 America/Tegucigalpa] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[10-Aug-2025 02:19:30 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[10-Aug-2025 02:22:02 America/Tegucigalpa] PHP Warning:  Undefined array key 1 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[10-Aug-2025 02:22:03 America/Tegucigalpa] PHP Warning:  Undefined array key 2 in C:\xampp\htdocs\SistemaGrupo4\Src\Routes\auth.php on line 17
+[10-Aug-2025 02:22:51 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 02:23:05 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 02:30:40 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 02:37:57 America/Tegucigalpa] PHP Fatal error:  Uncaught Firebase\JWT\ExpiredException: Expired token in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php:158
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Config\Security.php(62): Firebase\JWT\JWT::decode('eyJ0eXAiOiJKV1Q...', '12345HOLAMUNDO/...', Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\UserController.php(257): App\Config\Security::validateTokenJwt(Array, '12345HOLAMUNDO/...')
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\user.php(16): App\Controllers\UserController->obtener_usuarios('user/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\SistemaGrupo4\vendor\firebase\php-jwt\src\JWT.php on line 158
+[10-Aug-2025 02:39:35 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 02:39:47 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 02:55:24 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 02:55:45 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:00:45 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:01:01 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:08:14 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:10:52 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:13:23 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:13:24 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:13:24 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:23:48 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:24:02 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:32:05 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:34:15 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:43:47 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:49:03 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:49:06 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:49:06 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 03:49:23 America/Tegucigalpa] conexión es exitosa

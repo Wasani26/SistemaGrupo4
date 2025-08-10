@@ -1,9 +1,9 @@
 <?php
-  
-  function encabezado(){
-     $html = '';
-      $html = '<!DOCTYPE html> 
- <html lang="en">
+ 
+function encabezado(){
+    $html = '';
+    $html = '<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,18 +11,18 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
+        <!-- Hoja de estilos de DataTables -->
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="../assets/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>';
 
     echo $html;
-  }
+}
 
-
-  function body(){
-  $html = '';
-  $html = '<body class="sb-nav-fixed">
+function body(){
+    $html = '';
+    $html = '<body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="admin.php">BookMuse</a>
@@ -104,17 +104,17 @@
                                 Usuarios
                             </a>
                             <a class="nav-link" href="tables.html">
-                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Tours
                             </a>
-                             <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Museos
                             </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Coopiright</div>
+                        <div class="small">Copyright</div>
                         Start Bootstrap
                     </div>
                 </nav>
@@ -166,16 +166,16 @@
                         </div>
                         <div class="row">
                             <div class="col-xl-6">
-                               <!--info a poner-->
-                           </div>
-                        <div class="card mb-4">';
-   echo $html;
-  }
-
-  
-  function footer(){
-    $html = '';
-    $html = '<footer class="py-4 bg-light mt-auto">
+                                <!--info a poner-->
+                            </div>
+                            <!-- Asegúrate de cerrar bien los divs aquí si hay más contenido -->
+                            <div class="col-xl-6">
+                                <!--info a poner-->
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
                             <div class="text-muted">Copyright &copy; Your Website 2023</div>
@@ -185,26 +185,28 @@
                                 <a href="#">Terms &amp; Conditions</a>
                             </div>
                         </div>
-                    </div>
-                </footer>
+                    </div>';
+
+    echo $html;
+}
+
+  function footer(){
+    $html = '';
+    $html = '            </footer>
             </div>
         </div>
+        <!-- Scripts necesarios -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
+        <script src="../js/scripts.js"></script>
+        <!-- jQuery (necesario para el AJAX) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <!-- DataTables (solo la librería, sin el script de inicialización automática) -->
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <!-- Scripts propios -->
         <script src="../js/auth.js"></script>
         <script src="../js/forms.js"></script>
         <script src="../js/obtener_usuarios.js"></script>
     </body>
-</html>
-';
- echo $html;
-  }
-
-
-  
+ </html>';
+      echo $html;
+}

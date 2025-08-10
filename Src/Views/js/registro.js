@@ -164,7 +164,7 @@ $("#form_register").submit(function(e) {
                 icon: "success",
                 confirmButtonText: "Aceptar"
             }).then(() => {
-                window.location.href = "http://localhost/SistemaGrupo4/Public/auth";
+                window.location.href = "http://localhost/SistemaGrupo4/Src/Views/auth.php";
             });
         },
         error: function(xhr) {
