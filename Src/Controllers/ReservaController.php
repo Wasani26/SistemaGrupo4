@@ -32,7 +32,7 @@ final public function crear_reserva($endpoint) {
         $data = $this->data;
 
         // Campos requeridos para la reserva
-        $campos_requeridos = ['cantidad_asistentes', 'id_usuario', 'id_tour'];
+        $campos_requeridos = ['cantidad_asistentes', 'id_usuario', 'id_tour', 'moneda', 'comentarios'];
 
         foreach ($campos_requeridos as $campo) {
             if (!isset($data[$campo]) || empty($data[$campo])) {
