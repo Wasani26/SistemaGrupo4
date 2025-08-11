@@ -31,10 +31,10 @@ class ReservaModel extends ConnectionDB{
         $this->id_usuario =$data['id_usuario'];
         $this->id_tour = $data['id_tour'];
         $this->monto = $data['monto'];
-        $this->moneda = $data['moneda'];
+        $this->moneda = $data['moneda'] ?? 'LPS';
         $this->metodo_pago = $data['metodo_pago'];
-        $this->fecha_pago = $data['fecha_pago'];
-        $this->estado = $data['estado'];
+        $this->fecha_pago = $data['fecha_pago'] ?? date('Y-m-d H:i:s');
+        $this->estado = $data['estado']  ?? false;
     }
 
     //metodos get
@@ -63,7 +63,7 @@ class ReservaModel extends ConnectionDB{
     final public function setfecha_pago($fecha_pago){$this->fecha_pago= $fecha_pago;}
     final public function setEstado($estado){$this->estado=$estado;}
 
-    final public function crear_reserva() {
+   Public function crear_reserva() {
     // Captura de datos
     $id_tour       = $this->getId_tour();
     $id_usuario    = $this->getId_usuario();
@@ -74,11 +74,10 @@ class ReservaModel extends ConnectionDB{
         // Validación de duplicado por procedimiento almacenado
         $stmt_verificar = $con->prepare("CALL verificar_reserva( :id_usuario, :id_tour)");
         $stmt_verificar->execute([
-           /* ':id_usuario'    => $id_usuario,
-            ':id_tour'       => $id_tour */
             ':id_usuario' => $this->getId_usuario(),
             ':id_tour' => $this->getId_tour()
         ]);
+
 
         $resultado = $stmt_verificar->fetch(\PDO::FETCH_ASSOC);
         // Cierre del cursor para evitar el error 2014
@@ -90,15 +89,10 @@ class ReservaModel extends ConnectionDB{
 
         // Si no existe, crear reserva
         $stmt_crear = $con->prepare("CALL crear_reserva(
-           :asistencia, :comentarios, :cantidad_asistentes, :id_usuario, :id_tour
+           :asistencia, :comentarios, :cantidad_asistentes, :id_usuario, :id_tour, :monto, :moneda, :metodo_pago, :fecha_pago, :estado
         )");
 
         $stmt_crear->execute([
-        /*   ':asistencia'           => $this->getAsistencia(),
-            ':comentarios'          => $this->getComentarios(),
-            ':cantidad_asistentes'  => $this->getCantidad_asistentes(),
-            ':id_usuario'           => $id_usuario,
-            ':id_tour'              => $id_tour, */
             ':asistencia' => $this->getAsistencia(),
             ':comentarios' => $this->getComentarios(),
             ':cantidad_asistentes' => $this->getCantidad_asistentes(),
@@ -124,4 +118,3 @@ class ReservaModel extends ConnectionDB{
    }
 
   }
-

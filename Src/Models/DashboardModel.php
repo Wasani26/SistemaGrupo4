@@ -126,4 +126,3 @@ class DashboardModel {
         return $data;
     }
 }
-

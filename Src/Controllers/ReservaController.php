@@ -37,28 +37,28 @@ final public function crear_reserva($endpoint) {
         foreach ($campos_requeridos as $campo) {
             if (!isset($data[$campo]) || empty($data[$campo])) {
                 echo json_encode(ResponseHTTP::status400("El campo '$campo' es obligatorio."));
-                return;
+                exit;
             }
         }
 
         // Validar cantidad_asistentes
         if (!preg_match(self::$validar_entero_positivo, $data['cantidad_asistentes']) || $data['cantidad_asistentes'] <= 0) {
             echo json_encode(ResponseHTTP::status400("La cantidad de asistentes debe ser un entero positivo mayor a cero."));
-            return;
+            exit;
         }
 
         // Validar comentarios si viene
         if (isset($data['comentarios']) && !preg_match(self::$validar_comentario_texto, $data['comentarios'])) {
             echo json_encode(ResponseHTTP::status400("El campo comentarios contiene caracteres inválidos."));
-            return;
+            exit;
         }
 
         // Validar moneda si viene (si no viene, usaremos LPS por defecto)
-        if (isset($data['moneda'])) {
+        if (!in_array($data['moneda'], ['LPS', '$'])) {
             $monedas_validas = ['LPS', '$'];
             if (!in_array($data['moneda'], $monedas_validas)) {
                 echo json_encode(ResponseHTTP::status400("Moneda no válida. Solo se acepta 'LPS' o '$'."));
-                return;
+                exit;
             }
         } else {
             $data['moneda'] = 'LPS'; // Valor por defecto
@@ -92,13 +92,8 @@ final public function crear_reserva($endpoint) {
     }
 
 
-
-
-
     //Metodo GET para obtener las reservas//
     final public function obtener_todas_reservas($endpoint){
-        echo json_encode("llegastes a get");
-        exit;
         //Validacion para el metodo GET// 
         if($this->method == 'get' && $endpoint == $this->route){
             echo json_encode('Obtener todas las reservas - GET');
