@@ -209,7 +209,7 @@ class UserController{
         }
 
         // 3. Llamar al modelo para obtener el ID real
-        $id_usuario = UserModel::obtener_id_por_nombre_usuario($nombre_usuario);
+        $id_usuario = UserModel::obtener_id_usuario_por_nombre($nombre_usuario);
         if (!$id_usuario) {
             echo json_encode(ResponseHTTP::status404('Usuario no encontrado'));
             return;
@@ -220,7 +220,7 @@ class UserController{
         foreach ($campos_requeridos as $campo) {
             if (!isset($this->data[$campo])) {
                 echo json_encode(ResponseHTTP::status400("Falta el campo requerido: $campo"));
-                return;
+                exit;
             }
         }
 
@@ -229,7 +229,7 @@ class UserController{
 
         // 6. Llamar al método del modelo para actualizar
         echo json_encode($userModel->actualizar_usuario($id_usuario, $this->data));
-        return;
+        exit;
     }
 }
 
@@ -260,7 +260,75 @@ class UserController{
       }
     }
    
-    
 
+    // Eliminar o inhabilitar un usuario
+    final public function eliminar_usuario($endpoint) {
+      if ($this->method == 'delete' && rtrim($endpoint, '/') == rtrim($this->route, '/')) {
+
+        // 1. Validar token JWT
+        Security::validateTokenJwt($this->headers, Security::secretKey());
+
+        // 2. Obtener nombre de usuario desde la URL
+        $nombre_usuario = $this->params[1] ?? null;
+        if (!$nombre_usuario) {
+            echo json_encode(ResponseHTTP::status400('Nombre de usuario no proporcionado'));
+            exit;
+        }
+
+        // 3. Obtener el ID del usuario
+        $id_usuario = UserModel::obtener_id_usuario_por_nombre($nombre_usuario);
+        if (!$id_usuario) {
+            echo json_encode(ResponseHTTP::status404('Usuario no encontrado'));
+            exit;
+        }
+
+        // 4. Llamar al modelo para inhabilitar
+        $resultado = UserModel::eliminar_usuario($id_usuario);
+
+        // 5. Responder
+        echo json_encode($resultado);
+        exit;
+    }
+  }
+final public function cambiar_rol($endpoint) {
+    if ($this->method === 'patch' && $endpoint === $this->route) {
+        
+        $userData = Security::validateTokenJwt($this->headers, Security::secretKey());
+
+        // La validación ahora busca 'administrador' en minúscula
+        if (!isset($userData['data']->rol) || $userData['data']->rol !== 'administrador') {
+            echo json_encode(ResponseHTTP::status401('No tiene privilegios para acceder al recurso! Acceso denegado o token inválido. Se requieren permisos de administrador.'));
+            exit;
+        }
+
+        $pathParts = explode('/', $this->route);
+        $nombreUsuarioAModificar = end($pathParts);
+
+        if ($userData['data']->usuario === $nombreUsuarioAModificar) {
+            echo json_encode(ResponseHTTP::status403('No puedes cambiar tu propio rol.'));
+            exit;
+        }
+
+        if (!isset($this->data['tipo_rol'])) {
+            echo json_encode(ResponseHTTP::status400('Falta el campo requerido: tipo_rol.'));
+            exit;
+        }
+        
+        // Se asegura que el nuevo rol que se envíe esté en minúscula
+        $nuevoRol = strtolower($this->data['tipo_rol']); 
+        
+        $usuarioModel = new UserModel();
+        $resultado = $usuarioModel->cambiar_rol($nombreUsuarioAModificar, $nuevoRol); 
+        
+        if ($resultado) {
+            echo json_encode(ResponseHTTP::status200('Rol de usuario actualizado exitosamente'));
+        } else {
+            echo json_encode(ResponseHTTP::status500('Error al actualizar el rol del usuario'));
+        }
+        
+        exit;
+    }
+}
+  
 
 }

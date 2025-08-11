@@ -21,21 +21,21 @@ class TourModel extends ConnectionDB {
         private static $id_usuario; // 
 
         public function __construct($data = []) {
-            if (!empty($data)) {
-                self::$id = $data['id'] ?? null;
-                self::$nombre = $data['nombre'] ?? null;
-                self::$descripcion = $data['descripcion'] ?? null;
-                self::$fecha = $data['fecha'] ?? null;
-                self::$inicio = $data['hora_inicio'] ?? null; // Corregido previamente
-                self::$duracion = $data['duracion'] ?? null;
-                self::$cupo = $data['cupo_maximo'] ?? null;   // Corregido previamente
-                self::$idioma = $data['idioma_tour'] ?? null; // Corregido previamente
-                self::$encuentro = $data['punto_encuentro'] ?? null; // Corregido previamente
-                self::$comentario = $data['comentario'] ?? null;
-                self::$museo = $data['id_museo'] ?? null;     // Corregido previamente
-                self::$id_usuario = $data['id_usuario'] ?? null; // ¡Asignar el id_usuario!
-            }
+        if (!empty($data)) {
+            self::$id = $data['id'] ?? null;
+            self::$nombre = $data['nombre'] ?? null;
+            self::$descripcion = $data['descripcion'] ?? null;
+            self::$fecha = $data['fecha'] ?? null;
+            self::$inicio = $data['hora_inicio'] ?? null;
+            self::$duracion = $data['duracion'] ?? null;
+            self::$cupo = $data['cupo_maximo'] ?? null;
+            self::$idioma = $data['idioma_tour'] ?? null;
+            self::$encuentro = $data['punto_encuentro'] ?? null;
+            self::$comentario = $data['comentario'] ?? null;
+            self::$museo = $data['id_museo'] ?? null;
+            self::$id_usuario = $data['id_usuario'] ?? null;
         }
+    }
 
         // Getters
         public static function getId() { return self::$id; }
@@ -137,18 +137,27 @@ class TourModel extends ConnectionDB {
         return ResponseHTTP::status500('Error en la base de datos.');
     }
 }
-final public static function obtener_tour(){
-    try {
-        $con = self::getConnection(); // conexión
-        $stmt = $con->prepare("CALL obtener_tour()");
-        $stmt->execute();
-        $res['data'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        return $res;
-    } catch (\PDOException $e) {
-        error_log("tourModel::obtener_tour ->" . $e);
-        die(json_encode(ResponseHTTP::status500()));
+
+  public static function obtener_tour() {
+        try {
+            $con = self::getConnection();
+            // ¡IMPORTANTE!: Solo selecciona tours donde 'activo' es 1
+            $sql = "CALL obtener_tour()";
+            $stmt = $con->prepare($sql);
+            $stmt->execute();
+            $tours = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            if ($tours) {
+                return ResponseHTTP::status200('Tours obtenidos exitosamente.', $tours);
+            } else {
+                return ResponseHTTP::status404('No se encontraron tours activos.');
+            }
+        } catch (\PDOException $e) {
+            error_log('TourModel::obtener_tour -> ' . $e);
+            return ResponseHTTP::status500('Error en la base de datos.');
+        }
     }
-}
+
 
     // Obtener tour por id
     public static function leer_Tour($id) {
@@ -173,72 +182,89 @@ final public static function obtener_tour(){
 }
 
     // Actualizar tour
-public static function actualizarTour($id, $data) {
-    try {
-        $con = self::getConnection();
+ public static function actualizar_tour($id_tour, $data) {
+        try {
+            $con = self::getConnection();
 
-        // Validación de campos requeridos
-        if (
-            empty($data['nombre']) || empty($data['descripcion']) || empty($data['fecha']) ||
-            empty($data['inicio']) || empty($data['duracion']) || empty($data['cupo']) ||
-            empty($data['idioma']) || empty($data['encuentro']) || empty($data['comentario']) ||
-            empty($data['museo']) || empty($data['guia'])
-        ) {
-            return ResponseHTTP::status400('Faltan campos obligatorios para la actualización.');
+            // Validaciones de campos requeridos (usando los nombres correctos del JSON)
+            // Estas validaciones son redundantes si el controlador ya las hace,
+            // pero sirven como una capa de seguridad adicional.
+            if (
+                empty($data['nombre']) || empty($data['descripcion']) || empty($data['fecha']) ||
+                empty($data['hora_inicio']) || empty($data['duracion']) || empty($data['cupo_maximo']) ||
+                empty($data['idioma_tour']) || empty($data['punto_encuentro']) || empty($data['comentario']) ||
+                empty($data['id_museo']) || empty($data['id_usuario']) // ¡Corregido a id_usuario!
+            ) {
+                return ResponseHTTP::status400('Faltan campos obligatorios para la actualización.');
+            }
+
+            // --- Conversión de formato de fecha (DD-MM-AAAA a AAAA-MM-DD) ---
+            $fecha_para_db = \DateTime::createFromFormat('d-m-Y', $data['fecha']);
+            if (!$fecha_para_db) {
+                return ResponseHTTP::status400('Formato de fecha inválido para la base de datos.');
+            }
+            $fecha_formateada = $fecha_para_db->format('Y-m-d');
+
+            // --- Conversión de formato de hora (HH:MM a HH:MM:SS si es necesario) ---
+            // MySQL suele aceptar HH:MM para columnas TIME, pero si hay problemas,
+            // se puede usar: $hora_para_db = \DateTime::createFromFormat('H:i', $data['hora_inicio'])->format('H:i:s');
+            $hora_formateada = $data['hora_inicio']; // Asumimos que HH:MM es suficiente para TIME
+
+            $sql = "CALL actualizar_tour(
+                :id_tour, :titulo, :descripcion, :fecha, :inicio, :duracion,
+                :cupo, :idioma, :encuentro, :comentario, :museo, :id_usuario
+            )";
+
+            $stmt = $con->prepare($sql);
+            $stmt->execute([
+                ':id_tour'     => $id_tour, // El ID del tour a actualizar
+                ':titulo'      => $data['nombre'],
+                ':descripcion' => $data['descripcion'],
+                ':fecha'       => $fecha_formateada, // ¡Usar la fecha formateada!
+                ':inicio'      => $hora_formateada,  // Usar la hora (formateada si se hizo)
+                ':duracion'    => $data['duracion'],
+                ':cupo'        => $data['cupo_maximo'], // ¡Corregido a cupo_maximo!
+                ':idioma'      => $data['idioma_tour'], // ¡Corregido a idioma_tour!
+                ':encuentro'   => $data['punto_encuentro'], // ¡Corregido a punto_encuentro!
+                ':comentario'  => $data['comentario'],
+                ':museo'       => $data['id_museo'], // ¡Corregido a id_museo!
+                ':id_usuario'  => $data['id_usuario'] // ¡Corregido a id_usuario!
+            ]);
+
+            if ($stmt->rowCount() > 0) {
+                return ResponseHTTP::status200('Tour actualizado correctamente.');
+            } else {
+                // Si rowCount es 0, puede ser que el ID no exista o los datos sean los mismos
+                return ResponseHTTP::status404('No se pudo actualizar el tour. ID no encontrado o no hubo cambios.');
+            }
+        } catch (\PDOException $e) {
+            error_log('TourModel::actualizar_tour -> ' . $e->getMessage());
+            return ResponseHTTP::status500('Error en la base de datos.');
         }
-
-        $sql = "CALL actualizartour(
-            :id, :titulo, :descripcion, :fecha, :inicio, :duracion,
-            :cupo, :idioma, :encuentro, :comentario, :museo, :guia
-        )";
-
-        $stmt = $con->prepare($sql);
-        $stmt->execute([
-            ':id'          => $id,
-            ':titulo'      => $data['nombre'],
-            ':descripcion' => $data['descripcion'],
-            ':fecha'       => $data['fecha'],
-            ':inicio'      => $data['inicio'],
-            ':duracion'    => $data['duracion'],
-            ':cupo'        => $data['cupo'],
-            ':idioma'      => $data['idioma'],
-            ':encuentro'   => $data['encuentro'],
-            ':comentario'  => $data['comentario'],
-            ':museo'       => $data['museo'],
-            ':guia'        => $data['guia']
-        ]);
-
-        if ($stmt->rowCount() > 0) {
-            return ResponseHTTP::status200('Tour actualizado correctamente.');
-        } else {
-            return ResponseHTTP::status400('No se pudo actualizar el tour o no hubo cambios.');
-        }
-    } catch (\PDOException $e) {
-        error_log('TourModel::actualizarTour -> ' . $e->getMessage());
-        return ResponseHTTP::status500('Error en la base de datos.');
     }
-}
 
-    // Eliminar tour
-public static function eliminarTour($id) {
-    try {
-        $con = self::getConnection();
+    
+    // Método para marcar un tour como inactivo (Soft Delete)
+    public static function eliminarTour($id) {
+        try {
+            $con = self::getConnection();
 
-        // Usamos el procedimiento almacenado 'borrartour'
-        $sql = "CALL borrartour(:id)";
-        $stmt = $con->prepare($sql);
-        $stmt->execute([':id' => $id]);
+            // Usamos el procedimiento almacenado 'borrartour' para realizar un "soft delete"
+            $sql = "CALL eliminar_tour(:id)";
+            $stmt = $con->prepare($sql);
+            $stmt->execute([':id' => $id]);
 
-        if ($stmt->rowCount() > 0) {
-            return ResponseHTTP::status200('Tour eliminado correctamente.');
-        } else {
-            return ResponseHTTP::status404('No se encontró el tour para eliminar.');
+            if ($stmt->rowCount() > 0) {
+                return ResponseHTTP::status200('Tour marcado como inactivo correctamente.');
+            } else {
+                // Si rowCount es 0, puede ser que el ID no exista o ya estuviera inactivo
+                return ResponseHTTP::status404('No se encontró el tour para marcar como inactivo o ya estaba inactivo.');
+            }
+        } catch (\PDOException $e) {
+            error_log('TourModel::eliminar_tour -> ' . $e->getMessage());
+            return ResponseHTTP::status500('Error en la base de datos.');
         }
-    } catch (\PDOException $e) {
-        error_log('TourModel::eliminarTour -> ' . $e->getMessage());
-        return ResponseHTTP::status500('Error en la base de datos.');
     }
-}
 
     // Cambiar fecha tour
 public static function cambiarFecha($id, $data) {
@@ -298,6 +324,6 @@ public function getAllTours() {
 }
 
 public function getTour($id) {
-    return self::obtenerTour($id);
+    return self::obtener_Tour($id);
 }
 }

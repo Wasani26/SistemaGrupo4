@@ -125,14 +125,93 @@ class TourController {
      }
     }
 
-    final public function actualizar_tour($endpoint) {
+     final public function actualizar_tour($endpoint) {
+        // La ruta esperada es 'tour/{id}'
         if ($this->method === 'put' && $this->params[0] === trim($endpoint, '/')) {
-            if (isset($this->params[1])) {
-                $model = new TourModel();
-                $response = $model->actualizarTour($this->params[1], $this->data);
-                echo json_encode($response);
+            if (!isset($this->params[1]) || !preg_match(self::$validar_numero, $this->params[1])) {
+                echo json_encode(ResponseHTTP::status400('ID de tour inválido o no proporcionado en la URL.'));
                 exit;
             }
+
+            $id_tour = $this->params[1];
+            $data = $this->data;
+
+            // Validaciones de campos requeridos (igual que en crear_tour, pero para actualización)
+            $campos_requeridos = [
+                'nombre', 'descripcion', 'fecha', 'hora_inicio', 'duracion',
+                'cupo_maximo', 'idioma_tour', 'punto_encuentro', 'comentario',
+                'id_museo', 'id_usuario'
+            ];
+
+            foreach ($campos_requeridos as $campo) {
+                if (!isset($data[$campo]) || empty($data[$campo])) {
+                    echo json_encode(ResponseHTTP::status400("El campo '$campo' es obligatorio para la actualización."));
+                    exit;
+                }
+            }
+
+            // Validaciones de contenido (igual que en crear_tour)
+            if (!preg_match(self::$validar_texto, $data['nombre'])) {
+                echo json_encode(ResponseHTTP::status400('Nombre inválido.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_texto, $data['descripcion'])) {
+                echo json_encode(ResponseHTTP::status400('Descripción inválida.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_fecha, $data['fecha'])) {
+                echo json_encode(ResponseHTTP::status400('Fecha inválida.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_hora, $data['hora_inicio'])) {
+                echo json_encode(ResponseHTTP::status400('Hora de inicio inválida.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_numero, $data['duracion'])) {
+                echo json_encode(ResponseHTTP::status400('Duración inválida.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_numero, $data['cupo_maximo'])) {
+                echo json_encode(ResponseHTTP::status400('Cupo máximo inválido.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_numero, $data['idioma_tour'])) {
+                echo json_encode(ResponseHTTP::status400('ID de idioma inválido.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_texto, $data['punto_encuentro'])) {
+                echo json_encode(ResponseHTTP::status400('Punto de encuentro inválido.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_texto, $data['comentario'])) {
+                echo json_encode(ResponseHTTP::status400('Comentario inválido.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_numero, $data['id_museo'])) {
+                echo json_encode(ResponseHTTP::status400('ID de museo inválido.'));
+                exit;
+            }
+
+            if (!preg_match(self::$validar_numero, $data['id_usuario'])) {
+                echo json_encode(ResponseHTTP::status400('ID de usuario inválido.'));
+                exit;
+            }
+
+            // Si todas las validaciones pasan, se llama al modelo
+            // Ya no es necesario instanciar el modelo con $this->data
+            // Se pasan el id del tour y los datos directamente al método estático
+            $response = TourModel::actualizar_tour($id_tour, $this->data);
+            echo json_encode($response);
+            exit;
         }
     }
 
@@ -146,16 +225,23 @@ class TourController {
       }
     }
 
-    final public function eliminar_tour($endpoint) {
+     final public function eliminar_tour($endpoint) {
+        // La ruta esperada es 'tour/{id}'
         if ($this->method === 'delete' && $this->params[0] === trim($endpoint, '/')) {
-            if (isset($this->params[1])) {
-                $model = new TourModel();
-                $response = $model->eliminarTour($this->params[1]);
-                echo json_encode($response);
+            // Validar que el ID del tour esté presente en la URL y sea numérico
+            if (!isset($this->params[1]) || !preg_match(self::$validar_numero, $this->params[1])) {
+                echo json_encode(ResponseHTTP::status400('ID de tour inválido o no proporcionado en la URL para eliminar.'));
                 exit;
             }
+            $id_tour = $this->params[1];
+
+            // Llamar al método estático del modelo para "eliminar" (marcar como inactivo)
+            $response = TourModel::eliminarTour($id_tour);
+            echo json_encode($response);
+            exit;
         }
     }
+
 
     final public function cambiar_fecha($endpoint) {
         if ($this->method === 'patch' && $this->route === $endpoint) {
