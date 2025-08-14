@@ -30,6 +30,74 @@ class ReservaController {
 
                 $campos_requeridos = ['cantidad_asistentes', 'id_usuario', 'id_tour'];
 
+<<<<<<< HEAD
+        // Campos requeridos para la reserva
+        $campos_requeridos = ['cantidad_asistentes', 'id_usuario', 'id_tour', 'moneda', 'comentarios'];
+
+        foreach ($campos_requeridos as $campo) {
+            if (!isset($data[$campo]) || empty($data[$campo])) {
+                echo json_encode(ResponseHTTP::status400("El campo '$campo' es obligatorio."));
+                exit;
+            }
+        }
+
+        // Validar cantidad_asistentes
+        if (!preg_match(self::$validar_entero_positivo, $data['cantidad_asistentes']) || $data['cantidad_asistentes'] <= 0) {
+            echo json_encode(ResponseHTTP::status400("La cantidad de asistentes debe ser un entero positivo mayor a cero."));
+            exit;
+        }
+
+        // Validar comentarios si viene
+        if (isset($data['comentarios']) && !preg_match(self::$validar_comentario_texto, $data['comentarios'])) {
+            echo json_encode(ResponseHTTP::status400("El campo comentarios contiene caracteres inválidos."));
+            exit;
+        }
+
+        // Validar moneda si viene (si no viene, usaremos LPS por defecto)
+        if (!in_array($data['moneda'], ['LPS', '$'])) {
+            $monedas_validas = ['LPS', '$'];
+            if (!in_array($data['moneda'], $monedas_validas)) {
+                echo json_encode(ResponseHTTP::status400("Moneda no válida. Solo se acepta 'LPS' o '$'."));
+                exit;
+            }
+        } else {
+            $data['moneda'] = 'LPS'; // Valor por defecto
+        }
+
+        // Calcular monto (100 por cada asistente)
+        $monto = $data['cantidad_asistentes'] * 100;
+
+        // Asignar valores automáticos para la reserva
+        $data['fecha_pago'] = date('Y-m-d H:i:s');
+        $data['estado'] = 'pendiente';
+        $data['asistencia'] = false;
+
+            // Preparar datos para el pago
+            $datos_pago = [
+                'monto' => $monto,
+                'moneda' => $data['moneda'],
+                'metodo_pago' => isset($data['metodo_pago']) ? $data['metodo_pago'] : 'en línea',
+                'fecha_pago' => date('Y-m-d H:i:s'),
+                'id_reserva' => $data ['id_reserva'],
+                'estado' => 'pendiente'
+            ];
+
+            // Crear el pago asociado
+            $reservaModel = new ReservaModel($datos_pago);
+            $resultado_pago = $reservaModel->crear_reserva();
+
+          exit;
+
+        }
+    }
+
+
+    //Metodo GET para obtener las reservas//
+    final public function obtener_todas_reservas($endpoint){
+        //Validacion para el metodo GET// 
+        if($this->method == 'get' && $endpoint == $this->route){
+            echo json_encode('Obtener todas las reservas - GET');
+=======
                 foreach ($campos_requeridos as $campo) {
                     if (!isset($data[$campo]) || empty($data[$campo])) {
                         echo json_encode(ResponseHTTP::status400("El campo '$campo' es obligatorio."));
@@ -79,6 +147,7 @@ class ReservaController {
         if($this->method == 'get' && trim($this->route, '/') === trim($endpoint, '/')){
             $response = ReservaModel::obtener_todas_reservas();
             echo json_encode($response);
+>>>>>>> 3017b4317219bec55287523fb03b2b8e849a3f6f
             exit;
         }
     }

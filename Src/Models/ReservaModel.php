@@ -116,5 +116,3 @@ class ReservaModel extends ConnectionDB{
     final public function actualizar_reserva(){ /* ... */ }
     final public function eliminar_reserva(){ /* ... */ }
 }
-
-
