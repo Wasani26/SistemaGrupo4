@@ -2476,3 +2476,26 @@ Stack trace:
 [10-Aug-2025 20:53:06 America/Tegucigalpa] conexión es exitosa
 [10-Aug-2025 21:00:37 America/Tegucigalpa] conexión es exitosa
 [10-Aug-2025 21:01:13 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 21:18:38 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 22:02:41 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 22:09:28 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 22:14:58 America/Tegucigalpa] conexión es exitosa
+[10-Aug-2025 22:14:58 America/Tegucigalpa] MuseoModel::crear_museo -> PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sistematours`.`museos`, CONSTRAINT `fk_museo_ubicacion` FOREIGN KEY (`id_ubicacion`) REFERENCES `ubicaciones` (`id_ubicacion`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\SistemaGrupo4\Src\Models\MuseoModel.php:75
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\MuseoModel.php(75): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\MuseoController.php(95): App\Models\MuseoModel::crear_museo(Array)
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\museo.php(16): App\Controllers\MuseoController->crear_museo('museo/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[10-Aug-2025 22:17:40 America/Tegucigalpa] conexión es exitosa
+[11-Aug-2025 00:15:47 America/Tegucigalpa] conexión es exitosa
+[11-Aug-2025 00:36:47 America/Tegucigalpa] conexión es exitosa
+[11-Aug-2025 00:41:15 America/Tegucigalpa] conexión es exitosa
+[11-Aug-2025 00:41:16 America/Tegucigalpa] TourModel::creartour -> PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sistematours`.`tours`, CONSTRAINT `fk_tours_idioma` FOREIGN KEY (`idioma_tour`) REFERENCES `idiomas` (`id_idioma`) ON DELETE NO ACTION ON UPDATE NO ACTION) in C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php:100
+Stack trace:
+#0 C:\xampp\htdocs\SistemaGrupo4\Src\Models\TourModel.php(100): PDOStatement->execute(Array)
+#1 C:\xampp\htdocs\SistemaGrupo4\Src\Controllers\TourController.php(110): App\Models\TourModel::creartour()
+#2 C:\xampp\htdocs\SistemaGrupo4\Src\Routes\Tour.php(17): App\Controllers\TourController->crear_tour('tour/')
+#3 C:\xampp\htdocs\SistemaGrupo4\Public\index.php(27): require('C:\\xampp\\htdocs...')
+#4 {main}
+[11-Aug-2025 00:41:30 America/Tegucigalpa] conexión es exitosa
