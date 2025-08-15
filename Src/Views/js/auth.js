@@ -12,7 +12,12 @@ $("#loginForm").submit(function () {
                const token = resp.token;
                localStorage.setItem("Authorization", "Bearer " + token);
                
-                alert (token);
+               //ACA COMENTADO SE MUESTRA UN ALERT CON EL TOKEN
+               /* Swal.fire({ 
+                                 title: "¡Éxito!",
+                                 text:"Usuario logueado exitosamente",
+                                 icon: "success"
+                              })*/
 
                 $.ajax({
                     url:"./funciones/sesion.php",
@@ -27,10 +32,14 @@ $("#loginForm").submit(function () {
                     }),
                     success: function(respuesta){
                         const resultado = JSON.parse(respuesta);
-                        alert (resultado.data);
+                        /*alert (resultado.data);*/
 
                         if(resultado.success){
-                              alert("Usuario logueado exitosamente")
+                              Swal.fire({
+                                 title: "¡Éxito!",
+                                 text:"Usuario logueado exitosamente",
+                                 icon: "success"
+                              });
                             if(resp.rol == "visitante"){;
                               window.location.href = "./funciones/dashboard.php";
                              }else{
@@ -51,7 +60,11 @@ $("#loginForm").submit(function () {
                            
             },
             error: function (resp){
-                alert ("Usuario o contraseña incorrectas");
+                Swal.fire({
+                   title: "Usuario o contraseña incorrectas",
+                   text: " ",
+                   icon: "warning"
+                 });
             } 
         });
     }else{
