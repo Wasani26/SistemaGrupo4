@@ -290,45 +290,63 @@ class UserController{
         exit;
     }
   }
+
+
 final public function cambiar_rol($endpoint) {
     if ($this->method === 'patch' && $endpoint === $this->route) {
         
         $userData = Security::validateTokenJwt($this->headers, Security::secretKey());
 
-        // La validación ahora busca 'administrador' en minúscula
-        if (!isset($userData['data']->rol) || $userData['data']->rol !== 'administrador') {
-            echo json_encode(ResponseHTTP::status401('No tiene privilegios para acceder al recurso! Acceso denegado o token inválido. Se requieren permisos de administrador.'));
+        // Validar privilegios
+        if (!isset($userData['data']->rol) || strtolower($userData['data']->rol) !== 'administrador') {
+            echo json_encode(ResponseHTTP::status401('No tiene privilegios para acceder al recurso.'));
             exit;
         }
 
-        $pathParts = explode('/', $this->route);
+        // Obtener el nombre de usuario de la URL
+        $pathParts = explode('/', trim($endpoint, '/'));
         $nombreUsuarioAModificar = end($pathParts);
 
+        // Evitar que un admin cambie su propio rol
         if ($userData['data']->usuario === $nombreUsuarioAModificar) {
             echo json_encode(ResponseHTTP::status403('No puedes cambiar tu propio rol.'));
             exit;
         }
 
-        if (!isset($this->data['tipo_rol'])) {
+        // Validar que se envíe tipo_rol en el body
+        if (!isset($this->data['tipo_rol']) || empty(trim($this->data['tipo_rol']))) {
             echo json_encode(ResponseHTTP::status400('Falta el campo requerido: tipo_rol.'));
             exit;
         }
         
-        // Se asegura que el nuevo rol que se envíe esté en minúscula
-        $nuevoRol = strtolower($this->data['tipo_rol']); 
-        
+        $nuevoRol = strtolower(trim($this->data['tipo_rol']));
+
         $usuarioModel = new UserModel();
         $resultado = $usuarioModel->cambiar_rol($nombreUsuarioAModificar, $nuevoRol); 
-        
-        if ($resultado) {
-            echo json_encode(ResponseHTTP::status200('Rol de usuario actualizado exitosamente'));
-        } else {
-            echo json_encode(ResponseHTTP::status500('Error al actualizar el rol del usuario'));
+
+        // Validar si el rol no existe
+        if ($resultado['status'] === 'error' && $resultado['code'] === 400) {
+            echo json_encode(ResponseHTTP::status400("El rol '{$nuevoRol}' no existe en el sistema."));
+            exit;
         }
-        
+
+        // Validar si el usuario no existe
+        if ($resultado['status'] === 'error' && $resultado['code'] === 404) {
+            echo json_encode(ResponseHTTP::status404("No se encontró el usuario '{$nombreUsuarioAModificar}'."));
+            exit;
+        }
+
+        // Validar error interno
+        if ($resultado['status'] === 'error' && $resultado['code'] === 500) {
+            echo json_encode(ResponseHTTP::status500("Error interno al actualizar el rol del usuario."));
+            exit;
+        }
+
+        // Éxito
+        echo json_encode(ResponseHTTP::status200("Rol de usuario '{$nombreUsuarioAModificar}' actualizado a '{$nuevoRol}' exitosamente."));
         exit;
     }
 }
-  
+
 
 }

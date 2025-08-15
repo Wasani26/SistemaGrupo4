@@ -347,25 +347,39 @@ final public static function obtener_id_usuario_por_nombre($nombre_usuario) {
    final public static function cambiar_rol($nombreUsuario, $nuevoRol) {
     try {
         $con = self::getConnection();
-        // Llamada al nuevo procedimiento almacenado
+        
         $query = "CALL cambiar_rol(:nombre_usuario, :tipo_rol)";
         $stmt = $con->prepare($query);
         
-        // Asignación de parámetros
         $stmt->bindParam(':nombre_usuario', $nombreUsuario, \PDO::PARAM_STR);
         $stmt->bindParam(':tipo_rol', $nuevoRol, \PDO::PARAM_STR);
         
         if ($stmt->execute()) {
-            return true; // Éxito
+            $resultado = $stmt->fetch(\PDO::FETCH_ASSOC);
+            if (!$resultado) {
+             return ResponseHTTP::status500('Error interno del servidor');
+            }
+
+            if ($resultado['filas_afectadas'] == -1) {
+              return ResponseHTTP::status400('El rol no es válido!');
+            }
+
+            if ($resultado['filas_afectadas'] == 0) {
+                return ResponseHTTP::status404('Usuario no se encuentra en el sistema!');
+            }
+
+           return ResponseHTTP::status200('La acción se ejecutó exitosamente!');
         } else {
-            error_log("Error al ejecutar el procedimiento almacenado cambiar_rol_por_nombre.");
-            return false;
+            error_log("Error al ejecutar el procedimiento cambiar_rol");
+           return ResponseHTTP::status500();
         }
     } catch (\PDOException $e) {
         error_log("Excepción al cambiar rol: " . $e);
-        return false;
+        return ResponseHTTP::status500();
     }
 }
+
+
 
 }
 
